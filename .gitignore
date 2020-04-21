@@ -21,3 +21,4 @@ NOTICE.txt
 source.properties
 sqlite3.exe
 local.properties
+gradle.properties
