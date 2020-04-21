@@ -5,6 +5,14 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="AppTheme.FullScreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:colorBackground">@color/lightPrimaryBackgroundColor</item>
+        <item name="android:textColor">@color/lightPrimaryColorDark</item>
+        <item name="android:tint">@color/lightPrimaryAccentColor</item>
+    </style>
     
     <style name="AppTheme.Light">
         <item name="colorPrimary">@color/lightPrimaryColor</item>
