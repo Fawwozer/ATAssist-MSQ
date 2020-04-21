@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+
+    <ImageView
+        android:id="@+id/iv_notification_icon"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        app:srcCompat="@drawable/ic_launcher"
+        android:tint="?attr/notificationIconColor"
+        android:contentDescription="TODO" />
+
+    <RelativeLayout
+        android:id="@+id/rl_notification_state"
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/iv_notification_icon"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/tv_notification_plane"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:text="EW-545PO"
+            android:paddingEnd="5dp"
+            android:paddingStart="0dp"
+            android:theme="?attr/scheduleTextStyle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/tv_notification_check"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:textSize="17sp"
+            android:gravity="center_vertical"
+            android:paddingEnd="5dp"
+            android:paddingStart="0dp"
+            android:text="Routine"
+            android:theme="?attr/scheduleTextStyle"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/rl_notification_state"
+        android:layout_toStartOf="@+id/rl_notification_stand"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_notification_flight"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:gravity="center_vertical"
+            android:text="BRU8713"
+            android:theme="?attr/scheduleTextStyle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/tv_notification_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/tv_notification_flight"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:textAllCaps="true"
+            android:text="РОСТОВ-НА-ДОНУ"
+            android:textStyle="normal"
+            android:theme="?attr/scheduleTextStyle" />
+
+        <ImageView
+            android:id="@+id/iv_notification_land"
+            android:tint="?attr/scheduleIconColor"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            app:srcCompat="@drawable/ic_airplane_landing"
+            android:layout_marginEnd="3dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/tv_notification_land"
+            android:tint="?attr/scheduleIconColor"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="08:00"
+            android:theme="?attr/scheduleTextStyle"
+            android:textStyle="normal"
+            android:fontFamily="@font/time_bomb"
+            android:textSize="23sp"
+            android:layout_marginEnd="16dp"
+            android:layout_toEndOf="@+id/iv_notification_land"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/iv_notification_takeoff"
+            android:tint="?attr/scheduleIconColor"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            app:srcCompat="@drawable/ic_airplane_takeoff"
+            android:layout_marginEnd="3dp"
+            android:layout_marginStart="90dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/tv_notification_takeoff"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="12:25"
+            android:theme="?attr/scheduleTextStyle"
+            android:fontFamily="@font/time_bomb"
+            android:textSize="23sp"
+            android:textStyle="normal"
+            android:layout_toEndOf="@+id/iv_notification_takeoff"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_notification_stand"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv_notification_stand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:theme="?attr/scheduleTextStyle"
+            android:textSize="30sp"
+            android:fontFamily="@font/backwards"
+            android:text="27A"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

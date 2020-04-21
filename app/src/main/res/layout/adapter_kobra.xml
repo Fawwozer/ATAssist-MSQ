@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="27dp">
+
+    <TextView
+        android:id="@+id/tv_kobra_plane"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/bg_clear"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:text="EW-527PA"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_kobra_flight"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/tv_kobra_plane"
+        android:layout_toStartOf="@id/tv_kobra_time"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_clear">
+
+        <TextView
+            android:id="@+id/tv_kobra_flight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:paddingStart="5dp"
+            android:paddingEnd="0dp"
+            android:text="BRU8317"/>
+
+        <TextView
+            android:id="@+id/tv_kobra_detination"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/tv_kobra_flight"
+            android:layout_alignParentEnd="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:gravity="center_vertical|start"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textAllCaps="true"
+            android:text="ростов-на-дону"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_kobra_time"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_clear"
+        android:text="20:56"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:gravity="center"
+        android:layout_toStartOf="@id/tv_kobra_stand"/>
+
+    <TextView
+        android:id="@+id/tv_kobra_stand"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="27A"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/bg_clear"/>
+
+</RelativeLayout>

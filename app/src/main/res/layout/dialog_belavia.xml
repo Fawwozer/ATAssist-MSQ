@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="232dp"
+    android:layout_height="wrap_content"
+    android:minWidth="232dp"
+    android:padding="3dp">
+
+    <TextView
+        android:id="@+id/tv_d_belavia_aircraft"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/sp_d_belavia_aircraft"
+        android:layout_alignTop="@id/sp_d_belavia_aircraft"
+        android:gravity="center_vertical|end"
+        android:paddingStart="0dp"
+        android:paddingEnd="5dp"
+        android:text="Aircraft:"/>
+
+    <Spinner
+        android:id="@+id/sp_d_belavia_aircraft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/belaviaDialogTintColor"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/tv_d_belavia_aircraft"/>
+
+    <TextView
+        android:id="@+id/tv_d_belavia_check"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/sp_d_belavia_check"
+        android:layout_alignTop="@id/sp_d_belavia_check"
+        android:gravity="center_vertical|end"
+        android:paddingStart="0dp"
+        android:paddingEnd="5dp"
+        android:text="Check:"/>
+
+    <Spinner
+        android:id="@+id/sp_d_belavia_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sp_d_belavia_aircraft"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/tv_d_belavia_check"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="?attr/belaviaDialogTintColor"/>
+
+    <ImageView
+        android:id="@+id/iv_d_belavia_land"
+        android:tint="?attr/scheduleIconColor"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        app:srcCompat="@drawable/ic_airplane_landing"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="3dp"
+        android:layout_below="@id/sp_d_belavia_check"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tv_d_belavia_land"
+        android:tint="?attr/scheduleIconColor"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:text="08:00"
+        android:theme="?attr/scheduleTextStyle"
+        android:textStyle="normal"
+        android:fontFamily="@font/time_bomb"
+        android:textSize="23sp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/iv_d_belavia_land"
+        android:layout_below="@id/sp_d_belavia_check"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/iv_d_belavia_takeoff"
+        android:tint="?attr/scheduleIconColor"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        app:srcCompat="@drawable/ic_airplane_takeoff"
+        android:layout_marginEnd="3dp"
+        android:layout_marginStart="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/sp_d_belavia_check" />
+
+    <TextView
+        android:id="@+id/tv_d_belavia_takeoff"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:text="12:25"
+        android:theme="?attr/scheduleTextStyle"
+        android:fontFamily="@font/time_bomb"
+        android:textSize="23sp"
+        android:textStyle="normal"
+        android:layout_toEndOf="@+id/iv_d_belavia_takeoff"
+        android:layout_below="@id/sp_d_belavia_check"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_d_belavia_flight"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="Flight #:"
+        android:gravity="center_vertical|end"
+        android:layout_alignTop="@id/et_d_belavia_flight"
+        android:layout_alignBottom="@id/et_d_belavia_flight"
+        android:paddingStart="0dp"
+        android:paddingEnd="5dp"/>
+
+    <EditText
+        android:id="@+id/et_d_belavia_flight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_d_belavia_check"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="39dp"
+        android:layout_toEndOf="@id/tv_d_belavia_flight"
+        android:backgroundTint="?attr/belaviaDialogTintColor"
+        android:inputType="number"
+        android:singleLine="true"
+        android:maxLength="4"
+        android:text="869"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/et_d_belavia_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_d_belavia_flight"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="?attr/belaviaDialogTintColor"
+        android:singleLine="true"
+        android:text="АМСТЕРДАМ"
+        android:textSize="15sp" />
+
+
+</RelativeLayout>

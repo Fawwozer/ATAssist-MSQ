@@ -1,0 +1,10 @@
+<vector
+    android:height="24dp"
+    android:viewportHeight="2133"
+    android:viewportWidth="2133"
+    android:width="24dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <path
+        android:fillColor="?attr/navMenuIconColor"
+        android:pathData="M977,159h191l863,911 -863,905L977,1975L977,1780l673,-710L977,361L977,159ZM797,323l386,398L860,1070l327,346L797,1804 110,1070ZM797,380L156,1070l641,697 238,-239L589,1070l440,-469Z"/>
+</vector>

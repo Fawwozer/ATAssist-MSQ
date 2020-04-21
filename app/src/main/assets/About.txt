@@ -1,0 +1,61 @@
+[x.]y.z.r
+x - A/C types (not need anymore)
+      1 - Boeing 737CL
+      2 - Embraer
+x = 2 (not need anymore)
+
+y - Funcion
+      1  - Main Checks
+      2  - Add Inf For Checks
+      3  - Navigation Menu
+      4  - Save log in SQL DB
+      5  - Schedule
+      6  - Transite Flights
+      7  - Settings
+      8  - SQL DB for planes
+      9  - Import/Export SQL DB
+      10 - Add Flight Notifications
+      11 - Editing of the scheduled work
+      12 - Search for stand for a scheduled aircraft (need internet connection)
+      13 - Add Kobra MSQ table
+      14 - Cloud BackUp
+      15 - Create write-up in Schedule from Kobra table
+++    16 - Fleet tracker
+      (Deleted)    
+      1 - Better txt logs (not need anymore)
+y = 17
+
+z - Fiches
+      1  - Press again for exit
+      2  - Round to 100kg
+      3  - Commerc load inf
+      4  - Comment
+      5  - Toolbar
+      6  - Up Intent
+      7  - Logs Viewer
+      8  - New Interface
+      9  - Splash Screen
+      10 - Code optimization
+      11 - Add fuel adjust
+      12 - DBase and activity for transit flight
+      13 - Add fuel calculator in navigation menu
+      14 - Checks combination
+      15 - Unlock func
+      16 - Hide de-icing from settings
+      17 - Change work completion time
+      18 - Auto backup logs
+      19 - New backpress logic
+      20 - Work done fixes
+      21 - Schedule sorting
+      22 - Jeppesen info for UMMS
+      23 - Interface improvement
+      24 - Code optimization
+++    25 - Rounding liters of fuel
+      26 - Plane DB on firestore
+      (Deleted)
+      1 - Clear func (not need anymore)
+      2 - Delete old .log when add 24HRS (not need anymore)
+z = 28
+
+r - Revision
+r = 0

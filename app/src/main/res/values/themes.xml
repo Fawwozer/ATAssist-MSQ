@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    
+    <style name="AppTheme.Light">
+        <item name="colorPrimary">@color/lightPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/lightPrimaryColorDark</item>
+        <item name="android:colorBackground">@color/lightPrimaryBackgroundColor</item>
+        <item name="colorAccent">@color/lightPrimaryColor</item>
+        <item name="android:textColor">@color/lightPrimaryTextColor</item>
+        <item name="android:textColorPrimary">@color/lightPrimaryTextColor</item>
+
+        <item name="scheduleTextStyle">@style/ScheduleTextStyle.Light</item>
+
+        <item name="scheduleIconColor">@color/lightPrimaryColorDark</item>
+        <item name="notificationIconColor">@color/lightPrimaryAccentColor</item>
+        <item name="toolbarColor">@color/lightPrimaryColor</item>
+        <item name="toolbarTextColor">@color/lightPrimaryTextColorDark</item>
+        <item name="navMenuIconColor">@color/lightPrimaryAccentColor</item>
+        <item name="belaviaDialogTintColor">@color/lightPrimaryAccentColor</item>
+        <item name="colorDMI">@color/lightColorDMI</item>
+        <item name="colorINOP">@color/lightColorINOP</item>
+        <item name="colorINFO">@color/lightColorINFO</item>
+        <item name="colorDONE">@color/lightColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/lightColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/lightColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/lightColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/lightColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/lightColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/lightColorButtonStrokePress</item>
+    </style>
+    
+    <style name="AppTheme.Dark">
+        <item name="colorPrimary">@color/darkPrimaryColor</item>
+        <item name="colorPrimaryDark">@color/darkPrimaryColorDark</item>
+        <item name="android:colorBackground">@color/darkPrimaryBackgroundColor</item>
+        <item name="colorAccent">@color/darkPrimaryColor</item>
+        <item name="android:textColor">@color/darkPrimaryTextColor</item>
+        <item name="android:textColorPrimary">@color/darkPrimaryTextColor</item>
+
+        <item name="scheduleTextStyle">@style/ScheduleTextStyle.Dark</item>
+
+        <item name="scheduleIconColor">@color/darkPrimaryTextColor</item>
+        <item name="notificationIconColor">@color/darkPrimaryTextColor</item>
+        <item name="toolbarColor">@color/darkPrimaryColorDark</item>
+        <item name="toolbarTextColor">@color/darkPrimaryTextColorDark</item>
+        <item name="navMenuIconColor">@color/darkPrimaryAccentColor</item>
+        <item name="belaviaDialogTintColor">@color/darkPrimaryTextColor</item>
+        <item name="colorDMI">@color/darkColorDMI</item>
+        <item name="colorINOP">@color/darkColorINOP</item>
+        <item name="colorINFO">@color/darkColorINFO</item>
+        <item name="colorDONE">@color/darkColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/darkColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/darkColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/darkColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/darkColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/darkColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/darkColorButtonStrokePress</item>
+    </style>
+</resources>

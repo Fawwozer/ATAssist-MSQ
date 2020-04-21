@@ -1,3 +1,18 @@
 <resources>
+
     <string name="app_name">ATAssist</string>
+    <string name="app_version">17.28.0</string>
+
+    <!-- Main Menu -->
+
+    <string name="main_menu_schedule">Schedule</string>
+    <string name="main_menu_fleet_info">Fleet Info</string>
+    <string name="main_menu_fuel_calculator">Fuel Calculator</string>
+    <string name="main_menu_umms_kobra">UMMS Kobra</string>
+    <string name="main_menu_umms_info">UMMS Info</string>
+    <string name="main_menu_logs">Logs</string>
+    <string name="main_menu_settings">Settings</string>
+
+    <!--  -->
+
 </resources>

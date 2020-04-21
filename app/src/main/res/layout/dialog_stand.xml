@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="232dp"
+    android:padding="3dp">
+
+    <TextView
+        android:id="@+id/tv_d_stand"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@id/bt_d_stand_clear"
+        android:gravity="center"
+        android:text="27A"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/bt_d_stand_clear"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bt_shape"
+        android:enabled="true"
+        android:text="clear"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/bt_d_stand_1"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_d_stand"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="1" />
+
+    <Button
+        android:id="@+id/bt_d_stand_2"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_d_stand"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="2" />
+
+    <Button
+        android:id="@+id/bt_d_stand_3"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv_d_stand"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="3" />
+
+    <Button
+        android:id="@+id/bt_d_stand_4"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="4" />
+
+    <Button
+        android:id="@+id/bt_d_stand_5"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="5" />
+
+    <Button
+        android:id="@+id/bt_d_stand_6"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="6" />
+
+    <Button
+        android:id="@+id/bt_d_stand_7"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="7" />
+
+    <Button
+        android:id="@+id/bt_d_stand_8"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="8" />
+
+    <Button
+        android:id="@+id/bt_d_stand_9"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_6"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="9" />
+
+    <Button
+        android:id="@+id/bt_d_stand_A"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_7"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="A" />
+
+    <Button
+        android:id="@+id/bt_d_stand_0"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="0" />
+
+    <Button
+        android:id="@+id/bt_d_stand_B"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/bt_d_stand_9"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bt_shape"
+        android:textSize="22sp"
+        android:text="B" />
+
+</RelativeLayout>

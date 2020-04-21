@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="scheduleTextStyle"/>
+
+    <attr name="scheduleIconColor"/>
+    <attr name="notificationIconColor"/>
+    <attr name="toolbarColor"/>
+    <attr name="toolbarTextColor"/>
+    <attr name="navMenuIconColor"/>
+    <attr name="belaviaDialogTintColor"/>
+    <attr name="colorDMI"/>
+    <attr name="colorINOP"/>
+    <attr name="colorINFO"/>
+    <attr name="colorDONE"/>
+
+    <attr name="colorButtonSolidDisable"/>
+    <attr name="colorButtonSolidNormal"/>
+    <attr name="colorButtonSolidPress"/>
+    <attr name="colorButtonStrokeDisable"/>
+    <attr name="colorButtonStrokeNormal"/>
+    <attr name="colorButtonStrokePress"/>
+</resources>

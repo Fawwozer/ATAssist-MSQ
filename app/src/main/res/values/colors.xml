@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+
+    <!-- for AppTheme.Light -->
+    <color name="lightPrimaryColor">#546e7a</color>
+    <color name="lightPrimaryColorDark">#455a64</color>
+
+    <color name="lightPrimaryTextColor">#353535</color>
+    <color name="lightPrimaryTextColorDark">#ffffff</color>
+
+    <color name="lightPrimaryAccentColor">#546e7a</color>
+
+    <color name="lightPrimaryBackgroundColor">#eceff1</color>
+
+    <color name="lightColorDMI">#66D2A000</color>
+    <color name="lightColorINOP">#66D20000</color>
+    <color name="lightColorINFO">#660078D2</color>
+    <color name="lightColorDONE">#6600D200</color>
+
+    <color name="lightColorButtonSolidDisable">#EAEAEA</color>
+    <color name="lightColorButtonSolidNormal">#CACACA</color>
+    <color name="lightColorButtonSolidPress">#AAAAAA</color>
+    <color name="lightColorButtonStrokeDisable">#A7A7A7</color>
+    <color name="lightColorButtonStrokeNormal">#878787</color>
+    <color name="lightColorButtonStrokePress">#777777</color>
+
+    <!-- for AppTheme.Dark -->
+    <color name="darkPrimaryColor">#616161</color>
+    <color name="darkPrimaryColorDark">#424242</color>
+
+    <color name="darkPrimaryTextColor">#CCCCCC</color>
+    <color name="darkPrimaryTextColorDark">#BCBCBC</color>
+
+    <color name="darkPrimaryAccentColor">#BFD8E3</color>
+
+    <color name="darkPrimaryBackgroundColor">#757575</color>
+
+    <color name="darkColorDMI">#33D2A000</color>
+    <color name="darkColorINOP">#33D20000</color>
+    <color name="darkColorINFO">#330078D2</color>
+    <color name="darkColorDONE">#2600D200</color>
+
+    <color name="darkColorButtonSolidDisable">#838383</color>
+    <color name="darkColorButtonSolidNormal">#636363</color>
+    <color name="darkColorButtonSolidPress">#535353</color>
+    <color name="darkColorButtonStrokeDisable">#555555</color>
+    <color name="darkColorButtonStrokeNormal">#353535</color>
+    <color name="darkColorButtonStrokePress">#252525</color>
 </resources>

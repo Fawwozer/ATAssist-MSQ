@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/fleet">
+        <item
+            android:id="@+id/mi_schedule"
+            android:icon="@drawable/ic_airplane"
+            android:title="@string/main_menu_schedule" />
+        <item
+            android:id="@+id/mi_fleet"
+            android:icon="@drawable/ic_radar"
+            android:title="@string/main_menu_fleet_info" />
+        <item
+            android:id="@+id/mi_fuel"
+            android:icon="@drawable/ic_calculator"
+            android:title="@string/main_menu_fuel_calculator" />
+    </group>
+    <group android:id="@+id/kobra">
+        <item
+            android:id="@+id/mi_kobra"
+            android:icon="@drawable/ic_kobra"
+            android:title="@string/main_menu_umms_kobra"/>
+        <item
+            android:id="@+id/mi_umms"
+            android:icon="@drawable/ic_jeppesen"
+            android:title="@string/main_menu_umms_info"/>
+    </group>
+    <group android:id="@+id/logs">
+        <item
+            android:id="@+id/mi_logs"
+            android:icon="@drawable/ic_database"
+            android:title="@string/main_menu_logs" />
+    </group>
+    <group android:id="@+id/faq">
+        <item
+            android:id="@+id/mi_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/main_menu_settings"/>
+    </group>
+
+</menu>

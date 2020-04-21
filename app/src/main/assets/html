@@ -1,0 +1,2817 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Кобра.онлайн</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/jqueryui.css" type="text/css">
+    <link rel="stylesheet" href="/css/multiselect.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css">
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.css" type="text/css">
+    <SCRIPT src="/js/jquery.js"></SCRIPT>
+    <SCRIPT src="/js/jquery.browser.js"></SCRIPT>
+    <SCRIPT src="/js/jqueryui.js"></SCRIPT>
+    <SCRIPT src="/js/bootstrap.min.js"></SCRIPT>
+    <SCRIPT src="/js/bootbox.min.js"></SCRIPT>
+    <SCRIPT src="/js/jquery.multiselect.js"></SCRIPT>
+    <SCRIPT src="/js/bootstrap-multiselect.js"></SCRIPT>
+    <SCRIPT src="/js/moment.min.js"></SCRIPT>
+    <SCRIPT src="/js/moment.ru.js"></SCRIPT>
+    <SCRIPT src="/js/bootstrap-datetimepicker.js"></SCRIPT>
+    <SCRIPT src="/js/bootstrap-datepicker.js"></SCRIPT>
+    <script src="/js/bootstrap-datepicker.ru.js"></script>
+    <script src="/js/bootstrap-menu.min.js"></script>
+    <SCRIPT src="/js/jquery.dataTables.min.js"></SCRIPT>
+    <SCRIPT src="/js/jquery.fixedheadertable.min.js"></SCRIPT>
+    <SCRIPT src="/js/jscolor/jscolor.js"></SCRIPT>
+    <SCRIPT src="/js/common.js?v2.1"></SCRIPT>
+    <SCRIPT src="/js/ready.js?v2.2"></SCRIPT>
+    <style type="text/css"></style>
+</head>
+<body id="SPP">
+<div id="loadingDiv">
+    <div class="dumbBoxOverlay"></div>
+    <div class="vertical-offset">
+        <div class="dumbBox"></div>
+    </div>
+</div>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header"><a href="../" class="navbar-brand"><img alt="Kobra.Online"
+                                                                           src="/images/kobra-header-logo.png"
+                                                                           style="width: 70px;height: 35px;"></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target="#navbar-main"><span class="icon-bar"></span><span
+                class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                      id="menu_aodb">СПП<span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="nav_aodb" id="ul_aodb">
+                        <li><a title="Прибытие" href="/SPP/viewSPP-1/FType-1/">Прибытие</a></li>
+                        <li><a title="Отправление" href="/SPP/viewSPP-1/FType-2/">Отправление</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-top-links navbar-right">
+                <li class="dropdown" style="float:left;"><a class="dropdown-toggle"
+                                                            data-toggle="dropdown" href="#"><i
+                    class="glyphicon glyphicon-globe"></i><i class="caret"></i></a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="?lang=ru"><img src="/images/flags/RU.gif"
+                                                    title="Russian language" alt="Russian"> Русский
+                        </a></li>
+                        <li><a href="?lang=en"><img src="/images/flags/GB.gif"
+                                                    title="English language" alt="English"> English
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="float:left;"><a class="dropdown-toggle"
+                                                            data-toggle="dropdown" href="#"><i
+                    class="glyphicon glyphicon-user"></i><i class="caret"></i></a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a style="cursor:context-menu;"><i class="glyphicon glyphicon-user"></i>БЕЛАВИА</a>
+                        </li>
+                        <li><a><b>Группа</b>: Обычные пользователи</a></li>
+                        <li class="divider">
+                        <li><a href="/?logout"><i class="glyphicon glyphicon-log-out"
+                                                  title="Выход из системы"></i> Выход</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="contentWrap" class="container" style="margin-top: 70px;">
+    <style>
+            .popover a[onclick="delCols()"]:hover {color:firebrick;}
+            #contentWrap {width:100%;}
+            .ms-choice > span {font-style:italic;}
+            .dataTables_length,dataTables_info {margin-left:15px;}
+            .dataTables_filter,dataTables_paginate {margin-right:15px;}
+            .datatable-scroll {overflow-x: scroll; width: 100%;}
+
+    </style>
+    <nav id="nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header"><span><h4 style="margin-right: 15px;margin-top: 15px;">Суточный план полетов
+                                /
+                                Прибытие</h4></span></div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-right" style="margin-top:10px;margin-right:-30px"
+                      id="sFilter" role="form">
+                    <div class="form-inline">
+                        <div class="form-group" id="buttons_spp"
+                             style="float:right;margin-top:-2px;"><a href="#" class="btn btn-lg ed"
+                                                                     data-original-title="Показать за выбранный период"
+                                                                     onclick="ApplyFilter()"><i
+                            class="glyphicon glyphicon-refresh"></i></a><a href="#"
+                                                                           class="btn btn-lg vi"
+                                                                           data-original-title="Полный экран"
+                                                                           onclick="ifullscreen();"><i
+                            class="glyphicon glyphicon-fullscreen"></i></a><a href="#"
+                                                                              class="btn btn-lg"
+                                                                              data-original-title="Сохранить реестр в XML"
+                                                                              onclick="export_xml();"
+                                                                              style="color:peru;margin-left:2px;border: 1px solid #ccc;border-radius:5px;padding:6px 8px 10px 10px;height:34px"><i
+                            class="glyphicon glyphicon-floppy-save"></i></a><a href="#"
+                                                                               class="btn btn-lg"
+                                                                               data-original-title="Сохранить в Excel"
+                                                                               onclick="export_xls('TableData','spp');"
+                                                                               style="color:green;margin-left:2px;border: 1px solid #ccc;border-radius:5px;padding:6px 8px 10px 10px;height:34px"><i
+                            class="glyphicon glyphicon-file"></i></a><a href="#" class="btn btn-lg"
+                                                                        data-original-title="Распечатать"
+                                                                        onclick="print_table('TableData','spp');"
+                                                                        style="color:navy;margin-left:2px;border: 1px solid #ccc;border-radius:5px;padding:6px 8px 10px 10px;height:34px"><i
+                            class="glyphicon glyphicon-print"></i></a><a class="btn btn-lg"
+                                                                         id="btn_clrfilter"
+                                                                         data-original-title="Сбросить фильтр"
+                                                                         onclick="clear_filter();"
+                                                                         style="color:peru;margin-left:2px;border: 1px solid #ccc;border-radius:5px;padding:6px 8px 10px 10px;height:34px"><i
+                            class="glyphicon glyphicon-ban-circle"></i></a></div>
+                        <div class="form-group" style="margin-right: 3px;"><span id="VRtitle"
+                                                                                 style="position:absolute;background:transparent;z-index:1001;margin-left: 5px;margin-top: 5px;">Тип расписания</span><select
+                            class="bootselect" id="cVRxml" value=""
+                            style="width:170px;float:right;height:30px;background-color:white !important;cursor:pointer !important;margin-right:5px;position:relative;">
+                            <option value="">Все</option>
+                            <option value="M">междунаpодное</option>
+                            <option value="Ц">внутреннее</option>
+                        </select></div>
+                        <div class="form-group" style="margin-right: 3px;"><span id="LDtitle"
+                                                                                 style="position:absolute;background:transparent;z-index:1001;margin-left: 5px;margin-top: 5px;">Вид регулярности</span><select
+                            class="bootselect" id="cLDxml" multiple value=""
+                            style="width:170px;float:right;height:30px;background-color:white !important;cursor:pointer !important;margin-right:5px;position:relative;">
+                            <option value="reg">Регулярный pейс</option>
+                            <option value="C">Чартерный pейс</option>
+                            <option value="ДО">Дополнительный рейс</option>
+                            <option value="ПР">Прочие нерегулярные рейсы</option>
+                        </select></div>
+                        <div class="form-group" style="margin-right:3px;"><input id="dateFrom"
+                                                                                 name="dateFrom"
+                                                                                 onchange=""
+                                                                                 size="8"
+                                                                                 value="11.07.2018"
+                                                                                 class="form-control"
+                                                                                 style="height:30px;background-color:white !important;cursor:pointer !important;margin-right:5px;"
+                                                                                 readonly></div>
+                    </div>
+                    <input type="hidden" class="form-control" name="cVR" id="cVR" value=""><input
+                    type="hidden" class="form-control" name="cVRxml" value=""><input type="hidden"
+                                                                                     name="cLD"
+                                                                                     id="cLD"
+                                                                                     value=""><input
+                    type="hidden" name="cLDxml" value=""><input name="cPV" id="cPV"
+                                                                style="display:none"
+                                                                value="П"><input type="hidden"
+                                                                                 name="ajax"
+                                                                                 value="1"><a
+                    id="getXLS" style="display:none"></a></form>
+            </div>
+        </div>
+        <div class="tab-content" style="margin-top:15px;">
+            <div class="tab-pane active" id="arrival">
+                <table id="TableData_arr"
+                       class="TableData sorting table table-hover table-striped table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Номер рейса (IATA)</th>
+                        <th>Город АП</th>
+                        <th>Дата рейса</th>
+                        <th>Борт</th>
+                        <th>МС</th>
+                        <th>приб (план) UTC</th>
+                        <th>Тип ВС (полн)</th>
+                        <th>Корректировка</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="context_spp" row_id="2001130300" row_nr="B2748">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">B2748
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">ТЕЛЬ-АВИВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">EW437PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">14
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">00:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130300/','B2748');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001123598" row_nr="B2834">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">B2834
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">ОДЕССА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">EW290PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">02:25
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123598/','B2834');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001120368" row_nr="B2776">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">B2776
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">АСТАНА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">EW514PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">26
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">02:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120368/','B2776');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001131219" row_nr="B2938">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">B2938
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">КАЗАНЬ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">EW340PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">27A
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">03:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">EMB-175
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131219/','B2938');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001143042" row_nr="B2736">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">B2736
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">ТБИЛИСИ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">EW400PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">17
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">02:45
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143042/','B2736');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001131727" row_nr="B2738">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">B2738
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">БАТУМИ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">EW294PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">6
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">03:40
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131727/','B2738');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001122826" row_nr="B2930">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">B2930
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">НИЖНИЙ НОВГОРОД
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">EW276PJ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">45
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">03:45
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">CRJ-200
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122826/','B2930');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001129356" row_nr="B2848">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">B2848
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">КИЕВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">EW336PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">7
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">03:55
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129356/','B2848');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001117115" row_nr="B2954">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">B2954
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">EW250PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">13
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">04:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117115/','B2954');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001147539" row_nr="B2928">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">B2928
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">КРАСНОДАР
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">EW282PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">8
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">03:30
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147539/','B2928');
+                        ">амбул.
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001121653" row_nr="B2944">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">B2944
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">С.-ПЕТЕРБУРГ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">EW253PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">04:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121653/','B2944');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001133260" row_nr="B2746">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">B2746
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">АШХАБАД
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">EW438PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">16
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">04:20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001133260/','B2746');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001119306" row_nr="B2772">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">B2772
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">ПАВЛОДАР
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">EW252PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">25
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">05:30
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119306/','B2772');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001115379" row_nr="B2984">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">B2984
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">EW455PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">13
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">07:20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115379/','B2984');
+                        ">Амбулифт
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001143192" row_nr="BRU8342">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">BRU8342
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">ВАРНА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">EW366PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">12
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">08:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001143192/','BRU8342');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001144296" row_nr="B2838">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">B2838
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">ХАРЬКОВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">EW340PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">27A
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">08:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">EMB-175
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144296/','B2838');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001124881" row_nr="B2844">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">B2844
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">КИЕВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">EW400PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">26
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">08:10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124881/','B2844');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001147003" row_nr="BRU8210">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">BRU8210
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">ИЗМИР
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">EW407PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">9
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">08:40
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001147003/','BRU8210');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001117864" row_nr="B2972">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">B2972
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">ЖУКОВСКИЙ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">EW437PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">16
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">08:45
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001117864/','B2972');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001144805" row_nr="BRU8106">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">BRU8106
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">АНТАЛЬЯ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">EW457PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">17
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">08:25
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144805/','BRU8106');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001115813" row_nr="B2958">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">B2958
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">EW282PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">09:20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001115813/','B2958');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001120787" row_nr="B2942">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">B2942
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">С.-ПЕТЕРБУРГ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">EW253PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">22
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">09:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001120787/','B2942');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001119800" row_nr="B2856">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">B2856
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">СТОКГОЛЬМ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">EW250PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">25
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">10:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119800/','B2856');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001113915" row_nr="B2914">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">B2914
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">КАЛИНИНГРАД
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">EW303PJ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">43
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">11:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">CRJ-200
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113915/','B2914');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001132907" row_nr="BRU8318">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">BRU8318
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">ТИВАТ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">EW336PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">11:55
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132907/','BRU8318');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001132094" row_nr="B2818">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">B2818
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">БРЮССЕЛЬ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">EW341PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">27A
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">11:40
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">EMB-175
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001132094/','B2818');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001130356" row_nr="B2748">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">B2748
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">ТЕЛЬ-АВИВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">EW456PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">12
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">12:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130356/','B2748');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001125749" row_nr="B2866">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">B2866
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">ПАРИЖ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">EW399PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">5
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">12:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125749/','B2866');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001114847" row_nr="B2952">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">B2952
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">EW366PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">7
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">13:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114847/','B2952');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001127306" row_nr="B2828">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">B2828
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">ЛЬВОВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">EW251PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">8
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">13:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127306/','B2828');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001124446" row_nr="B2840">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">B2840
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">КИЕВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">EW282PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">16
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">13:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124446/','B2840');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001126873" row_nr="B2868">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">B2868
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">АМСТЕРДАМ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">EW290PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">6
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">12:30
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126873/','B2868');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001126463" row_nr="B2886">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">B2886
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">РИМ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">EW513PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">27B
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">13:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001126463/','B2886');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001129689" row_nr="B2892">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">B2892
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">БЕРЛИН
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">EW340PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">26
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">13:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">EMB-175
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001129689/','B2892');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001131828" row_nr="BRU8252">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">BRU8252
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">БУРГАС
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">EW254PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">11
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">14:10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001131828/','BRU8252');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001122532" row_nr="B2850">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">B2850
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">ОДЕССА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">EW457PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">13
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">14:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122532/','B2850');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001123391" row_nr="B2882">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">B2882
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">МИЛАН
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">EW514PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">4
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">13:30
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001123391/','B2882');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001119988" row_nr="B2884">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">B2884
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">ЛАРНАКА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">EW438PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">17
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">13:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001119988/','B2884');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001122094" row_nr="B2940">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">B2940
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">С.-ПЕТЕРБУРГ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">EW407PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">24
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">13:10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001122094/','B2940');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001118755" row_nr="B2862">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">B2862
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">ПРАГА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">EW400PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">25
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">13:35
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001118755/','B2862');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001128128" row_nr="B2896">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">B2896
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">ВАРШАВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">EW250PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">20
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">14:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128128/','B2896');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001128348" row_nr="B2858">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">B2858
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">ХЕЛЬСИНКИ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">EW277PJ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">43
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">15:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">CRJ-200
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128348/','B2858');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001128992" row_nr="B2894">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">B2894
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">ФРАНКФУРТ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">EW455PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">16
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">15:05
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001128992/','B2894');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001125870" row_nr="BRU8362">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">BRU8362
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">БУРГАС
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">EW294PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">7
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">15:50
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125870/','BRU8362');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001112766" row_nr="B2804">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">B2804
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">ВИЛЬНЮС
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">EW303PJ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">42
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">16:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">CRJ-200
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001112766/','B2804');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001130518" row_nr="B2852">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">B2852
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">ЛОНДОН
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">EW252PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">5
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">16:15
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001130518/','B2852');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001144056" row_nr="BRU8232">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">BRU8232
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">АНТАЛЬЯ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">EW404PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">6
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">16:45
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144056/','BRU8232');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001116247" row_nr="B2988">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">B2988
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">EW399PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">26
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">17:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">EMB-195
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116247/','B2988');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001124012" row_nr="B2830">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">B2830
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">КИЕВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">EW253PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">24
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">17:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001124012/','B2830');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001113750" row_nr="B2950">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">B2950
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">КАЛИНИНГРАД
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">EW340PO
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">25
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">17:50
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">EMB-175
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001113750/','B2950');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001125315" row_nr="B2846">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">B2846
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">КИЕВ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">EW290PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">14
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">18:05
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001125315/','B2846');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001114413" row_nr="B2956">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">B2956
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">EW366PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">22
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">18:10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001114413/','B2956');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001121221" row_nr="B2946">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">B2946
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">С.-ПЕТЕРБУРГ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">EW254PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">-
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">18:30
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001121221/','B2946');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001135540" row_nr="B2974">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">B2974
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">ЖУКОВСКИЙ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">EW456PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">16
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">18:30
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135540/','B2974');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001127877" row_nr="B2870">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">B2870
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">БАРСЕЛОНА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">EW437PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">-
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">18:40
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001127877/','B2870');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001144544" row_nr="BRU8310">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">BRU8310
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">САЛОНИКИ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">EW336PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">19:05
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001144544/','BRU8310');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001135787" row_nr="BRU8340">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">BRU8340
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">БУРГАС
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">EW438PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">-
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">20:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">B737-800
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001135787/','BRU8340');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001145213" row_nr="BRU8242">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">BRU8242
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">ВАРНА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">EW407PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">-
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">20:00
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145213/','BRU8242');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001116681" row_nr="B2994">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">B2994
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">МОСКВА
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">EW294PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">-
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">20:10
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">B737-500
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_-" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001116681/','B2994');
+                        ">-
+                        </td>
+                    </tr>
+                    <tr class="context_spp" row_id="2001145099" row_nr="BRU8902">
+                        <td style="cursor: pointer;" class="
+                            s_NR
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">BRU8902
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_city_name
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">АНТАЛЬЯ
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_DTM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">11.07.2018
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_bort
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">EW282PA
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_NST
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">-
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_vpp_utc
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">20:50
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_ts_full
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">B737-300
+                        </td>
+                        <td style="cursor: pointer;" class="
+                            s_PRIM
+                            ld_C" onclick="buttonSendDialog_tile('/SPP/viewTG-1/FlightId-2001145099/','BRU8902');
+                        ">-
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <script>TableUI();$("*[data-original-title]").tooltip();</script>
+            </div>
+            <div class="tab-pane" id="departure"></div>
+        </div>
+        <input id="group_id" hidden="hidden" value="6">
+        <div id="counter_form" style="z-index: 1001; position: absolute; right: 0; top: -24px;">
+            <form name="counter" class="counter">Обновление через
+                <input id="counter_input" type="text" name="d2" disabled class="counter_input"
+                       style="background-color: transparent;border: none;color: red;width:40px;">
+            </form>
+        </div>
+    </nav>
+    <script>
+
+            var milisec=0;
+            var scroll_top_offset = 0;
+            var scroll_left_offset = 0;
+            var seconds_def=60;
+            var seconds=seconds_def;
+            $('#counter_input').val(seconds_def);
+            function display(){
+                if (milisec<=0){milisec=9;seconds-=1;}
+                if (seconds<=-1){
+                    milisec=0;
+                    seconds+=1;
+                    sendFilter('/SPP/viewSPP-1/', 'sFilter', ($('#cPV').val()=='П')?'arrival':'departure');
+                    $('#counter_input').val(seconds_def);
+                    seconds=seconds_def;
+                }else
+                    milisec-=1;
+
+                $('#counter_input').val(seconds+"."+milisec);
+                setTimeout("display()",100) ;
+            }
+            display();
+
+            var ifullscreen_val = 0;
+            function ifullscreen(turn_on) {
+                if (turn_on==1) {
+                    ifullscreen_val = 1;
+                    fullscreen_spp();
+                }else{
+                    ifullscreen_val = 0;
+                    normalscreen_spp();
+                }
+            }
+            function fullscreen_spp(){
+                if (ifullscreen_val == 1){
+                    $('#nav').attr('style','height:100%;left:0;margin:0;position:fixed;top:0;width:100%;background-color:#FFFFFF;z-index: 1031;overflow:auto;padding-top: 28px;');
+                    $('#Calculate2').attr('style','left: 0px;position: fixed; top: 0px;z-index: 1031;padding: 7px 0;width:50px;');
+                    $('#counter_form').attr('style','z-index: 1031; position: absolute; right: 20px; top: -7px; text-align:right;');
+                    $('.datatable-scroll').attr('style','position: fixed; top: 0; height: 100%;background-color:#FFFFFF;z-index:1002');
+                    $('.btn.vi').attr('onclick','ifullscreen(0)').attr('style','position: fixed; top: 0; left:0; background-color:#eee;z-index:1003');
+                }else{
+                    normalscreen_spp();
+                }
+                $('.datatable-scroll').scroll(function (event) {
+                    scroll_top_offset = $('.datatable-scroll').scrollTop();
+                    scroll_left_offset = $('.datatable-scroll').scrollLeft();
+                 });
+                $('.datatable-scroll').scrollTop(scroll_top_offset);
+                $('.datatable-scroll').scrollLeft(scroll_left_offset);
+            }
+            function normalscreen_spp(){
+                $('#nav').attr('style',''); //position: absolute;left:0;
+                $('#counter_form').attr('style','z-index: 1031; position: absolute; right: 0px; top: -24px;');
+                    $('.datatable-scroll').attr('style','');
+                $('.btn.vi').attr('onclick','ifullscreen(1)').attr('style','');
+                resize_view_list();
+            }
+            function resize_view_list(){
+                var offset = $(".datatable-scroll").offset();
+                var offset_top = offset.top - $(window).scrollTop() + 70;
+                $('.datatable-scroll').css({'height':(($(window).height())-offset_top)+'px'});
+                $(window).resize(function(){
+                      $('.datatable-scroll').css({'height':(($(window).height())-offset_top)+'px'});
+                });
+            }
+            $(function(){
+                resize_view_list();
+            });
+            $('.datatable-scroll').scroll(function (event) {
+                    scroll_top_offset = $('.datatable-scroll').scrollTop();
+                    scroll_left_offset = $('.datatable-scroll').scrollLeft();
+             });
+
+
+    </script>
+</div>
+<div class="navbar-fixed-bottom row-fluid navbar-default" style="border-style: solid;">
+    <div class="navbar-inner">
+        <div class="container">
+            <p class="s_application_name">
+                <a href="http://www.rivc-pulkovo.ru/">RIVC-Pulkovo</a> © 2012-2018</p>
+        </div>
+    </div>
+</div>
+<div id="ajaxdata"></div>
+<div id="dialogs"></div>
+<div id="loading"></div>
+</body>
+</html>
