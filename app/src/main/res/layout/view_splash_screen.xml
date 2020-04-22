@@ -8,20 +8,12 @@
     tools:context=".SplashScreen">
 
     <ImageView
-        android:id="@+id/iv_splash_stator"
+        android:id="@+id/iv_splash_spinner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="120dp"
         android:padding="75dp"
-        app:srcCompat="@drawable/im_spinner_1" />
-
-    <ImageView
-        android:id="@+id/iv_splash_rotor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="120dp"
-        android:padding="75dp"
-        app:srcCompat="@drawable/im_spinner_2" />
+        app:srcCompat="@drawable/im_spinner" />
 
     <TextView
         android:id="@+id/tv_splash_app_name"
@@ -29,10 +21,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@id/iv_splash_stator"
+        android:layout_alignBottom="@id/iv_splash_spinner"
         android:fontFamily="@font/commons"
         android:gravity="center"
-        android:text="@string/app_name"
+        android:text="@string/app_label"
         android:textSize="40sp"
         android:textStyle="italic|bold" />
 
@@ -46,7 +38,7 @@
         android:fontFamily="@font/commons"
         android:gravity="center"
         android:text="@string/app_version"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="italic|bold" />
 
 </RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/mis_general"
+            android:title="@string/settings_menu_general" />
+        <item
+            android:id="@+id/mi_maintenance"
+            android:title="@string/settings_menu_maintenance" />
+        <item
+            android:id="@+id/mi_backup"
+            android:title="@string/settings_menu_backup" />
+
+</menu>

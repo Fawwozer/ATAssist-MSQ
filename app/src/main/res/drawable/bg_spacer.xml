@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <padding
+        android:bottom="0dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="0dp" />
+    <size
+        android:width="15dp"
+        android:height="2dp" />
+    <solid
+        android:color="?attr/belaviaDialogTintColor"
+        />
+    <corners
+    android:radius="1dp"
+    />
+
+</shape>

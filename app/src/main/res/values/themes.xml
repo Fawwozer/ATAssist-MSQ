@@ -9,9 +9,18 @@
     <style name="AppTheme.FullScreen">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppTheme.FullScreen.Light">
         <item name="android:colorBackground">@color/lightPrimaryBackgroundColor</item>
         <item name="android:textColor">@color/lightPrimaryColorDark</item>
         <item name="android:tint">@color/lightPrimaryAccentColor</item>
+    </style>
+
+    <style name="AppTheme.FullScreen.Dark">
+        <item name="android:colorBackground">@color/darkPrimaryBackgroundColor</item>
+        <item name="android:textColor">@color/darkPrimaryAccentColor</item>
+        <item name="android:tint">@color/darkPrimaryAccentColor</item>
     </style>
     
     <style name="AppTheme.Light">

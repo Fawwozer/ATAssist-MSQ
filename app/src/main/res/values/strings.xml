@@ -1,7 +1,10 @@
 <resources>
 
-    <string name="app_name">ATAssist</string>
+    <string name="app_name">ATAssist MSQ</string>
+    <string name="app_label">ATAssist</string>
     <string name="app_version">17.28.0</string>
+    <string name="app_code">19</string>
+    <string name="app_label_version">ATAssist 17.28.0</string>
 
     <!-- Main Menu -->
 
@@ -12,6 +15,12 @@
     <string name="main_menu_umms_info">UMMS Info</string>
     <string name="main_menu_logs">Logs</string>
     <string name="main_menu_settings">Settings</string>
+
+    <!-- Main Menu -->
+
+    <string name="settings_menu_general">General</string>
+    <string name="settings_menu_maintenance">Maintenance</string>
+    <string name="settings_menu_backup">BackUp</string>
 
     <!--  -->
 
