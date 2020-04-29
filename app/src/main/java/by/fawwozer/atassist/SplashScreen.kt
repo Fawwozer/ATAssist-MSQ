@@ -8,22 +8,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import by.fawwozer.atassist.GlobalApp.Companion.PREFERENCE_FILE
-import by.fawwozer.atassist.GlobalApp.Companion.PREFERENCE_LAST_BACKUP_TIME
-import by.fawwozer.atassist.GlobalApp.Companion.PREFERENCE_LAST_RUN_VERSION
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_BACKUP_ALLOW
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_BACKUP_CLOUD
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_BACKUP_LOCAL
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_BACKUP_TIME
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_GENERAL_APPLICATION_THEME
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_GENERAL_DELETE_LOGS
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_GENERAL_SCHEDULE_CLEAR_TIME
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_MAINTENANCE_HIDE_DEICE
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_MAINTENANCE_KG_ROUND
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_MAINTENANCE_LITRES_ROUND
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_NOTIFICATION_ALLOW
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_NOTIFICATION_FLEET
-import by.fawwozer.atassist.GlobalApp.Companion.SETTING_NOTIFICATION_SCHEDULE
+import by.fawwozer.atassist.Global.Companion.PREFERENCE_FILE
+import by.fawwozer.atassist.Global.Companion.PREFERENCE_LAST_BACKUP_TIME
+import by.fawwozer.atassist.Global.Companion.PREFERENCE_LAST_RUN_VERSION
+import by.fawwozer.atassist.Global.Companion.SETTING_BACKUP_CLOUD
+import by.fawwozer.atassist.Global.Companion.SETTING_BACKUP_LOCAL
+import by.fawwozer.atassist.Global.Companion.SETTING_BACKUP_TIME
+import by.fawwozer.atassist.Global.Companion.SETTING_GENERAL_APPLICATION_THEME
+import by.fawwozer.atassist.Global.Companion.SETTING_GENERAL_DELETE_LOGS
+import by.fawwozer.atassist.Global.Companion.SETTING_GENERAL_SCHEDULE_CLEAR_TIME
+import by.fawwozer.atassist.Global.Companion.SETTING_MAINTENANCE_HIDE_DEICE
+import by.fawwozer.atassist.Global.Companion.SETTING_MAINTENANCE_KG_ROUND
+import by.fawwozer.atassist.Global.Companion.SETTING_MAINTENANCE_LITERS_ROUND
+import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_ALLOW
+import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_FLEET
+import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_SCHEDULE
 import kotlinx.android.synthetic.main.view_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
@@ -76,7 +75,7 @@ class SplashScreen : AppCompatActivity() {
                     val editor = preference.edit()
 
                     editor.putInt(SETTING_GENERAL_APPLICATION_THEME,0)
-                    editor.putInt(SETTING_MAINTENANCE_LITRES_ROUND,0)
+                    editor.putInt(SETTING_MAINTENANCE_LITERS_ROUND,0)
                     editor.putInt(SETTING_BACKUP_TIME,0)
 
                     editor.putLong(SETTING_GENERAL_SCHEDULE_CLEAR_TIME,0)
@@ -84,7 +83,6 @@ class SplashScreen : AppCompatActivity() {
                     editor.putBoolean(SETTING_GENERAL_DELETE_LOGS,false)
                     editor.putBoolean(SETTING_MAINTENANCE_KG_ROUND,false)
                     editor.putBoolean(SETTING_MAINTENANCE_HIDE_DEICE,false)
-                    editor.putBoolean(SETTING_BACKUP_ALLOW,false)
                     editor.putBoolean(SETTING_BACKUP_LOCAL,false)
                     editor.putBoolean(SETTING_BACKUP_CLOUD,false)
                     editor.putBoolean(SETTING_NOTIFICATION_ALLOW,false)

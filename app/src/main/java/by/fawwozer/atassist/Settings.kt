@@ -9,9 +9,9 @@ class Settings : AppCompatActivity() {
 
     lateinit var preference: SharedPreferences
 
-    override fun onCreate(savedInstanceState: Bundle?) {preference = getSharedPreferences(GlobalApp.PREFERENCE_FILE, Context.MODE_PRIVATE)
-        if (preference.contains(GlobalApp.SETTING_GENERAL_APPLICATION_THEME)) {
-            when (preference.getInt(GlobalApp.SETTING_GENERAL_APPLICATION_THEME, 0)) {
+    override fun onCreate(savedInstanceState: Bundle?) {preference = getSharedPreferences(Global.PREFERENCE_FILE, Context.MODE_PRIVATE)
+        if (preference.contains(Global.SETTING_GENERAL_APPLICATION_THEME)) {
+            when (preference.getInt(Global.SETTING_GENERAL_APPLICATION_THEME, 0)) {
                 0 -> setTheme(R.style.AppTheme_FullScreen_Light)
                 1 -> setTheme(R.style.AppTheme_FullScreen_Dark)
             }

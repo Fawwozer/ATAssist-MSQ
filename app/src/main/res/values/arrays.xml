@@ -4,4 +4,12 @@
         <item>Light</item>
         <item>Dark</item>
     </string-array>
+
+    <string-array name="settings_liter_array">
+        <item>1 liter</item>
+        <item>5 liters</item>
+        <item>10 liters</item>
+        <item>25 liters</item>
+        <item>50 liters</item>
+    </string-array>
 </resources>

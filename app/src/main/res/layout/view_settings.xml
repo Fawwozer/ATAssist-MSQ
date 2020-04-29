@@ -65,14 +65,15 @@
 
         <!-- include from here -->
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/rl_settings_1_general"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
+            android:orientation="vertical"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/rl_settings_theme"
@@ -112,7 +113,6 @@
                 android:id="@+id/rl_settings_schedule_time"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_below="@id/rl_settings_theme"
                 android:padding="3dp">
 
                 <TextView
@@ -149,16 +149,15 @@
                 android:id="@+id/rl_settings_delete_log"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_below="@id/rl_settings_schedule_time"
                 android:padding="3dp">
 
                 <TextView
                     android:id="@+id/tv_settings_delete_log"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_delete_log_hint"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_above="@id/tv_settings_delete_log_hint"
                     android:layout_marginEnd="8dp"
                     android:layout_toStartOf="@id/im_settings_delete_log"
                     android:gravity="center_vertical"
@@ -194,23 +193,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_margin="3dp"
-                android:layout_below="@id/rl_settings_delete_log"
                 android:background="@drawable/bg_spacer" />
 
             <RelativeLayout
                 android:id="@+id/rl_settings_allow_notification"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_below="@id/im_settings_spacer_1"
                 android:padding="3dp">
 
                 <TextView
                     android:id="@+id/tv_settings_allow_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_allow_notification_hint"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_above="@id/tv_settings_allow_notification_hint"
                     android:layout_marginEnd="8dp"
                     android:layout_toStartOf="@id/im_settings_allow_notification"
                     android:gravity="center_vertical"
@@ -245,16 +242,15 @@
                 android:id="@+id/rl_settings_schedule_notification"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_below="@id/rl_settings_allow_notification"
                 android:padding="3dp">
 
                 <TextView
                     android:id="@+id/tv_settings_schedule_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_schedule_notification_hint"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_above="@id/tv_settings_schedule_notification_hint"
                     android:layout_marginEnd="8dp"
                     android:layout_toStartOf="@id/im_settings_schedule_notification"
                     android:gravity="center_vertical"
@@ -289,16 +285,15 @@
                 android:id="@+id/rl_settings_fleet_notification"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_below="@id/rl_settings_schedule_notification"
                 android:padding="3dp">
 
                 <TextView
                     android:id="@+id/tv_settings_fleet_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_fleet_notification_hint"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_above="@id/tv_settings_fleet_notification_hint"
                     android:layout_marginEnd="8dp"
                     android:layout_toStartOf="@id/im_settings_fleet_notification"
                     android:gravity="center_vertical"
@@ -329,25 +324,326 @@
 
             </RelativeLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/rl_settings_2_maintenance"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
+            android:orientation="vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:visibility="gone">
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_settings_liters_round"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp">
 
-        <RelativeLayout
+                <TextView
+                    android:id="@+id/tv_settings_litres_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/sp_settings_litres_round"
+                    android:gravity="center_vertical"
+                    android:text="Round to, litres"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/sp_settings_litres_round"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="?attr/belaviaDialogTintColor"
+                    android:entries="@array/settings_liter_array"
+                    android:gravity="center_vertical|end"
+                    android:textAlignment="viewEnd"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_settings_kg_round"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/tv_settings_kg_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_kg_round_hint"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_kg_round"
+                    android:gravity="center_vertical"
+                    android:text="Round to 100kg"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_settings_kg_round_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_kg_round"
+                    android:gravity="center_vertical"
+                    android:text="6000 lb / 2.2046 = 2722 kg"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/im_settings_kg_round"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical|end"
+                    app:srcCompat="@drawable/ic_switch_off" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_settings_hide_deice"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/tv_settings_hide_deice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_hide_deice_hint"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_hide_deice"
+                    android:gravity="center_vertical"
+                    android:text="Hide deice log"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_settings_hide_deice_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_hide_deice"
+                    android:gravity="center_vertical"
+                    android:text="Deice log visible"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/im_settings_hide_deice"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical|end"
+                    app:srcCompat="@drawable/ic_switch_off" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/rl_settings_3_backup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-            android:visibility="gone">
+            android:orientation="vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:visibility="visible">
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_settings_local_backup"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/tv_settings_local_backup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_local_backup_hint"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_local_backup"
+                    android:gravity="center_vertical"
+                    android:text="Allow local backup"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_settings_local_backup_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_local_backup"
+                    android:gravity="center_vertical"
+                    android:text="Local backup deny"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/im_settings_local_backup"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical|end"
+                    app:srcCompat="@drawable/ic_switch_off" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_settings_local_backup_time"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_settings_local_backup_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/et_settings_local_backup_time"
+                    android:gravity="center_vertical"
+                    android:text="Make a local backup in, days"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_settings_local_backup_time"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="?attr/belaviaDialogTintColor"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:singleLine="true"
+                    android:text="7"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/im_settings_spacer_2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_spacer" />
+
+            <RelativeLayout
+                android:id="@+id/rl_settings_cloud_backup"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/tv_settings_cloud_backup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_cloud_backup_hint"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_cloud_backup"
+                    android:gravity="center_vertical"
+                    android:text="Allow cloud backup"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_settings_cloud_backup_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/im_settings_cloud_backup"
+                    android:gravity="center_vertical"
+                    android:text="Cloud backup deny"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/im_settings_cloud_backup"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical|end"
+                    app:srcCompat="@drawable/ic_switch_off" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_settings_cloud_login"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/tv_settings_cloud_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_settings_cloud_login_hint"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:text="You are logged as:"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_settings_cloud_login_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:text="fawwozer@gmail.com"
+                    android:textSize="17sp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/bt_settings_firebase_logout"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:background="@drawable/bt_shape"
+                android:padding="3dp"
+                android:text="Logout"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
 
         <!-- include to here -->
