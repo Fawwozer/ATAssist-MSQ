@@ -17,9 +17,9 @@ import by.fawwozer.atassist.Global.Companion.LOGS_DB_NAME
 import by.fawwozer.atassist.Global.Companion.LOGS_DB_TABLE
 import by.fawwozer.atassist.Global.Companion.LOGS_DB_VERSION
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_1
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_2
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_3
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_2
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_3
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_3
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_3_KG_REMAIN
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_3_KG_ADD
@@ -117,7 +117,7 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_37
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_38
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_39
 
-class LogsDB(context: Context) : SQLiteOpenHelper(context, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
+class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(
             "CREATE TABLE " + LOGS_DB_TABLE + "( " +
@@ -132,9 +132,9 @@ class LogsDB(context: Context) : SQLiteOpenHelper(context, LOGS_DB_NAME, null, L
                     KEY_LOGS_PLANE + " tinyint, " +
                     KEY_LOGS_CHECK + " tinyint, " +
                     KEY_LOGS_AFML_2 + " bit, " +
-                    KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_1 + " real, " +
-                    KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_2 + " real, " +
-                    KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_3 + " real, " +
+                    KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 + " real, " +
+                    KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_2 + " real, " +
+                    KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_3 + " real, " +
                     KEY_LOGS_AFML_3 + " bit, " +
                     KEY_LOGS_AFML_3_KG_REMAIN + " integer, " +
                     KEY_LOGS_AFML_3_KG_ADD + " integer, " +

@@ -33,11 +33,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a24fb8a-baa2-492e-9387-e4964a3d3823" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/CheckDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/CheckDB.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/Global.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/Global.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/LogsDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/LogsDB.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/PlaneDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/PlaneDB.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/SplashScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/SplashScreen.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +100,7 @@
     <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Kotlin" />
     <property name="vcs.patch.to.clipboard" value="true" />
   </component>
   <component name="PsdUISettings">
@@ -251,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588174159650</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="29.04.2020">
+      <created>1588185234069</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588185234069</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,6 +283,7 @@
     <MESSAGE value="First" />
     <MESSAGE value="21.04.2020" />
     <MESSAGE value="22.04.2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="22.04.2020" />
+    <MESSAGE value="29.04.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="29.04.2020" />
   </component>
 </project>

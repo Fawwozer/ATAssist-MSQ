@@ -14,11 +14,11 @@ import by.fawwozer.atassist.Global.Companion.KEY_PLANE_TYPE
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_FUEL
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_OIL
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_OIL_STEP
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDROULIC
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDROULIC_STEP
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC_STEP
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ENABLED
 
-class PlaneDB(context: Context) : SQLiteOpenHelper(context, PLANE_DB_NAME, null, PLANE_DB_VERSION) {
+class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(
             "CREATE TABLE " + PLANE_DB_TABLE + "( " +
@@ -30,8 +30,8 @@ class PlaneDB(context: Context) : SQLiteOpenHelper(context, PLANE_DB_NAME, null,
                     KEY_PLANE_FUEL + " tinyint, " +
                     KEY_PLANE_OIL + " tinyint, " +
                     KEY_PLANE_OIL_STEP + " real, " +
-                    KEY_PLANE_HYDROULIC + " tinyint, " +
-                    KEY_PLANE_HYDROULIC_STEP + " real, " +
+                    KEY_PLANE_HYDRAULIC + " tinyint, " +
+                    KEY_PLANE_HYDRAULIC_STEP + " real, " +
                     KEY_PLANE_ENABLED + " bit" +
                     ");"
         )

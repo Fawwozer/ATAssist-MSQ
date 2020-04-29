@@ -8,7 +8,27 @@ class Global: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        ///инициализация Firebase Analytics
+
         FirebaseApp.initializeApp(this)
+
+        ///создание баз данных
+
+        val logsDB = LogsDB()
+        val checkDB = CheckDB()
+        val planeDB = PlaneDB()
+
+        val dblogs = logsDB.writableDatabase
+        val dbcheck = checkDB.writableDatabase
+        val dbplane = planeDB.writableDatabase
+        dblogs.close()
+        dbcheck.close()
+        dbplane.close()
+
+        //загрузка из FireStore
+
+        CheckDB.loadFromFireStore()
     }
 
     companion object {
@@ -22,6 +42,9 @@ class Global: Application() {
         const val GENERAL_FLEET_NOTIFICATION_CHANNEL_NAME = "Fleet Notification"
         const val GENERAL_FLEET_NOTIFICATION_CHANNEL_ID = "fleetNotification"
         const val GENERAL_FLEET_NOTIFICATION_CHANNEL_CODE = 456
+
+        const val GENERAL_FIRST_STRING_SPLITTER = ",|,"
+        const val GENERAL_SECOND_STRING_SPLITTER = ".|."
 
         ////PREFERENCES\\\\
 
@@ -81,9 +104,9 @@ class Global: Application() {
         const val KEY_LOGS_CHECK = "_CHECK_ID"
 
         const val KEY_LOGS_AFML_2 = "_AFML_2"
-        const val KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_1 = "_AFML_2_HYDR_1"
-        const val KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_2 = "_AFML_2_HYDR_2"
-        const val KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_3 = "_AFML_2_HYDR_3"
+        const val KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 = "_AFML_2_HYDR_1"
+        const val KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_2 = "_AFML_2_HYDR_2"
+        const val KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_3 = "_AFML_2_HYDR_3"
 
         const val KEY_LOGS_AFML_3 = "_AFML_3"
         const val KEY_LOGS_AFML_3_KG_REMAIN = "_AFML_3_KG_REM"
@@ -191,6 +214,7 @@ class Global: Application() {
         const val KEY_LOGS_AFML_9_WORK_39 = "_AFML_9_W_39"
 
         ////Plane DB\\\\
+
         const val PLANE_DB_NAME = "PlaneDB.db"
         const val PLANE_DB_VERSION = 1
         const val PLANE_DB_TABLE = "plane"
@@ -198,16 +222,17 @@ class Global: Application() {
         const val KEY_PLANE_ID = "_ID"
         const val KEY_PLANE_NAME = "_NAME"
         const val KEY_PLANE_NAME_KOBRA = "_KOBRA"
-        const val KEY_PLANE_NAME_TYPE = "_NANE_TYPE"
+        const val KEY_PLANE_NAME_TYPE = "_NAME_TYPE"
         const val KEY_PLANE_TYPE = "_TYPE"
         const val KEY_PLANE_FUEL = "_FUEL"
-        const val KEY_PLANE_OIL = "_OOIL"
+        const val KEY_PLANE_OIL = "_OIL"
         const val KEY_PLANE_OIL_STEP = "_OIL_DIFF"
-        const val KEY_PLANE_HYDROULIC = "_HYDR"
-        const val KEY_PLANE_HYDROULIC_STEP = "_HYDR_DIFF"
+        const val KEY_PLANE_HYDRAULIC = "_HYDR"
+        const val KEY_PLANE_HYDRAULIC_STEP = "_HYDR_DIFF"
         const val KEY_PLANE_ENABLED = "_ENABLE"
 
         ////Check DB\\\\
+
         const val CHECK_DB_NAME = "CheckDB.db"
         const val CHECK_DB_VERSION = 1
         const val CHECK_DB_TABLE = "check"
@@ -215,11 +240,11 @@ class Global: Application() {
         const val KEY_CHEKC_ID = "_ID"
         const val KEY_CHEKC_NAME = "_NAME"
         const val KEY_CHEKC_TYPE = "_TYPE"
-        const val KEY_CHEKC_AFML_2 = "_AFML_2 "
-        const val KEY_CHEKC_AFML_3 = "_AFML_3 "
-        const val KEY_CHEKC_AFML_4 = "_AFML_4 "
-        const val KEY_CHEKC_AFML_5 = "_AFML_5 "
-        const val KEY_CHEKC_AFML_6 = "_AFML_6 "
+        const val KEY_CHEKC_AFML_2 = "_AFML_2"
+        const val KEY_CHEKC_AFML_3 = "_AFML_3"
+        const val KEY_CHEKC_AFML_4 = "_AFML_4"
+        const val KEY_CHEKC_AFML_5 = "_AFML_5"
+        const val KEY_CHEKC_AFML_6 = "_AFML_6"
         const val KEY_CHEKC_AFML_10 = "_AFML_10"
         const val KEY_CHEKC_AFML_11 = "_AFML_11"
         const val KEY_CHEKC_COMMERCIAL = "_COMMER"
@@ -227,6 +252,7 @@ class Global: Application() {
         const val KEY_CHEKC_ADDITIONAL_WORKS = "_ADD_WORK"
 
         ////Fleet Info DB\\\\
+
         const val FLEET_DB_NAME = "FleetDB.db"
         const val FLEET_DB_VERSION = 1
         const val FLEET_DB_TABLE = "info"
