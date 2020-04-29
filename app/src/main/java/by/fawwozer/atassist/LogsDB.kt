@@ -129,8 +129,8 @@ class LogsDB(context: Context) : SQLiteOpenHelper(context, LOGS_DB_NAME, null, L
                     KEY_LOGS_DEPARTURE_TIME + " long, " +
                     KEY_LOGS_STAND + " text, " +
                     KEY_LOGS_IS_DONE + " bit, " +
-                    KEY_LOGS_PLANE + " integer, " +
-                    KEY_LOGS_CHECK + " integer, " +
+                    KEY_LOGS_PLANE + " tinyint, " +
+                    KEY_LOGS_CHECK + " tinyint, " +
                     KEY_LOGS_AFML_2 + " bit, " +
                     KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_1 + " real, " +
                     KEY_LOGS_AFML_2_HYDROULIC_ADD_SYSTEM_2 + " real, " +
@@ -179,7 +179,7 @@ class LogsDB(context: Context) : SQLiteOpenHelper(context, LOGS_DB_NAME, null, L
                     KEY_LOGS_AFML_6_M4_ADD + " integer, " +
                     KEY_LOGS_AFML_10 + " long, " +
                     KEY_LOGS_AFML_11 + " long, " +
-                    KEY_LOGS_AFML_11_TYPE + " integer, " +
+                    KEY_LOGS_AFML_11_TYPE + " tinyint, " +
                     KEY_LOGS_AFML_11_CONCENTRATION + " long, " +
                     KEY_LOGS_COMERCIAL_BAGGAGE_START + " long, " +
                     KEY_LOGS_COMERCIAL_BAGGAGE_END + " long, " +
