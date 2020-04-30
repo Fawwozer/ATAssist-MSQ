@@ -30,44 +30,59 @@ class SplashScreen : AppCompatActivity() {
     lateinit var preference: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("MY", "SplashScreen/onCreate/Start")
 
         //применение настроек темы из SharedPreference
 
         preference = getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
         if (preference.contains(SETTING_GENERAL_APPLICATION_THEME)) {
+            Log.d("MY", "SplashScreen/onCreate/preference has theme")
             when (preference.getInt(SETTING_GENERAL_APPLICATION_THEME, 0)) {
                 0 -> setTheme(R.style.AppTheme_FullScreen_Light)
                 1 -> setTheme(R.style.AppTheme_FullScreen_Dark)
             }
         } else {
+            Log.d("MY", "SplashScreen/onCreate/preference hasn`t theme")
             setTheme(R.style.AppTheme_FullScreen_Light)
         }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_splash_screen)
-        window.decorView.apply {
-            systemUiVisibility =
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
-        }
+        window.decorView.apply {systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN}
 
         ///проверка версии android, если <25 загружается im_spinner в iv_splash_spinner
         ///если >25, то загружается im_spinner_animated
 
-        if (Build.VERSION.SDK_INT < 25) iv_splash_spinner.setImageResource(R.drawable.im_spinner)
-        else iv_splash_spinner.setImageResource(R.drawable.im_spinner_animated)
+        if (Build.VERSION.SDK_INT < 25) {
+            iv_splash_spinner.setImageResource(R.drawable.im_spinner)
+            Log.d("MY", "SplashScreen/onCreate/SDK < 25")
+        }
+        else {
+            iv_splash_spinner.setImageResource(R.drawable.im_spinner_animated)
+            Log.d("MY", "SplashScreen/onCreate/SDK > 24")
+        }
 
         //проверка на AnimatedVectorDrawable и запуск анимации
 
         val spinner = iv_splash_spinner.drawable
         if (spinner is AnimatedVectorDrawable) {
+            Log.d("MY", "SplashScreen/onCreate/start spinner animation")
             spinner.start()
         }
 
         //запуск фонового процесса подготовки приложения
 
         val run = Runnable {
+            Log.d("MY", "SplashScreen/onCreate/Runnable/Start")
+
+            //проверка на версию приложенияб если нет указанной версии
+            //то считается что это первый запуск приложения и работает
+            //инициализация настроек и запрос разрешений
+
             when (preference.getString(PREFERENCE_LAST_RUN_VERSION,"0")) {
-                R.string.app_code.toString() -> { }
+                R.string.app_code.toString() -> {
+                    Log.d("MY", "SplashScreen/onCreate/Runnable/LAST_RUN_VERSION = 19")}
                 else -> {
+                    Log.d("MY", "SplashScreen/onCreate/Runnable/LAST_RUN_VERSION else")
                     ///запросы разрешений
 
                     ///запись начальных настроек приложения
@@ -95,7 +110,9 @@ class SplashScreen : AppCompatActivity() {
                     editor.apply()
                 }
             }
+            Log.d("MY", "SplashScreen/onCreate/Runnable/Finish")
         }
         run.run()
+        Log.d("MY", "SplashScreen/onCreate/Finish")
     }
 }

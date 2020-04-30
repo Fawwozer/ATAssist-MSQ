@@ -1,8 +1,8 @@
 package by.fawwozer.atassist
 
-import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_ARRIVAL_TIME
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_CHECK
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_DEPARTURE_TIME
@@ -66,11 +66,11 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_10
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_11
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_11_TYPE
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_11_CONCENTRATION
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMERCIAL_BAGGAGE_START
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMERCIAL_BAGGAGE_END
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMERCIAL_PASSANGERS_START
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMERCIAL_PASSANGERS_END
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMERCIAL_DOORS_CLOSE
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMMERCIAL_BAGGAGE_START
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMMERCIAL_BAGGAGE_END
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMMERCIAL_PASSENGERS_START
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMMERCIAL_PASSENGERS_END
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_COMMERCIAL_DOORS_CLOSE
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_CYCLES
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_HOURS
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_HOURS_ON_PLANE
@@ -119,6 +119,7 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_39
 
 class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
+        Log.d("MY", "LogsDB/onCreate/Start")
         db!!.execSQL(
             "CREATE TABLE " + LOGS_DB_TABLE + "( " +
                     KEY_LOGS_ID + " integer PRIMARY KEY AUTOINCREMENT, " +
@@ -181,11 +182,11 @@ class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB
                     KEY_LOGS_AFML_11 + " long, " +
                     KEY_LOGS_AFML_11_TYPE + " tinyint, " +
                     KEY_LOGS_AFML_11_CONCENTRATION + " long, " +
-                    KEY_LOGS_COMERCIAL_BAGGAGE_START + " long, " +
-                    KEY_LOGS_COMERCIAL_BAGGAGE_END + " long, " +
-                    KEY_LOGS_COMERCIAL_PASSANGERS_START + " long, " +
-                    KEY_LOGS_COMERCIAL_PASSANGERS_END + " long, " +
-                    KEY_LOGS_COMERCIAL_DOORS_CLOSE + " long, " +
+                    KEY_LOGS_COMMERCIAL_BAGGAGE_START + " long, " +
+                    KEY_LOGS_COMMERCIAL_BAGGAGE_END + " long, " +
+                    KEY_LOGS_COMMERCIAL_PASSENGERS_START + " long, " +
+                    KEY_LOGS_COMMERCIAL_PASSENGERS_END + " long, " +
+                    KEY_LOGS_COMMERCIAL_DOORS_CLOSE + " long, " +
                     KEY_LOGS_APU_CYCLES + " real, " +
                     KEY_LOGS_APU_HOURS + " real, " +
                     KEY_LOGS_APU_HOURS_ON_PLANE + " real, " +
@@ -234,17 +235,22 @@ class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB
                     ");"
         )
         onUpgrade(db, 1, LOGS_DB_VERSION)
-
+        Log.d("MY", "LogsDB/onCreate/Finish")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        Log.d("MY", "LogsDB/onUpgrade/Start")
         when (oldVersion) {
             1 -> {
+                Log.d("MY", "LogsDB/onUpgrade/oldVer = 1")
             }
             2 -> {
+                Log.d("MY", "LogsDB/onUpgrade/oldVer = 2")
             }
             else -> {
+                Log.d("MY", "LogsDB/onUpgrade/oldVer else")
             }
         }
+        Log.d("MY", "LogsDB/onUpgrade/Finish")
     }
 }

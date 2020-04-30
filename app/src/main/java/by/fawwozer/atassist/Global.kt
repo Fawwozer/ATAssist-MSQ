@@ -2,12 +2,14 @@ package by.fawwozer.atassist
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import com.google.firebase.FirebaseApp
 
 class Global: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        Log.d("MY", "Global/onCreate/Start")
 
         ///инициализация Firebase Analytics
 
@@ -29,6 +31,9 @@ class Global: Application() {
         //загрузка из FireStore
 
         CheckDB.loadFromFireStore()
+        PlaneDB.loadFromFireStore()
+
+        Log.d("MY", "Global/onCreate/Finish")
     }
 
     companion object {
@@ -90,7 +95,7 @@ class Global: Application() {
 
         const val LOGS_DB_NAME = "LogsDB.db"
         const val LOGS_DB_VERSION = 1
-        const val LOGS_DB_TABLE = "logs"
+        const val LOGS_DB_TABLE = "_LG"
 
         const val KEY_LOGS_ID = "_ID"
         const val KEY_LOGS_SORT = "_SORT"
@@ -160,11 +165,11 @@ class Global: Application() {
         const val KEY_LOGS_AFML_11_TYPE = "_AFML_11_TYPE"
         const val KEY_LOGS_AFML_11_CONCENTRATION = "_AFML_11_CONC"
 
-        const val KEY_LOGS_COMERCIAL_BAGGAGE_START = "_COM_BAG_START"
-        const val KEY_LOGS_COMERCIAL_BAGGAGE_END = "_COM_BAG_END"
-        const val KEY_LOGS_COMERCIAL_PASSANGERS_START = "_COM_PAX_START"
-        const val KEY_LOGS_COMERCIAL_PASSANGERS_END = "_COM_PAX_END"
-        const val KEY_LOGS_COMERCIAL_DOORS_CLOSE = "_COM_DOOR"
+        const val KEY_LOGS_COMMERCIAL_BAGGAGE_START = "_COM_BAG_START"
+        const val KEY_LOGS_COMMERCIAL_BAGGAGE_END = "_COM_BAG_END"
+        const val KEY_LOGS_COMMERCIAL_PASSENGERS_START = "_COM_PAX_START"
+        const val KEY_LOGS_COMMERCIAL_PASSENGERS_END = "_COM_PAX_END"
+        const val KEY_LOGS_COMMERCIAL_DOORS_CLOSE = "_COM_DOOR"
 
         const val KEY_LOGS_APU_CYCLES = "_APU_CYCLES"
         const val KEY_LOGS_APU_HOURS = "_APU_HOURS"
@@ -217,7 +222,7 @@ class Global: Application() {
 
         const val PLANE_DB_NAME = "PlaneDB.db"
         const val PLANE_DB_VERSION = 1
-        const val PLANE_DB_TABLE = "plane"
+        const val PLANE_DB_TABLE = "_PL"
 
         const val KEY_PLANE_ID = "_ID"
         const val KEY_PLANE_NAME = "_NAME"
@@ -235,33 +240,34 @@ class Global: Application() {
 
         const val CHECK_DB_NAME = "CheckDB.db"
         const val CHECK_DB_VERSION = 1
-        const val CHECK_DB_TABLE = "check"
+        const val CHECK_DB_TABLE = "_CH"
 
-        const val KEY_CHEKC_ID = "_ID"
-        const val KEY_CHEKC_NAME = "_NAME"
-        const val KEY_CHEKC_TYPE = "_TYPE"
-        const val KEY_CHEKC_AFML_2 = "_AFML_2"
-        const val KEY_CHEKC_AFML_3 = "_AFML_3"
-        const val KEY_CHEKC_AFML_4 = "_AFML_4"
-        const val KEY_CHEKC_AFML_5 = "_AFML_5"
-        const val KEY_CHEKC_AFML_6 = "_AFML_6"
-        const val KEY_CHEKC_AFML_10 = "_AFML_10"
-        const val KEY_CHEKC_AFML_11 = "_AFML_11"
-        const val KEY_CHEKC_COMMERCIAL = "_COMMER"
-        const val KEY_CHEKC_APU_DATA = "_APU"
-        const val KEY_CHEKC_ADDITIONAL_WORKS = "_ADD_WORK"
+        const val KEY_CHECK_ID = "_ID"
+        const val KEY_CHECK_NAME = "_NAME"
+        const val KEY_CHECK_TYPE = "_TYPE"
+        const val KEY_CHECK_AFML_2 = "_AFML_2"
+        const val KEY_CHECK_AFML_3 = "_AFML_3"
+        const val KEY_CHECK_AFML_4 = "_AFML_4"
+        const val KEY_CHECK_AFML_5 = "_AFML_5"
+        const val KEY_CHECK_AFML_6 = "_AFML_6"
+        const val KEY_CHECK_AFML_10 = "_AFML_10"
+        const val KEY_CHECK_AFML_11 = "_AFML_11"
+        const val KEY_CHECK_COMMERCIAL = "_COMMER"
+        const val KEY_CHECK_APU_DATA = "_APU"
+        const val KEY_CHECK_ADDITIONAL_WORKS = "_ADD_WORK"
 
         ////Fleet Info DB\\\\
 
         const val FLEET_DB_NAME = "FleetDB.db"
         const val FLEET_DB_VERSION = 1
-        const val FLEET_DB_TABLE = "info"
+        const val FLEET_DB_TABLE = "_IN"
 
         lateinit var instance: Global
             private set
 
         val appContext: Context
             get() {
+                Log.d("MY", "Global/appContext")
                 return instance.applicationContext
             }
     }
