@@ -44,19 +44,16 @@ class SplashScreen : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d("MY", "SplashScreen/onCreate/Start")
 
         //применение настроек темы из SharedPreference
 
         preference = getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
         if (preference.contains(SETTING_GENERAL_APPLICATION_THEME)) {
-            Log.d("MY", "SplashScreen/onCreate/preference has theme")
             when (preference.getInt(SETTING_GENERAL_APPLICATION_THEME, 0)) {
                 0 -> setTheme(R.style.AppTheme_FullScreen_Light)
                 1 -> setTheme(R.style.AppTheme_FullScreen_Dark)
             }
         } else {
-            Log.d("MY", "SplashScreen/onCreate/preference hasn`t theme")
             setTheme(R.style.AppTheme_FullScreen_Light)
         }
         super.onCreate(savedInstanceState)
@@ -66,34 +63,23 @@ class SplashScreen : AppCompatActivity() {
         ///проверка версии android, если <25 загружается im_spinner в iv_splash_spinner
         ///если >25, то загружается im_spinner_animated
 
-        if (Build.VERSION.SDK_INT < 25) {
-            iv_splash_spinner.setImageResource(R.drawable.im_spinner)
-            Log.d("MY", "SplashScreen/onCreate/SDK < 25")
-        }
-        else {
-            iv_splash_spinner.setImageResource(R.drawable.im_spinner_animated)
-            Log.d("MY", "SplashScreen/onCreate/SDK > 24")
-        }
+        if (Build.VERSION.SDK_INT < 25) iv_splash_spinner.setImageResource(R.drawable.im_spinner)
+        else iv_splash_spinner.setImageResource(R.drawable.im_spinner_animated)
 
         //проверка на AnimatedVectorDrawable и запуск анимации
 
         val spinner = iv_splash_spinner.drawable
-        if (spinner is AnimatedVectorDrawable) {
-            Log.d("MY", "SplashScreen/onCreate/start spinner animation")
-            spinner.start()
-        }
+        if (spinner is AnimatedVectorDrawable) spinner.start()
 
         //запуск фонового процесса подготовки приложения
 
         val async = Async()
         async.execute()
-        Log.d("MY", "SplashScreen/onCreate/Finish")
     }
 
     private class Async: AsyncTask<Void, Void, Void>() {
         lateinit var context: Context
         override fun doInBackground(vararg params: Void?): Void? {
-            Log.d("MY", "SplashScreen/Async/doInBackground/Start")
 
             //проверка на версию приложенияб если нет указанной версии
             //то считается что это первый запуск приложения и работает
@@ -103,9 +89,9 @@ class SplashScreen : AppCompatActivity() {
             preference = context.getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
             when (preference.getString(PREFERENCE_LAST_RUN_VERSION,"0")) {
                 R.string.app_code.toString() -> {
-                    Log.d("MY", "SplashScreen/Async/doInBackground/LAST_RUN_VERSION = 19")}
+
+                }
                 else -> {
-                    Log.d("MY", "SplashScreen/Async/doInBackground/LAST_RUN_VERSION else")
                     ///запросы разрешений
 
                     ///запись начальных настроек приложения
@@ -133,14 +119,11 @@ class SplashScreen : AppCompatActivity() {
                     editor.apply()
                 }
             }
-            //TimeUnit.SECONDS.sleep(10)
-            Log.d("MY", "SplashScreen/Async/doInBackground/Finish")
             return null
         }
 
         override fun onPostExecute(result: Void?) {
             super.onPostExecute(result)
-            Log.d("MY", "SplashScreen/Async/onPostExecute")
             val intent = Intent(context, ATAssist::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
             instance.startActivity(intent)
             instance.finish()
@@ -149,7 +132,6 @@ class SplashScreen : AppCompatActivity() {
 
         override fun onPreExecute() {
             super.onPreExecute()
-            Log.d("MY", "SplashScreen/Async/onPreExecute")
             context = Global.appContext
         }
     }

@@ -19,7 +19,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
-        Log.d("MY", "FleetDB/onCreate/Start")
         db!!.execSQL(
             "CREATE TABLE " + FLEET_DB_TABLE + " ( " +
                     KEY_FLEET_ID + " integer PRIMARY KEY AUTOINCREMENT, " +
@@ -31,11 +30,9 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
                     KEY_FLEET_MESSAGE + " text" +
                     ");"
         )
-        Log.d("MY", "FleetDB/onCreate/Finish")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        Log.d("MY", "FleetDB/onUpgrade/Start")
         when (oldVersion) {
             1 -> {
                 Log.d("MY", "FleetDB/onUpgrade/oldVer = 1")
@@ -47,12 +44,10 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
                 Log.d("MY", "FleetDB/onUpgrade/oldVer else")
             }
         }
-        Log.d("MY", "FleetDB/onUpgrade/Finish")
     }
 
     companion object {
         fun loadFromFireStore() {
-            Log.d("MY", "FleetDB/loadFromFireStore/Start")
             val firestore = FirebaseFirestore.getInstance()
             firestore.collection(FIRESTORE_COLLECTION_FLEET)
                 .addSnapshotListener { documents, error ->
@@ -62,11 +57,9 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
                     }
 
                     if (documents != null) {
-                        Log.d("MY", "FleetDB/loadFromFireStore/documents != null")
                         val fleetDB = FleetDB()
                         val db = fleetDB.writableDatabase
                         for (document in documents) {
-                            Log.d("MY", "FleetDB/loadFromFireStore/document.id = " + document.id)
                             if (document.id != "##INFO##") {
                                 val map: Map<String, Any> = document.data
                                 val cv = ContentValues()
@@ -78,13 +71,8 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
                                 cv.put(KEY_FLEET_HEADER, map[KEY_FLEET_HEADER] as String)
                                 cv.put(KEY_FLEET_MESSAGE, map[KEY_FLEET_MESSAGE] as String)
                                 val cursor = db.query(FLEET_DB_TABLE, null, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null, null, null, null)
-                                if (cursor.moveToFirst()) {
-                                    db.update(FLEET_DB_TABLE, cv, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null)
-                                    Log.d("MY", "FleetDB/loadFromFireStore/Upgrade data in DB")
-                                } else {
-                                    db.insert(FLEET_DB_TABLE, null, cv)
-                                    Log.d("MY", "FleetDB/loadFromFireStore/Create data in DB")
-                                }
+                                if (cursor.moveToFirst()) db.update(FLEET_DB_TABLE, cv, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null)
+                                else db.insert(FLEET_DB_TABLE, null, cv)
                                 cursor.close()
                             }
                         }
@@ -99,7 +87,6 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
                         }
                     }
                 }
-            Log.d("MY", "FleetDB/loadFromFireStore/Finish")
         }
     }
 }

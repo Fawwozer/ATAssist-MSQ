@@ -119,7 +119,6 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_39
 
 class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
-        Log.d("MY", "LogsDB/onCreate/Start")
         db!!.execSQL(
             "CREATE TABLE " + LOGS_DB_TABLE + "( " +
                     KEY_LOGS_ID + " integer PRIMARY KEY AUTOINCREMENT, " +
@@ -235,11 +234,9 @@ class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB
                     ");"
         )
         onUpgrade(db, 1, LOGS_DB_VERSION)
-        Log.d("MY", "LogsDB/onCreate/Finish")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        Log.d("MY", "LogsDB/onUpgrade/Start")
         when (oldVersion) {
             1 -> {
                 Log.d("MY", "LogsDB/onUpgrade/oldVer = 1")
@@ -251,6 +248,5 @@ class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB
                 Log.d("MY", "LogsDB/onUpgrade/oldVer else")
             }
         }
-        Log.d("MY", "LogsDB/onUpgrade/Finish")
     }
 }

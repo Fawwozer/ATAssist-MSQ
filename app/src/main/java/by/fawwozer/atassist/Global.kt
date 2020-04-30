@@ -2,14 +2,12 @@ package by.fawwozer.atassist
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import com.google.firebase.FirebaseApp
 
-class Global: Application() {
+class Global : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.d("MY", "Global/onCreate/Start")
 
         ///инициализация Firebase Analytics
 
@@ -36,8 +34,6 @@ class Global: Application() {
         CheckDB.loadFromFireStore()
         PlaneDB.loadFromFireStore()
         FleetDB.loadFromFireStore()
-
-        Log.d("MY", "Global/onCreate/Finish")
     }
 
     companion object {
@@ -156,12 +152,12 @@ class Global: Application() {
         const val KEY_LOGS_AFML_6_M2_REMAIN = "_AFML_6_M2_REM"
         const val KEY_LOGS_AFML_6_M3_REMAIN = "_AFML_6_M3_REM"
         const val KEY_LOGS_AFML_6_M4_REMAIN = "_AFML_6_M4_REM"
-        const val KEY_LOGS_AFML_6_N1_ADD  = "_AFML_6_N1_ADD"
-        const val KEY_LOGS_AFML_6_N2_ADD  = "_AFML_6_N2_ADD"
-        const val KEY_LOGS_AFML_6_M1_ADD  = "_AFML_6_M1_ADD"
-        const val KEY_LOGS_AFML_6_M2_ADD  = "_AFML_6_M2_ADD"
-        const val KEY_LOGS_AFML_6_M3_ADD  = "_AFML_6_M3_ADD"
-        const val KEY_LOGS_AFML_6_M4_ADD  = "_AFML_6_M4_ADD"
+        const val KEY_LOGS_AFML_6_N1_ADD = "_AFML_6_N1_ADD"
+        const val KEY_LOGS_AFML_6_N2_ADD = "_AFML_6_N2_ADD"
+        const val KEY_LOGS_AFML_6_M1_ADD = "_AFML_6_M1_ADD"
+        const val KEY_LOGS_AFML_6_M2_ADD = "_AFML_6_M2_ADD"
+        const val KEY_LOGS_AFML_6_M3_ADD = "_AFML_6_M3_ADD"
+        const val KEY_LOGS_AFML_6_M4_ADD = "_AFML_6_M4_ADD"
 
         const val KEY_LOGS_AFML_10 = "_AFML_10"
 
@@ -279,7 +275,6 @@ class Global: Application() {
 
         val appContext: Context
             get() {
-                Log.d("MY", "Global/appContext")
                 return instance.applicationContext
             }
     }

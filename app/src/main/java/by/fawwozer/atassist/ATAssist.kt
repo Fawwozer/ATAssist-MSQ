@@ -9,6 +9,5 @@ class ATAssist : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.test)
-        Log.d("MY", "ATassist/onCreate/Start")
     }
 }

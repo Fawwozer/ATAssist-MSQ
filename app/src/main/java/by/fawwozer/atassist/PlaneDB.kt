@@ -24,7 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
-        Log.d("MY", "PlaneDB/onCreate/Start")
         db!!.execSQL(
             "CREATE TABLE " + PLANE_DB_TABLE + "( " +
                     KEY_PLANE_ID + " integer PRIMARY KEY AUTOINCREMENT, " +
@@ -41,11 +40,9 @@ class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE
                     ");"
         )
         onUpgrade(db, 1, PLANE_DB_VERSION)
-        Log.d("MY", "PlaneDB/onCreate/Finish")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        Log.d("MY", "PlaneDB/onUpgrade/Start")
         when (oldVersion) {
             1 -> {
                 Log.d("MY", "PlaneDB/onUpgrade/oldVer = 1")
@@ -57,21 +54,17 @@ class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE
                 Log.d("MY", "PlaneDB/onUpgrade/oldVer else")
             }
         }
-        Log.d("MY", "PlaneDB/onUpgrade/Finish")
     }
 
     companion object {
         fun loadFromFireStore() {
-            Log.d("MY", "PlaneDB/loadFromFireStore/Start")
             val firestore = FirebaseFirestore.getInstance()
             firestore.collection(FIRESTORE_COLLECTION_PLANES).get().addOnSuccessListener(
                 OnSuccessListener { documents ->
                     if (documents != null) {
-                        Log.d("MY", "PlaneDB/loadFromFireStore/documents != null")
                         val planeDB = PlaneDB()
                         val db = planeDB.writableDatabase
                         for (document in documents) {
-                            Log.d("MY", "PlaneDB/loadFromFireStore/document.id = " + document.id)
                             if (document.id != "##INFO##") {
                                 val map: Map<String, Any> = document.data
                                 val cv = ContentValues()
@@ -89,10 +82,8 @@ class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE
                                 val cursor = db.query(PLANE_DB_TABLE, null, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null, null, null, null)
                                 if (cursor.moveToFirst()) {
                                     db.update(PLANE_DB_TABLE, cv, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null)
-                                    Log.d("MY","PlaneDB/loadFromFireStore/Upgrade data in DB")
                                 } else {
                                     db.insert(PLANE_DB_TABLE, null, cv)
-                                    Log.d("MY","PlaneDB/loadFromFireStore/Create data in DB")
                                 }
                                 cursor.close()
                             }
@@ -101,7 +92,6 @@ class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE
                     }
                 }
             )
-            Log.d("MY", "PlaneDB/loadFromFireStore/Finish")
         }
     }
 }
