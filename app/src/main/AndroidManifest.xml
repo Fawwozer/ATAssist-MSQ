@@ -22,16 +22,24 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="stateAlwaysHidden|adjustPan|adjustResize"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Settings"></activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ATAssist">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Settings"/>
+
     </application>
 
 </manifest>

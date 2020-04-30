@@ -1,13 +1,17 @@
 package by.fawwozer.atassist
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.AnimatedVectorDrawable
+import android.os.AsyncTask
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import by.fawwozer.atassist.Global.Companion.PREFERENCE_FILE
 import by.fawwozer.atassist.Global.Companion.PREFERENCE_LAST_BACKUP_TIME
 import by.fawwozer.atassist.Global.Companion.PREFERENCE_LAST_RUN_VERSION
@@ -23,11 +27,21 @@ import by.fawwozer.atassist.Global.Companion.SETTING_MAINTENANCE_LITERS_ROUND
 import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_ALLOW
 import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_FLEET
 import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_SCHEDULE
+import dagger.BindsInstance
 import kotlinx.android.synthetic.main.view_splash_screen.*
+import java.util.concurrent.TimeUnit
 
 class SplashScreen : AppCompatActivity() {
 
     lateinit var preference: SharedPreferences
+
+    companion object{
+        lateinit var instance: SplashScreen
+    }
+
+    init {
+        instance = this
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("MY", "SplashScreen/onCreate/Start")
@@ -71,18 +85,27 @@ class SplashScreen : AppCompatActivity() {
 
         //запуск фонового процесса подготовки приложения
 
-        val run = Runnable {
-            Log.d("MY", "SplashScreen/onCreate/Runnable/Start")
+        val async = Async()
+        async.execute()
+        Log.d("MY", "SplashScreen/onCreate/Finish")
+    }
+
+    private class Async: AsyncTask<Void, Void, Void>() {
+        lateinit var context: Context
+        override fun doInBackground(vararg params: Void?): Void? {
+            Log.d("MY", "SplashScreen/Async/doInBackground/Start")
 
             //проверка на версию приложенияб если нет указанной версии
             //то считается что это первый запуск приложения и работает
             //инициализация настроек и запрос разрешений
 
+            val preference: SharedPreferences
+            preference = context.getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
             when (preference.getString(PREFERENCE_LAST_RUN_VERSION,"0")) {
                 R.string.app_code.toString() -> {
-                    Log.d("MY", "SplashScreen/onCreate/Runnable/LAST_RUN_VERSION = 19")}
+                    Log.d("MY", "SplashScreen/Async/doInBackground/LAST_RUN_VERSION = 19")}
                 else -> {
-                    Log.d("MY", "SplashScreen/onCreate/Runnable/LAST_RUN_VERSION else")
+                    Log.d("MY", "SplashScreen/Async/doInBackground/LAST_RUN_VERSION else")
                     ///запросы разрешений
 
                     ///запись начальных настроек приложения
@@ -110,9 +133,24 @@ class SplashScreen : AppCompatActivity() {
                     editor.apply()
                 }
             }
-            Log.d("MY", "SplashScreen/onCreate/Runnable/Finish")
+            //TimeUnit.SECONDS.sleep(10)
+            Log.d("MY", "SplashScreen/Async/doInBackground/Finish")
+            return null
         }
-        run.run()
-        Log.d("MY", "SplashScreen/onCreate/Finish")
+
+        override fun onPostExecute(result: Void?) {
+            super.onPostExecute(result)
+            Log.d("MY", "SplashScreen/Async/onPostExecute")
+            val intent = Intent(context, ATAssist::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            instance.startActivity(intent)
+            instance.finish()
+
+        }
+
+        override fun onPreExecute() {
+            super.onPreExecute()
+            Log.d("MY", "SplashScreen/Async/onPreExecute")
+            context = Global.appContext
+        }
     }
 }

@@ -20,18 +20,22 @@ class Global: Application() {
         val logsDB = LogsDB()
         val checkDB = CheckDB()
         val planeDB = PlaneDB()
+        val fleetDB = FleetDB()
 
         val dblogs = logsDB.writableDatabase
         val dbcheck = checkDB.writableDatabase
         val dbplane = planeDB.writableDatabase
+        val dbfleet = fleetDB.writableDatabase
         dblogs.close()
         dbcheck.close()
         dbplane.close()
+        dbfleet.close()
 
         //загрузка из FireStore
 
         CheckDB.loadFromFireStore()
         PlaneDB.loadFromFireStore()
+        FleetDB.loadFromFireStore()
 
         Log.d("MY", "Global/onCreate/Finish")
     }
@@ -261,6 +265,14 @@ class Global: Application() {
         const val FLEET_DB_NAME = "FleetDB.db"
         const val FLEET_DB_VERSION = 1
         const val FLEET_DB_TABLE = "_IN"
+
+        const val KEY_FLEET_ID = "_ID"
+        const val KEY_FLEET_PLANE = "_PLANE"
+        const val KEY_FLEET_STATUS = "_STATUS"
+        const val KEY_FLEET_DATE = "_DATE"
+        const val KEY_FLEET_TILL = "_TILL"
+        const val KEY_FLEET_HEADER = "_HEAD"
+        const val KEY_FLEET_MESSAGE = "_MESSAGE"
 
         lateinit var instance: Global
             private set

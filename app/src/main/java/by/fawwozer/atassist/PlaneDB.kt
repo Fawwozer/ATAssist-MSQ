@@ -97,6 +97,7 @@ class PlaneDB() : SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE
                                 cursor.close()
                             }
                         }
+                        db.close()
                     }
                 }
             )
