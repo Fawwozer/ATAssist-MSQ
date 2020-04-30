@@ -107,6 +107,7 @@ class Global : Application() {
         const val KEY_LOGS_IS_DONE = "_DONE"
         const val KEY_LOGS_PLANE = "_PLANE_ID"
         const val KEY_LOGS_CHECK = "_CHECK_ID"
+        const val KEY_LOGS_BELAVIA = "_BELAVIA"
 
         const val KEY_LOGS_AFML_2 = "_AFML_2"
         const val KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 = "_AFML_2_HYDR_1"

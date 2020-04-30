@@ -99,8 +99,17 @@ class CheckDataArray {
     }
 
     fun getCheckID(pos: Int): Int {
-        if (checkDataArray.size != 0) return checkDataArray[pos].id
-        else return -1
+        if (checkDataArray.size != 0) return 0
+        return checkDataArray[pos-1].id
+    }
+
+    fun getPosition(id: Int): Int {
+        var i = 1
+        for (checkData in checkDataArray) {
+            if (checkData.id == id) return i
+            i++
+        }
+        return 0
     }
 
     class CheckData {

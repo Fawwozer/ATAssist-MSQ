@@ -116,6 +116,7 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_36
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_37
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_38
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_39
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_BELAVIA
 
 class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
@@ -131,6 +132,7 @@ class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB
                     KEY_LOGS_IS_DONE + " bit, " +
                     KEY_LOGS_PLANE + " tinyint, " +
                     KEY_LOGS_CHECK + " tinyint, " +
+                    KEY_LOGS_BELAVIA + " bit, " +
                     KEY_LOGS_AFML_2 + " bit, " +
                     KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 + " real, " +
                     KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_2 + " real, " +
