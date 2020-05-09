@@ -38,6 +38,8 @@
         <item name="toolbarColor">@color/lightPrimaryColor</item>
         <item name="toolbarTextColor">@color/lightPrimaryTextColorDark</item>
         <item name="navMenuIconColor">@color/lightPrimaryAccentColor</item>
+        <item name="navMenuTextColor">@color/lightPrimaryTextColor</item>
+        <item name="navMenuTextColorSelected">@color/lightPrimaryAccentColor</item>
         <item name="belaviaDialogTintColor">@color/lightPrimaryAccentColor</item>
         <item name="colorDMI">@color/lightColorDMI</item>
         <item name="colorINOP">@color/lightColorINOP</item>
@@ -67,6 +69,8 @@
         <item name="toolbarColor">@color/darkPrimaryColorDark</item>
         <item name="toolbarTextColor">@color/darkPrimaryTextColorDark</item>
         <item name="navMenuIconColor">@color/darkPrimaryAccentColor</item>
+        <item name="navMenuTextColor">@color/darkPrimaryTextColor</item>
+        <item name="navMenuTextColorSelected">@color/darkPrimaryAccentColor</item>
         <item name="belaviaDialogTintColor">@color/darkPrimaryTextColor</item>
         <item name="colorDMI">@color/darkColorDMI</item>
         <item name="colorINOP">@color/darkColorINOP</item>

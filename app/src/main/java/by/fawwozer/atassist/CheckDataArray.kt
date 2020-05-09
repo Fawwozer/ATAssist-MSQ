@@ -25,7 +25,6 @@ class CheckDataArray {
     fun createForType(set_type: Int) {
         checkDataArray.clear()
         var i = 0
-        val context = Global.appContext
         val checkDB = CheckDB()
         val db = checkDB.writableDatabase
         val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null)

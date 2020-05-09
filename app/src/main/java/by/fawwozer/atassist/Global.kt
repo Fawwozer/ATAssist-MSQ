@@ -53,7 +53,7 @@ class Global : Application() {
 
         ////PREFERENCES\\\\
 
-        const val PREFERENCE_FILE = "app_preference"
+        const val PREFERENCE_FILE = "by.fawwozer.atassist_preferences"
         const val PREFERENCE_LAST_RUN_VERSION = "last_run"
         const val PREFERENCE_LAST_BACKUP_TIME = "last_backup"
 
@@ -178,6 +178,7 @@ class Global : Application() {
         const val KEY_LOGS_APU_SERIAL_NUMBER = "_APU_S_N"
 
         const val KEY_LOGS_AFML_9 = "_AFML_9"
+        const val KEY_LOGS_AFML_9_WORKS = "_AFML_9_W"
         const val KEY_LOGS_AFML_9_WORK_00 = "_AFML_9_W_00"
         const val KEY_LOGS_AFML_9_WORK_01 = "_AFML_9_W_01"
         const val KEY_LOGS_AFML_9_WORK_02 = "_AFML_9_W_02"

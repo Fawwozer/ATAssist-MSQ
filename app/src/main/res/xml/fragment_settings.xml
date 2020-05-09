@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <PreferenceCategory android:title="General settings">
+            <EditTextPreference
+                android:key="sch_del"
+                android:defaultValue="14"
+                android:layout="@layout/adapter_preference_2"
+                android:maxLength="2"
+                android:numeric="integer"
+                android:summary="14 hours"
+                android:title="settings_delete_entry" />
+
+            <SwitchPreference
+                android:key="log_del"
+                android:defaultValue="false"
+                android:layout="@layout/adapter_preference_1"
+                android:summaryOff="Deletion denied"
+                android:summaryOn="Deletion allowed"
+                android:title="settings_delete_log" />
+
+            <SwitchPreference
+                android:key="notif"
+                android:defaultValue="false"
+                android:layout="@layout/adapter_preference_1"
+                android:summaryOff="Notification On"
+                android:summaryOn="Notification Off"
+                android:title="settings_notification" />
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:title="Maintenance settings">
+
+            <ListPreference
+                android:key="f_round"
+                android:defaultValue="0"
+                android:layout="@layout/adapter_preference_2"
+                android:summary="0 Liters"
+                android:title="Round fuel liters" />
+
+            <SwitchPreference
+                android:key="lb_100"
+                android:defaultValue="false"
+                android:layout="@layout/adapter_preference_1"
+                android:summaryOff="5000lb /2.2046 = 2268kg -> 2268kg"
+                android:summaryOn="5000lb /2.2046 = 2268kg -> 2300kg"
+                android:title="settings_lb_100" />
+
+            <SwitchPreference
+                android:key="de_ice"
+                android:defaultValue="false"
+                android:layout="@layout/adapter_preference_1"
+                android:summaryOn="De-ice record is hidden"
+                android:summaryOff="De-ice record is shown"
+                android:title="settings_deice" />
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="cat_bck"
+            android:title="Back-up settings">
+
+            <EditTextPreference
+                android:key="a_bkp"
+                android:defaultValue="7"
+                android:maxLength="2"
+                android:numeric="integer"
+                android:layout="@layout/adapter_preference_2"
+                android:summary="7 days"
+                android:title="settings_auto_backup" />
+<!--
+            <Preference
+                android:key="bt_sing"
+                android:layout="@layout/util_preference_button"
+                android:title="Login" />
+
+            <Preference
+                android:key="bt_export"
+                android:layout="@layout/util_preference_button"
+                android:title="Export Logs" />
+
+            <Preference
+                android:key="bt_import"
+                android:layout="@layout/util_preference_button"
+                android:title="Import Logs" />
+-->
+        </PreferenceCategory>
+    </PreferenceScreen>

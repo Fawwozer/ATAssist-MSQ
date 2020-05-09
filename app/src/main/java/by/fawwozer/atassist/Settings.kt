@@ -1,26 +1,45 @@
 package by.fawwozer.atassist
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.preference.PreferenceActivity
+import android.util.Log
+import androidx.preference.PreferenceFragment
 
-class Settings : AppCompatActivity() {
+class Settings: PreferenceActivity() {
 
-    lateinit var preference: SharedPreferences
-
-    override fun onCreate(savedInstanceState: Bundle?) {preference = getSharedPreferences(Global.PREFERENCE_FILE, Context.MODE_PRIVATE)
+    var fragments = emptyArray<String>()
+    override fun onBuildHeaders(target: MutableList<Header>?) {
+        val preference = getSharedPreferences(Global.PREFERENCE_FILE, Context.MODE_PRIVATE)
+        Log.d("MY", "Theme: " + preference.getString(Global.SETTING_GENERAL_APPLICATION_THEME, "10"))
         if (preference.contains(Global.SETTING_GENERAL_APPLICATION_THEME)) {
-            when (preference.getInt(Global.SETTING_GENERAL_APPLICATION_THEME, 0)) {
-                0 -> setTheme(R.style.AppTheme_FullScreen_Light)
-                1 -> setTheme(R.style.AppTheme_FullScreen_Dark)
+            when (preference.getString(Global.SETTING_GENERAL_APPLICATION_THEME, "0")) {
+                "0" -> setTheme(R.style.AppTheme_Light)
+                "1" -> setTheme(R.style.AppTheme_Dark)
             }
         } else {
-            setTheme(R.style.AppTheme_Light)
+            setTheme(R.style.AppTheme_Dark)
         }
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_settings)
+        loadHeadersFromResource(R.xml.settings_headers,target)
+        for (header in target!!) {
+            fragments += header.fragment
+        }
+    }
 
+    override fun isValidFragment(fragmentName: String?): Boolean {
+        return fragments.contains(fragmentName)
+    }
 
+    class GeneralSettingsFragment: PreferenceFragment() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.preference_general, rootKey)
+        }
+    }
+
+    class MaintenanceSettingsFragment: PreferenceFragment() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.preference_maintenance, rootKey)
+        }
     }
 }

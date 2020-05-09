@@ -8,6 +8,8 @@
     <attr name="toolbarColor"/>
     <attr name="toolbarTextColor"/>
     <attr name="navMenuIconColor"/>
+    <attr name="navMenuTextColor"/>
+    <attr name="navMenuTextColorSelected"/>
     <attr name="belaviaDialogTintColor"/>
     <attr name="colorDMI"/>
     <attr name="colorINOP"/>

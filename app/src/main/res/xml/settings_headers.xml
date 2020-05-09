@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header android:fragment="by.fawwozer.atassist.Settings$GeneralSettingsFragment"
+        android:title="General"
+        android:summary="summary"/>
+
+    <header android:fragment="by.fawwozer.atassist.Settings$MaintenanceSettingsFragment"
+        android:title="Maintenance"
+        android:summary="summary"/>
+</preference-headers>

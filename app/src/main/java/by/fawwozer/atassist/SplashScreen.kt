@@ -49,9 +49,9 @@ class SplashScreen : AppCompatActivity() {
 
         preference = getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
         if (preference.contains(SETTING_GENERAL_APPLICATION_THEME)) {
-            when (preference.getInt(SETTING_GENERAL_APPLICATION_THEME, 0)) {
-                0 -> setTheme(R.style.AppTheme_FullScreen_Light)
-                1 -> setTheme(R.style.AppTheme_FullScreen_Dark)
+            when (preference.getString(SETTING_GENERAL_APPLICATION_THEME, "0")) {
+                "0" -> setTheme(R.style.AppTheme_FullScreen_Light)
+                "1" -> setTheme(R.style.AppTheme_FullScreen_Dark)
             }
         } else {
             setTheme(R.style.AppTheme_FullScreen_Light)
@@ -98,11 +98,11 @@ class SplashScreen : AppCompatActivity() {
 
                     val editor = preference.edit()
 
-                    editor.putInt(SETTING_GENERAL_APPLICATION_THEME,0)
-                    editor.putInt(SETTING_MAINTENANCE_LITERS_ROUND,0)
-                    editor.putInt(SETTING_BACKUP_TIME,0)
+                    editor.putString(SETTING_GENERAL_APPLICATION_THEME,"0")
+                    editor.putString(SETTING_MAINTENANCE_LITERS_ROUND,"0")
+                    editor.putString(SETTING_BACKUP_TIME,"0")
 
-                    editor.putLong(SETTING_GENERAL_SCHEDULE_CLEAR_TIME,0)
+                    editor.putString(SETTING_GENERAL_SCHEDULE_CLEAR_TIME,"0")
 
                     editor.putBoolean(SETTING_GENERAL_DELETE_LOGS,false)
                     editor.putBoolean(SETTING_MAINTENANCE_KG_ROUND,false)
@@ -114,7 +114,7 @@ class SplashScreen : AppCompatActivity() {
                     editor.putBoolean(SETTING_NOTIFICATION_FLEET,false)
 
                     editor.putString(PREFERENCE_LAST_RUN_VERSION, R.string.app_code.toString())
-                    editor.putLong(PREFERENCE_LAST_BACKUP_TIME,0)
+                    editor.putString(PREFERENCE_LAST_BACKUP_TIME, "0")
 
                     editor.apply()
                 }
@@ -124,7 +124,8 @@ class SplashScreen : AppCompatActivity() {
 
         override fun onPostExecute(result: Void?) {
             super.onPostExecute(result)
-            val intent = Intent(context, ATAssist::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            //val intent = Intent(context, ATAssist::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            val intent = Intent(context, Settings::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
             instance.startActivity(intent)
             instance.finish()
 

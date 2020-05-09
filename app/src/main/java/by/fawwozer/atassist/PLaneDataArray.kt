@@ -93,6 +93,17 @@ class PLaneDataArray {
         return planeDataArray[pos-1].id
     }
 
+    fun getPlaneID(kobra: String): Int {
+        if (planeDataArray.size == 0) return 0
+        for (planeData in planeDataArray)
+        {
+            if (planeData.kobraName == kobra){
+                return planeData.id
+            }
+        }
+        return 0
+    }
+
     fun getPosition(id: Int): Int {
         var i = 1
         for (planeData in planeDataArray) {

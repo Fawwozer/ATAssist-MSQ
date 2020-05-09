@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/dl_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -37,7 +38,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:tint="?attr/toolbarTextColor"
-                        app:srcCompat="@drawable/ic_launcher"/>
+                        app:srcCompat="@drawable/ic_launcher" />
 
                     <TextView
                         android:id="@+id/toolbar_main_title"
@@ -45,18 +46,18 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_toEndOf="@id/toolbar_main_icon"
-                        android:layout_toStartOf="@id/toolbar_main_menu"
                         android:layout_marginStart="6dp"
-                        android:gravity="center_vertical"
+                        android:layout_toStartOf="@id/toolbar_main_menu"
+                        android:layout_toEndOf="@id/toolbar_main_icon"
                         android:ellipsize="end"
-                        android:singleLine="true"
-                        android:maxLines="1"
-                        android:text="@string/app_name"
                         android:fontFamily="@font/commons"
-                        android:textStyle="italic|bold"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/app_name"
                         android:textColor="?attr/toolbarTextColor"
-                        android:textSize="28sp" />
+                        android:textSize="28sp"
+                        android:textStyle="italic|bold" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/toolbar_main_menu"
@@ -73,23 +74,63 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-
         <!-- include from here -->
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:orientation="vertical">
 
+            <fragment
+                android:id="@+id/fragment_schedule"
+                android:name="by.fawwozer.atassist.ATAssist$ScheduleFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/fragment_fleet_info"
+                android:name="by.fawwozer.atassist.ATAssist$FleetInfoFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/fragment_fuel_calculator"
+                android:name="by.fawwozer.atassist.ATAssist$FuelCalculatorFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/fragment_kobra"
+                android:name="by.fawwozer.atassist.ATAssist$KobraFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/fragment_msq_info"
+                android:name="by.fawwozer.atassist.ATAssist$MSQInfoFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <fragment
+                android:id="@+id/fragment_logs"
+                android:name="by.fawwozer.atassist.ATAssist$LogsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
         <!-- include to here -->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/nv_main"
         android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:itemIconTint="?attr/navMenuIconColor"
         app:headerLayout="@layout/util_header_nav_view"
-        app:menu="@menu/menu_main_navigation"/>
+        app:itemIconTint="?attr/navMenuIconColor"
+        app:menu="@menu/menu_main_navigation" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

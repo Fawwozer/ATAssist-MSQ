@@ -76,6 +76,7 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_HOURS
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_HOURS_ON_PLANE
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_SERIAL_NUMBER
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9
+import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORKS
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_00
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_01
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_02
@@ -193,6 +194,7 @@ class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB
                     KEY_LOGS_APU_HOURS_ON_PLANE + " real, " +
                     KEY_LOGS_APU_SERIAL_NUMBER + " text, " +
                     KEY_LOGS_AFML_9 + " long, " +
+                    KEY_LOGS_AFML_9_WORKS + " text, " +
                     KEY_LOGS_AFML_9_WORK_00 + " bit, " +
                     KEY_LOGS_AFML_9_WORK_01 + " bit, " +
                     KEY_LOGS_AFML_9_WORK_02 + " bit, " +
