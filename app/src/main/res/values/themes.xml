@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -14,7 +14,7 @@
     <style name="AppTheme.FullScreen.Light">
         <item name="android:colorBackground">@color/lightPrimaryBackgroundColor</item>
         <item name="android:textColor">@color/lightPrimaryColorDark</item>
-        <item name="android:tint">@color/lightPrimaryAccentColor</item>
+        <item name="android:tint">@color/lightPrimaryColor</item>
     </style>
 
     <style name="AppTheme.FullScreen.Dark">
@@ -30,15 +30,18 @@
         <item name="colorAccent">@color/lightPrimaryColor</item>
         <item name="android:textColor">@color/lightPrimaryTextColor</item>
         <item name="android:textColorPrimary">@color/lightPrimaryTextColor</item>
+        <item name="android:statusBarColor">@color/lightPrimaryColorDark</item>
+        <item name="android:navigationBarColor">@color/lightPrimaryColorDark</item>
 
         <item name="scheduleTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="bottomAppBarStyle">@style/BottomAppBarStyle.Light</item>
 
         <item name="scheduleIconColor">@color/lightPrimaryColorDark</item>
         <item name="notificationIconColor">@color/lightPrimaryAccentColor</item>
         <item name="toolbarColor">@color/lightPrimaryColor</item>
         <item name="toolbarTextColor">@color/lightPrimaryTextColorDark</item>
-        <item name="navMenuIconColor">@color/lightPrimaryAccentColor</item>
-        <item name="navMenuTextColor">@color/lightPrimaryTextColor</item>
+        <item name="navMenuIconColor">@color/lightPrimaryTextColorDark</item>
+        <item name="navMenuTextColor">@color/lightPrimaryTextColorDark</item>
         <item name="navMenuTextColorSelected">@color/lightPrimaryAccentColor</item>
         <item name="belaviaDialogTintColor">@color/lightPrimaryAccentColor</item>
         <item name="colorDMI">@color/lightColorDMI</item>
@@ -61,8 +64,11 @@
         <item name="colorAccent">@color/darkPrimaryColor</item>
         <item name="android:textColor">@color/darkPrimaryTextColor</item>
         <item name="android:textColorPrimary">@color/darkPrimaryTextColor</item>
+        <item name="android:statusBarColor">@color/darkPrimaryColorDark</item>
+        <item name="android:navigationBarColor">@color/darkPrimaryColorDark</item>
 
         <item name="scheduleTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="bottomAppBarStyle">@style/BottomAppBarStyle.Dark</item>
 
         <item name="scheduleIconColor">@color/darkPrimaryTextColor</item>
         <item name="notificationIconColor">@color/darkPrimaryTextColor</item>

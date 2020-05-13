@@ -47,15 +47,16 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
     }
 
     companion object {
-        fun loadFromFireStore() {
+        fun loadFromFireStore() { //загрузка данных из FireStore
             val firestore = FirebaseFirestore.getInstance()
-            firestore.collection(FIRESTORE_COLLECTION_FLEET)
+            firestore.collection(FIRESTORE_COLLECTION_FLEET)  // подключается слушатель изменений
                 .addSnapshotListener { documents, error ->
+                    //обработка ошибки
                     if (error != null) {
                         Log.d("MY", "FleetDB/loadFromFireStore/addSnapshotListener/Error $error")
                         return@addSnapshotListener
                     }
-
+                    //если получены данные, они обрабатываются
                     if (documents != null) {
                         val fleetDB = FleetDB()
                         val db = fleetDB.writableDatabase
@@ -70,15 +71,15 @@ class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET
                                 cv.put(KEY_FLEET_TILL, map[KEY_FLEET_TILL] as Long)
                                 cv.put(KEY_FLEET_HEADER, map[KEY_FLEET_HEADER] as String)
                                 cv.put(KEY_FLEET_MESSAGE, map[KEY_FLEET_MESSAGE] as String)
-                                val cursor = db.query(FLEET_DB_TABLE, null, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null, null, null, null)
-                                if (cursor.moveToFirst()) db.update(FLEET_DB_TABLE, cv, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null)
+                                val cursor = db.query(FLEET_DB_TABLE, null, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null, null, null, null) //если запись существует в базе данных, она обновляется
+                                if (cursor.moveToFirst()) db.update(FLEET_DB_TABLE, cv, KEY_FLEET_ID + " = '" + map[KEY_FLEET_ID] + "'", null) //если запись не существует, то создается новая запись
                                 else db.insert(FLEET_DB_TABLE, null, cv)
                                 cursor.close()
                             }
                         }
                         db.close()
 
-                        //показать оповещение
+                        //показывается оповещение об изменениях
 
                         if (documents.size() > 1) {
                             //изменилось несколько записей

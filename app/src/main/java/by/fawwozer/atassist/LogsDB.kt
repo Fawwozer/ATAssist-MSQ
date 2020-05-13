@@ -119,138 +119,138 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_38
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_39
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_BELAVIA
 
-class LogsDB() : SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
-    override fun onCreate(db: SQLiteDatabase?) {
-        db!!.execSQL(
-            "CREATE TABLE " + LOGS_DB_TABLE + "( " +
-                    KEY_LOGS_ID + " integer PRIMARY KEY AUTOINCREMENT, " +
-                    KEY_LOGS_SORT + " long, " +
-                    KEY_LOGS_FLIGHT_NUMBER + " text, " +
-                    KEY_LOGS_FLIGHT_DESTINATION + " text, " +
-                    KEY_LOGS_ARRIVAL_TIME + " long, " +
-                    KEY_LOGS_DEPARTURE_TIME + " long, " +
-                    KEY_LOGS_STAND + " text, " +
-                    KEY_LOGS_IS_DONE + " bit, " +
-                    KEY_LOGS_PLANE + " tinyint, " +
-                    KEY_LOGS_CHECK + " tinyint, " +
-                    KEY_LOGS_BELAVIA + " bit, " +
-                    KEY_LOGS_AFML_2 + " bit, " +
-                    KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 + " real, " +
-                    KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_2 + " real, " +
-                    KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_3 + " real, " +
-                    KEY_LOGS_AFML_3 + " bit, " +
-                    KEY_LOGS_AFML_3_KG_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_3_KG_ADD + " integer, " +
-                    KEY_LOGS_AFML_3_KG_TOTAL + " integer, " +
-                    KEY_LOGS_AFML_3_KG_ADJUST + " integer, " +
-                    KEY_LOGS_AFML_3_KG_DEPART + " integer, " +
-                    KEY_LOGS_AFML_3_LB_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_3_LB_ADD + " integer, " +
-                    KEY_LOGS_AFML_3_LB_TOTAL + " integer, " +
-                    KEY_LOGS_AFML_3_LB_ADJUST + " integer, " +
-                    KEY_LOGS_AFML_3_LB_DEPART + " integer, " +
-                    KEY_LOGS_AFML_3_INFO_TEMPERATURE + " integer, " +
-                    KEY_LOGS_AFML_3_INFO_DENSITY + " real, " +
-                    KEY_LOGS_AFML_3_INFO_FUEL_CARD + " text, " +
-                    KEY_LOGS_AFML_3_INFO_REFUELER + " text, " +
-                    KEY_LOGS_AFML_3_INFO_FUEL_ORDER + " text, " +
-                    KEY_LOGS_AFML_4 + " long, " +
-                    KEY_LOGS_AFML_4_FUEL + " bit, " +
-                    KEY_LOGS_AFML_4_NOTES + " bit, " +
-                    KEY_LOGS_AFML_4_LIFE_VEST_SEAT + " bit, " +
-                    KEY_LOGS_AFML_4_LIFE_VEST_SPARE + " bit, " +
-                    KEY_LOGS_AFML_4_SEAT_BELTS + " bit, " +
-                    KEY_LOGS_AFML_4_DOCUMENTS + " bit, " +
-                    KEY_LOGS_AFML_4_OTHER + " bit, " +
-                    KEY_LOGS_AFML_5 + " bit, " +
-                    KEY_LOGS_AFML_5_ENGINE_1_REMAIN + " real, " +
-                    KEY_LOGS_AFML_5_ENGINE_1_ADD + " real, " +
-                    KEY_LOGS_AFML_5_ENGINE_2_REMAIN + " real, " +
-                    KEY_LOGS_AFML_5_ENGINE_2_ADD + " real, " +
-                    KEY_LOGS_AFML_6 + " long, " +
-                    KEY_LOGS_AFML_6_N1_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_6_N2_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_6_M1_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_6_M2_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_6_M3_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_6_M4_REMAIN + " integer, " +
-                    KEY_LOGS_AFML_6_N1_ADD + " integer, " +
-                    KEY_LOGS_AFML_6_N2_ADD + " integer, " +
-                    KEY_LOGS_AFML_6_M1_ADD + " integer, " +
-                    KEY_LOGS_AFML_6_M2_ADD + " integer, " +
-                    KEY_LOGS_AFML_6_M3_ADD + " integer, " +
-                    KEY_LOGS_AFML_6_M4_ADD + " integer, " +
-                    KEY_LOGS_AFML_10 + " long, " +
-                    KEY_LOGS_AFML_11 + " long, " +
-                    KEY_LOGS_AFML_11_TYPE + " tinyint, " +
-                    KEY_LOGS_AFML_11_CONCENTRATION + " long, " +
-                    KEY_LOGS_COMMERCIAL_BAGGAGE_START + " long, " +
-                    KEY_LOGS_COMMERCIAL_BAGGAGE_END + " long, " +
-                    KEY_LOGS_COMMERCIAL_PASSENGERS_START + " long, " +
-                    KEY_LOGS_COMMERCIAL_PASSENGERS_END + " long, " +
-                    KEY_LOGS_COMMERCIAL_DOORS_CLOSE + " long, " +
-                    KEY_LOGS_APU_CYCLES + " real, " +
-                    KEY_LOGS_APU_HOURS + " real, " +
-                    KEY_LOGS_APU_HOURS_ON_PLANE + " real, " +
-                    KEY_LOGS_APU_SERIAL_NUMBER + " text, " +
-                    KEY_LOGS_AFML_9 + " long, " +
-                    KEY_LOGS_AFML_9_WORKS + " text, " +
-                    KEY_LOGS_AFML_9_WORK_00 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_01 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_02 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_03 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_04 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_05 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_06 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_07 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_08 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_09 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_10 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_11 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_12 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_13 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_14 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_15 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_16 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_17 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_18 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_19 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_20 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_21 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_22 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_23 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_24 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_25 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_26 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_27 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_28 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_29 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_30 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_31 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_32 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_33 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_34 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_35 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_36 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_37 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_38 + " bit, " +
-                    KEY_LOGS_AFML_9_WORK_39 + " bit" +
-                    ");"
-        )
-        onUpgrade(db, 1, LOGS_DB_VERSION)
-    }
-
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        when (oldVersion) {
-            1 -> {
-                Log.d("MY", "LogsDB/onUpgrade/oldVer = 1")
-            }
-            2 -> {
-                Log.d("MY", "LogsDB/onUpgrade/oldVer = 2")
-            }
-            else -> {
-                Log.d("MY", "LogsDB/onUpgrade/oldVer else")
-            }
-        }
-    }
+class LogsDB(): SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VERSION) {
+	override fun onCreate(db: SQLiteDatabase?) {
+		db!!.execSQL(
+			"CREATE TABLE " + LOGS_DB_TABLE + "( " +
+					KEY_LOGS_ID + " integer PRIMARY KEY AUTOINCREMENT, " +
+					KEY_LOGS_SORT + " long, " +
+					KEY_LOGS_FLIGHT_NUMBER + " text, " +
+					KEY_LOGS_FLIGHT_DESTINATION + " text, " +
+					KEY_LOGS_ARRIVAL_TIME + " long, " +
+					KEY_LOGS_DEPARTURE_TIME + " long, " +
+					KEY_LOGS_STAND + " text, " +
+					KEY_LOGS_IS_DONE + " bit, " +
+					KEY_LOGS_PLANE + " tinyint, " +
+					KEY_LOGS_CHECK + " tinyint, " +
+					KEY_LOGS_BELAVIA + " bit, " +
+					KEY_LOGS_AFML_2 + " bit, " +
+					KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 + " real, " +
+					KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_2 + " real, " +
+					KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_3 + " real, " +
+					KEY_LOGS_AFML_3 + " bit, " +
+					KEY_LOGS_AFML_3_KG_REMAIN + " integer, " +
+					KEY_LOGS_AFML_3_KG_ADD + " integer, " +
+					KEY_LOGS_AFML_3_KG_TOTAL + " integer, " +
+					KEY_LOGS_AFML_3_KG_ADJUST + " integer, " +
+					KEY_LOGS_AFML_3_KG_DEPART + " integer, " +
+					KEY_LOGS_AFML_3_LB_REMAIN + " integer, " +
+					KEY_LOGS_AFML_3_LB_ADD + " integer, " +
+					KEY_LOGS_AFML_3_LB_TOTAL + " integer, " +
+					KEY_LOGS_AFML_3_LB_ADJUST + " integer, " +
+					KEY_LOGS_AFML_3_LB_DEPART + " integer, " +
+					KEY_LOGS_AFML_3_INFO_TEMPERATURE + " integer, " +
+					KEY_LOGS_AFML_3_INFO_DENSITY + " real, " +
+					KEY_LOGS_AFML_3_INFO_FUEL_CARD + " text, " +
+					KEY_LOGS_AFML_3_INFO_REFUELER + " text, " +
+					KEY_LOGS_AFML_3_INFO_FUEL_ORDER + " text, " +
+					KEY_LOGS_AFML_4 + " long, " +
+					KEY_LOGS_AFML_4_FUEL + " bit, " +
+					KEY_LOGS_AFML_4_NOTES + " bit, " +
+					KEY_LOGS_AFML_4_LIFE_VEST_SEAT + " bit, " +
+					KEY_LOGS_AFML_4_LIFE_VEST_SPARE + " bit, " +
+					KEY_LOGS_AFML_4_SEAT_BELTS + " bit, " +
+					KEY_LOGS_AFML_4_DOCUMENTS + " bit, " +
+					KEY_LOGS_AFML_4_OTHER + " bit, " +
+					KEY_LOGS_AFML_5 + " bit, " +
+					KEY_LOGS_AFML_5_ENGINE_1_REMAIN + " real, " +
+					KEY_LOGS_AFML_5_ENGINE_1_ADD + " real, " +
+					KEY_LOGS_AFML_5_ENGINE_2_REMAIN + " real, " +
+					KEY_LOGS_AFML_5_ENGINE_2_ADD + " real, " +
+					KEY_LOGS_AFML_6 + " long, " +
+					KEY_LOGS_AFML_6_N1_REMAIN + " integer, " +
+					KEY_LOGS_AFML_6_N2_REMAIN + " integer, " +
+					KEY_LOGS_AFML_6_M1_REMAIN + " integer, " +
+					KEY_LOGS_AFML_6_M2_REMAIN + " integer, " +
+					KEY_LOGS_AFML_6_M3_REMAIN + " integer, " +
+					KEY_LOGS_AFML_6_M4_REMAIN + " integer, " +
+					KEY_LOGS_AFML_6_N1_ADD + " integer, " +
+					KEY_LOGS_AFML_6_N2_ADD + " integer, " +
+					KEY_LOGS_AFML_6_M1_ADD + " integer, " +
+					KEY_LOGS_AFML_6_M2_ADD + " integer, " +
+					KEY_LOGS_AFML_6_M3_ADD + " integer, " +
+					KEY_LOGS_AFML_6_M4_ADD + " integer, " +
+					KEY_LOGS_AFML_10 + " long, " +
+					KEY_LOGS_AFML_11 + " long, " +
+					KEY_LOGS_AFML_11_TYPE + " tinyint, " +
+					KEY_LOGS_AFML_11_CONCENTRATION + " long, " +
+					KEY_LOGS_COMMERCIAL_BAGGAGE_START + " long, " +
+					KEY_LOGS_COMMERCIAL_BAGGAGE_END + " long, " +
+					KEY_LOGS_COMMERCIAL_PASSENGERS_START + " long, " +
+					KEY_LOGS_COMMERCIAL_PASSENGERS_END + " long, " +
+					KEY_LOGS_COMMERCIAL_DOORS_CLOSE + " long, " +
+					KEY_LOGS_APU_CYCLES + " real, " +
+					KEY_LOGS_APU_HOURS + " real, " +
+					KEY_LOGS_APU_HOURS_ON_PLANE + " real, " +
+					KEY_LOGS_APU_SERIAL_NUMBER + " text, " +
+					KEY_LOGS_AFML_9 + " long, " +
+					KEY_LOGS_AFML_9_WORKS + " text, " +
+					KEY_LOGS_AFML_9_WORK_00 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_01 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_02 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_03 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_04 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_05 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_06 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_07 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_08 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_09 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_10 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_11 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_12 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_13 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_14 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_15 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_16 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_17 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_18 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_19 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_20 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_21 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_22 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_23 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_24 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_25 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_26 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_27 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_28 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_29 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_30 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_31 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_32 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_33 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_34 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_35 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_36 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_37 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_38 + " bit, " +
+					KEY_LOGS_AFML_9_WORK_39 + " bit" +
+					");"
+		)
+		onUpgrade(db, 1, LOGS_DB_VERSION)
+	}
+	
+	override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+		when (oldVersion) {
+			1 -> {
+				Log.d("MY", "LogsDB/onUpgrade/oldVer = 1")
+			}
+			2 -> {
+				Log.d("MY", "LogsDB/onUpgrade/oldVer = 2")
+			}
+			else -> {
+				Log.d("MY", "LogsDB/onUpgrade/oldVer else")
+			}
+		}
+	}
 }

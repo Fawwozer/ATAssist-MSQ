@@ -12,4 +12,11 @@
         <item name="android:textColor">@color/darkPrimaryTextColor</item>
     </style>
 
+    <style name="BottomAppBarStyle"/>
+    <style name="BottomAppBarStyle.Light">
+        <item name="backgroundTint">@color/lightPrimaryColorDark</item>
+    </style>
+    <style name="BottomAppBarStyle.Dark">
+        <item name="backgroundTint">@color/darkPrimaryColorDark</item>
+    </style>
 </resources>

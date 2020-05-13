@@ -1,136 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    android:id="@+id/dl_main"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/toolbarHeight"
+            android:background="?attr/toolbarColor"
+            app:layout_anchor="@+id/appBarLayout"
+            app:layout_anchorGravity="center">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_main"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/toolbarColor"
-                app:layout_anchor="@+id/appBarLayout"
-                app:layout_anchorGravity="center">
+                android:layout_height="match_parent"
+                android:padding="3dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="3dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/toolbar_main_icon"
+                    android:layout_width="@dimen/toolbarHeight"
+                    android:layout_height="@dimen/toolbarHeight"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:tint="?attr/toolbarTextColor"
+                    app:srcCompat="@drawable/ic_launcher" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/toolbar_main_icon"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
-                        android:tint="?attr/toolbarTextColor"
-                        app:srcCompat="@drawable/ic_launcher" />
+                <TextView
+                    android:id="@+id/toolbar_main_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="6dp"
+                    android:layout_toEndOf="@id/toolbar_main_icon"
+                    android:layout_toStartOf="@id/toolbar_main_calculator"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/commons"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/app_name"
+                    android:textColor="?attr/toolbarTextColor"
+                    android:textSize="20sp"
+                    android:textStyle="italic|bold" />
 
-                    <TextView
-                        android:id="@+id/toolbar_main_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="6dp"
-                        android:layout_toStartOf="@id/toolbar_main_menu"
-                        android:layout_toEndOf="@id/toolbar_main_icon"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/commons"
-                        android:gravity="center_vertical"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="@string/app_name"
-                        android:textColor="?attr/toolbarTextColor"
-                        android:textSize="28sp"
-                        android:textStyle="italic|bold" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/toolbar_main_calculator"
+                    android:layout_width="@dimen/toolbarHeight"
+                    android:layout_height="@dimen/toolbarHeight"
+                    android:layout_toStartOf="@id/toolbar_main_reload"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerVertical="true"
+                    android:tint="?attr/toolbarTextColor"
+                    app:srcCompat="@drawable/ic_calculator" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/toolbar_main_menu"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:tint="?attr/toolbarTextColor"
-                        app:srcCompat="@drawable/ic_dots_vertical" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/toolbar_main_reload"
+                    android:layout_width="@dimen/toolbarHeight"
+                    android:layout_height="@dimen/toolbarHeight"
+                    android:layout_toStartOf="@id/toolbar_main_settings"
+                    android:layout_marginEnd="8dp"
+                    android:layout_centerVertical="true"
+                    android:tint="?attr/toolbarTextColor"
+                    app:srcCompat="@drawable/ic_sync" />
 
-                </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/toolbar_main_settings"
+                    android:layout_width="@dimen/toolbarHeight"
+                    android:layout_height="@dimen/toolbarHeight"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:tint="?attr/toolbarTextColor"
+                    app:srcCompat="@drawable/ic_settings" />
 
-            </androidx.appcompat.widget.Toolbar>
+            </RelativeLayout>
 
-        </com.google.android.material.appbar.AppBarLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-        <!-- include from here -->
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:orientation="vertical">
-
-            <fragment
-                android:id="@+id/fragment_schedule"
-                android:name="by.fawwozer.atassist.ATAssist$ScheduleFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fragment
-                android:id="@+id/fragment_fleet_info"
-                android:name="by.fawwozer.atassist.ATAssist$FleetInfoFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fragment
-                android:id="@+id/fragment_fuel_calculator"
-                android:name="by.fawwozer.atassist.ATAssist$FuelCalculatorFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fragment
-                android:id="@+id/fragment_kobra"
-                android:name="by.fawwozer.atassist.ATAssist$KobraFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fragment
-                android:id="@+id/fragment_msq_info"
-                android:name="by.fawwozer.atassist.ATAssist$MSQInfoFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <fragment
-                android:id="@+id/fragment_logs"
-                android:name="by.fawwozer.atassist.ATAssist$LogsFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-        <!-- include to here -->
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nv_main"
-        android:layout_width="@dimen/nav_drawer_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/util_header_nav_view"
-        app:itemIconTint="?attr/navMenuIconColor"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bab_main"
+        style="?attr/bottomAppBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottomAppBarHeight"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="end"
+        app:fabCradleMargin="5dp"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:itemIconTint="@color/lightPrimaryBackgroundColor"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_main_navigation" />
 
-</androidx.drawerlayout.widget.DrawerLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        android:backgroundTint="?attr/navMenuTextColorSelected"
+        app:borderWidth="0dp"
+        app:layout_anchor="@id/bab_main" />
+
+    <!-- include fragments from here -->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_schedule"
+        android:name="by.fawwozer.atassist.ATAssist$ScheduleFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_fleet_info"
+        android:name="by.fawwozer.atassist.ATAssist$FleetInfoFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_fuel_calculator"
+        android:name="by.fawwozer.atassist.ATAssist$FuelCalculatorFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_kobra"
+        android:name="by.fawwozer.atassist.ATAssist$KobraFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_msq_info"
+        android:name="by.fawwozer.atassist.ATAssist$MSQInfoFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_logs"
+        android:name="by.fawwozer.atassist.ATAssist$LogsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <!-- include fragments to here -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

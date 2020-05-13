@@ -2,4 +2,6 @@
     <dimen name="nav_drawer_width">304dp</dimen>
     <dimen name="fleet_nav_drawer_width">175dp</dimen>
     <dimen name="navDrawer_header_height">170dp</dimen>
+    <dimen name="bottomAppBarHeight">56dp</dimen>
+    <dimen name="toolbarHeight">30dp</dimen>
 </resources>

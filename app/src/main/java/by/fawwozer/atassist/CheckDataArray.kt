@@ -22,18 +22,19 @@ class CheckDataArray {
     var size = 0
     private var checkDataArray = ArrayList<CheckData>()
 
+    //создание массива данных для всех чеков отределённого типа ВС (Type)
     fun createForType(set_type: Int) {
         checkDataArray.clear()
         var i = 0
         val checkDB = CheckDB()
         val db = checkDB.writableDatabase
-        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null)
+        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null) //получение данных из базы данных чеков
         if (cursor.moveToFirst()) {
             do {
-                val TYPES = cursor.getString(cursor.getColumnIndex(KEY_CHECK_TYPE))
-                val types = TYPES.split(GENERAL_FIRST_STRING_SPLITTER)
-                for (load_type in types) {
-                    if (load_type.toInt() == set_type) {
+                val TYPES = cursor.getString(cursor.getColumnIndex(KEY_CHECK_TYPE)) //получение строки типов для которых применим этот чек: "1,|,2,|,3"
+                val types = TYPES.split(GENERAL_FIRST_STRING_SPLITTER)          //деление строки
+                for (load_type in types) {                                          //перебор всех типов
+                    if (load_type.toInt() == set_type) {                                  //если типы совпадают добавляеться запись об этом чеке
                         val checkData = CheckData()
                         checkData.id = cursor.getInt(cursor.getColumnIndex(KEY_CHECK_ID))
                         checkData.name = cursor.getString(cursor.getColumnIndex(KEY_CHECK_NAME))
@@ -57,16 +58,17 @@ class CheckDataArray {
         }
         cursor.close()
         db.close()
-        size = i
+        size = i        //запись размера массива
     }
-
+    
+    //создание массива данных для всех чеков всех типов ВС
     fun createForAll() {
         checkDataArray.clear()
         var i = 0
         val checkDB = CheckDB()
         val db = checkDB.writableDatabase
-        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null)
-        if (cursor.moveToFirst()) {
+        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null)   //получение данных из базы данных чеков
+        if (cursor.moveToFirst()) {                                                                                                     //добавление данных о чеке
             do {
                 val checkData = CheckData()
                 checkData.id = cursor.getInt(cursor.getColumnIndex(KEY_CHECK_ID))
@@ -87,9 +89,10 @@ class CheckDataArray {
         }
         cursor.close()
         db.close()
-        size = i
+        size = i        //запись размера массива
     }
 
+    //получение массива имен чеков
     fun getChecksList(): Array<String> {
         var checksList = emptyArray<String>()
         checksList += "Choose"
@@ -97,11 +100,13 @@ class CheckDataArray {
         return checksList
     }
 
+    //получение ID чека по позиции в Spinner
     fun getCheckID(pos: Int): Int {
         if (checkDataArray.size != 0) return 0
         return checkDataArray[pos-1].id
     }
 
+    //получение позиции чека в массиве для установки в Spinner
     fun getPosition(id: Int): Int {
         var i = 1
         for (checkData in checkDataArray) {
@@ -111,6 +116,7 @@ class CheckDataArray {
         return 0
     }
 
+    //класс данных о чеке
     class CheckData {
         var id: Int = -1
             get() = field

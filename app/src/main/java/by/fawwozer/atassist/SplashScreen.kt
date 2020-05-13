@@ -101,9 +101,8 @@ class SplashScreen : AppCompatActivity() {
                     editor.putString(SETTING_GENERAL_APPLICATION_THEME,"0")
                     editor.putString(SETTING_MAINTENANCE_LITERS_ROUND,"0")
                     editor.putString(SETTING_BACKUP_TIME,"0")
-
                     editor.putString(SETTING_GENERAL_SCHEDULE_CLEAR_TIME,"0")
-
+                    
                     editor.putBoolean(SETTING_GENERAL_DELETE_LOGS,false)
                     editor.putBoolean(SETTING_MAINTENANCE_KG_ROUND,false)
                     editor.putBoolean(SETTING_MAINTENANCE_HIDE_DEICE,false)
@@ -123,9 +122,10 @@ class SplashScreen : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: Void?) {
+            //запуск основного окна приложения
             super.onPostExecute(result)
-            //val intent = Intent(context, ATAssist::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
-            val intent = Intent(context, Settings::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            val intent = Intent(context, ATAssist::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+            //val intent = Intent(context, Settings::class.java).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
             instance.startActivity(intent)
             instance.finish()
 

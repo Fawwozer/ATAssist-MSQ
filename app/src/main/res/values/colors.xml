@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="transparent">#00000000</color>
+
     <!-- for AppTheme.Light -->
     <color name="lightPrimaryColor">#546e7a</color>
     <color name="lightPrimaryColorDark">#455a64</color>
@@ -8,7 +10,7 @@
     <color name="lightPrimaryTextColor">#353535</color>
     <color name="lightPrimaryTextColorDark">#ffffff</color>
 
-    <color name="lightPrimaryAccentColor">#546e7a</color>
+    <color name="lightPrimaryAccentColor">#9C9C9C</color>
 
     <color name="lightPrimaryBackgroundColor">#eceff1</color>
 

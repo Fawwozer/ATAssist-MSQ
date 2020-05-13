@@ -2,6 +2,7 @@
 <resources>
 
     <attr name="scheduleTextStyle"/>
+    <attr name="bottomAppBarStyle"/>
 
     <attr name="scheduleIconColor"/>
     <attr name="notificationIconColor"/>
