@@ -10,7 +10,7 @@
         android:width="15dp"
         android:height="2dp" />
     <solid
-        android:color="?attr/belaviaDialogTintColor"
+        android:color="?attr/mainToolbarBackColor"
         />
     <corners
     android:radius="1dp"

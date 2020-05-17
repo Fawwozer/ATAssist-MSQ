@@ -4,48 +4,177 @@
     <color name="transparent">#00000000</color>
 
     <!-- for AppTheme.Light -->
-    <color name="lightPrimaryColor">#546e7a</color>
-    <color name="lightPrimaryColorDark">#455a64</color>
 
-    <color name="lightPrimaryTextColor">#353535</color>
-    <color name="lightPrimaryTextColorDark">#ffffff</color>
+    <color name="light_PrimaryColor">#546E7A</color>
+    <color name="light_PrimaryColorLight">#7F9199</color>
+    <color name="light_PrimaryColorDark">#355260</color>
 
-    <color name="lightPrimaryAccentColor">#9C9C9C</color>
+    <color name="light_SecondaryColor">#646086</color>
+    <color name="light_SecondaryColorLight">#918FA8</color>
+    <color name="light_SecondaryColorDark">#423E69</color>
 
-    <color name="lightPrimaryBackgroundColor">#eceff1</color>
+    <color name="light_TertiaryColor">#689A68</color>
+    <color name="light_TertiaryColorLight">#A0C2A0</color>
+    <color name="light_TertiaryColorDark">#407940</color>
 
-    <color name="lightColorDMI">#66D2A000</color>
-    <color name="lightColorINOP">#66D20000</color>
-    <color name="lightColorINFO">#660078D2</color>
-    <color name="lightColorDONE">#6600D200</color>
+    <color name="light_AccentColor">#C1A482</color>
+    <color name="light_AccentColorLight">#F2DEC7</color>
+    <color name="light_AccentColorDark">#977650</color>
 
-    <color name="lightColorButtonSolidDisable">#EAEAEA</color>
-    <color name="lightColorButtonSolidNormal">#CACACA</color>
-    <color name="lightColorButtonSolidPress">#AAAAAA</color>
-    <color name="lightColorButtonStrokeDisable">#A7A7A7</color>
-    <color name="lightColorButtonStrokeNormal">#878787</color>
-    <color name="lightColorButtonStrokePress">#777777</color>
+    <color name="light_TextColorLight">#FFF</color>
+    <color name="light_TextColorDark">#333e48</color>
+
+    <color name="light_BackgroundColor">#eceff1</color>
+
+    <color name="light_ColorDMI">#66D2A000</color>
+    <color name="light_ColorINOP">#66D20000</color>
+    <color name="light_ColorINFO">#660078D2</color>
+    <color name="light_ColorDONE">#6600D200</color>
+
+    <color name="light_ColorButtonSolidDisable">#EAEAEA</color>
+    <color name="light_ColorButtonSolidNormal">#CACACA</color>
+    <color name="light_ColorButtonSolidPress">#AAAAAA</color>
+    <color name="light_ColorButtonStrokeDisable">#A7A7A7</color>
+    <color name="light_ColorButtonStrokeNormal">#878787</color>
+    <color name="light_ColorButtonStrokePress">#777777</color>
 
     <!-- for AppTheme.Dark -->
-    <color name="darkPrimaryColor">#616161</color>
-    <color name="darkPrimaryColorDark">#424242</color>
 
-    <color name="darkPrimaryTextColor">#CCCCCC</color>
-    <color name="darkPrimaryTextColorDark">#BCBCBC</color>
+    <color name="dark_PrimaryColor">#424242</color>
+    <color name="dark_PrimaryColorLight">#858585</color>
+    <color name="dark_PrimaryColorDark">#010101</color>
 
-    <color name="darkPrimaryAccentColor">#BFD8E3</color>
+    <color name="dark_SecondaryColor">#2F2F2F</color>
+    <color name="dark_SecondaryColorLight">#5F5F5F</color>
+    <color name="dark_SecondaryColorDark">#0A0A0A</color>
 
-    <color name="darkPrimaryBackgroundColor">#757575</color>
+    <color name="dark_TertiaryColor">#446444</color>
+    <color name="dark_TertiaryColorLight">#6B8D6B</color>
+    <color name="dark_TertiaryColorDark">#214421</color>
 
-    <color name="darkColorDMI">#33D2A000</color>
-    <color name="darkColorINOP">#33D20000</color>
-    <color name="darkColorINFO">#330078D2</color>
-    <color name="darkColorDONE">#2600D200</color>
+    <color name="dark_AccentColor">#7D6A55</color>
+    <color name="dark_AccentColorLight">#B19D86</color>
+    <color name="dark_AccentColorDark">#554129</color>
 
-    <color name="darkColorButtonSolidDisable">#838383</color>
-    <color name="darkColorButtonSolidNormal">#636363</color>
-    <color name="darkColorButtonSolidPress">#535353</color>
-    <color name="darkColorButtonStrokeDisable">#555555</color>
-    <color name="darkColorButtonStrokeNormal">#353535</color>
-    <color name="darkColorButtonStrokePress">#252525</color>
+    <color name="dark_TextColorLight">#CACACA</color>
+    <color name="dark_TextColorDark">#010101</color>
+
+    <color name="dark_BackgroundColor">#858585</color>
+
+    <color name="dark_ColorDMI">#33D2A000</color>
+    <color name="dark_ColorINOP">#33D20000</color>
+    <color name="dark_ColorINFO">#330078D2</color>
+    <color name="dark_ColorDONE">#2600D200</color>
+
+    <color name="dark_ColorButtonSolidDisable">#838383</color>
+    <color name="dark_ColorButtonSolidNormal">#636363</color>
+    <color name="dark_ColorButtonSolidPress">#535353</color>
+    <color name="dark_ColorButtonStrokeDisable">#555555</color>
+    <color name="dark_ColorButtonStrokeNormal">#353535</color>
+    <color name="dark_ColorButtonStrokePress">#252525</color>
+
+    <!-- for AppTheme.Belavia -->
+
+    <color name="belavia_PrimaryColor">#455CC7</color>
+    <color name="belavia_PrimaryColorLight">#a7c5ee</color>
+    <color name="belavia_PrimaryColorDark">#060e9f</color>
+
+    <color name="belavia_SecondaryColor">#675dc6</color>
+    <color name="belavia_SecondaryColorLight">#9790E1</color>
+    <color name="belavia_SecondaryColorDark">#4237AC</color>
+
+    <color name="belavia_TertiaryColor">#77BC1F</color>
+    <color name="belavia_TertiaryColorLight">#9CD650</color>
+    <color name="belavia_TertiaryColorDark">#528C07</color>
+
+    <color name="belavia_AccentColor">#FFC741</color>
+    <color name="belavia_AccentColorLight">#FFD673</color>
+    <color name="belavia_AccentColorDark">#FFB606</color>
+
+    <color name="belavia_TextColorLight">#fff</color>
+    <color name="belavia_TextColorDark">#333e48</color>
+
+    <color name="belavia_BackgroundColor">#fff</color>
+
+    <color name="belavia_ColorDMI">#66D2A000</color>
+    <color name="belavia_ColorINOP">#66D20000</color>
+    <color name="belavia_ColorINFO">#660078D2</color>
+    <color name="belavia_ColorDONE">#6600D200</color>
+
+    <color name="belavia_ColorButtonSolidDisable">#EAEAEA</color>
+    <color name="belavia_ColorButtonSolidNormal">#CACACA</color>
+    <color name="belavia_ColorButtonSolidPress">#AAAAAA</color>
+    <color name="belavia_ColorButtonStrokeDisable">#A7A7A7</color>
+    <color name="belavia_ColorButtonStrokeNormal">#878787</color>
+    <color name="belavia_ColorButtonStrokePress">#777777</color>
+
+    <!-- for AppTheme.Purple -->
+
+    <color name="purple_PrimaryColor">#5E35B1</color>
+    <color name="purple_PrimaryColorLight">#815EC8</color>
+    <color name="purple_PrimaryColorDark">#3E1396</color>
+
+    <color name="purple_SecondaryColor">#B027A4</color>
+    <color name="purple_SecondaryColorLight">#C752BD</color>
+    <color name="purple_SecondaryColorDark">#950489</color>
+
+    <color name="purple_TertiaryColor">#335EAC</color>
+    <color name="purple_TertiaryColorLight">#5C81C5</color>
+    <color name="purple_TertiaryColorDark">#123F92</color>
+
+    <color name="purple_AccentColor">#FFE438</color>
+    <color name="purple_AccentColorLight">#FFE869</color>
+    <color name="purple_AccentColorDark">#DC8F06</color>
+
+    <color name="purple_TextColorLight">#FFF</color>
+    <color name="purple_TextColorDark">#333e48</color>
+
+    <color name="purple_BackgroundColor">#EFECF1</color>
+
+    <color name="purple_ColorDMI">#66D2A000</color>
+    <color name="purple_ColorINOP">#66D20000</color>
+    <color name="purple_ColorINFO">#660078D2</color>
+    <color name="purple_ColorDONE">#6600D200</color>
+
+    <color name="purple_ColorButtonSolidDisable">#EAEAEA</color>
+    <color name="purple_ColorButtonSolidNormal">#CACACA</color>
+    <color name="purple_ColorButtonSolidPress">#AAAAAA</color>
+    <color name="purple_ColorButtonStrokeDisable">#A7A7A7</color>
+    <color name="purple_ColorButtonStrokeNormal">#878787</color>
+    <color name="purple_ColorButtonStrokePress">#777777</color>
+
+    <!-- for AppTheme.dGreen -->
+
+    <color name="dGreen_PrimaryColor">#233F2E</color>
+    <color name="dGreen_PrimaryColorLight">#466954</color>
+    <color name="dGreen_PrimaryColorDark">#11331F</color>
+
+    <color name="dGreen_SecondaryColor">#222D39</color>
+    <color name="dGreen_SecondaryColorLight">#42505F</color>
+    <color name="dGreen_SecondaryColorDark">#12202E</color>
+
+    <color name="dGreen_TertiaryColor">#46512E</color>
+    <color name="dGreen_TertiaryColorLight">#7A885B</color>
+    <color name="dGreen_TertiaryColorDark">#344216</color>
+
+    <color name="dGreen_AccentColor">#573831</color>
+    <color name="dGreen_AccentColorLight">#916B62</color>
+    <color name="dGreen_AccentColorDark">#472118</color>
+
+    <color name="dGreen_TextColorLight">#bbbbbb</color>
+    <color name="dGreen_TextColorDark">#031D0D</color>
+
+    <color name="dGreen_BackgroundColor">#858585</color>
+
+    <color name="dGreen_ColorDMI">#33D2A000</color>
+    <color name="dGreen_ColorINOP">#33D20000</color>
+    <color name="dGreen_ColorINFO">#330078D2</color>
+    <color name="dGreen_ColorDONE">#2600D200</color>
+
+    <color name="dGreen_ColorButtonSolidDisable">#838383</color>
+    <color name="dGreen_ColorButtonSolidNormal">#636363</color>
+    <color name="dGreen_ColorButtonSolidPress">#535353</color>
+    <color name="dGreen_ColorButtonStrokeDisable">#555555</color>
+    <color name="dGreen_ColorButtonStrokeNormal">#353535</color>
+    <color name="dGreen_ColorButtonStrokePress">#252525</color>
 </resources>

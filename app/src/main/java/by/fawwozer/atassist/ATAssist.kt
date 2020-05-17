@@ -139,8 +139,8 @@ class ATAssist: AppCompatActivity() {
 		}
 		
 		//изменение цвета иконки и текста меню для выбраной вкладки
-		val colorNotSelected = getColorFromAttr(R.attr.navMenuTextColor)
-		val colorSelected = getColorFromAttr(R.attr.navMenuTextColorSelected)
+		val colorNotSelected = getColorFromAttr(R.attr.mainNotSelectedColor)
+		val colorSelected = getColorFromAttr(R.attr.mainSelectedColor)
 		val size = bab_main.menu.size()
 		var i = 0
 		do {

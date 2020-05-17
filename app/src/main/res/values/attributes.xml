@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="iconColor"/>
+    <attr name="splashIconColor"/>
 
-    <attr name="scheduleTextStyle"/>
-    <attr name="bottomAppBarStyle"/>
+    <attr name="mainBottomAppBarStyle"/>
+    <attr name="mainToolbarBackColor"/>
+    <attr name="mainToolbarTextColor"/>
+    <attr name="mainToolbarIconColor"/>
+    <attr name="mainFloatBtBackColor"/>
+    <attr name="mainSelectedColor"/>
+    <attr name="mainNotSelectedColor"/>
 
-    <attr name="scheduleIconColor"/>
+
+    <attr name="adapterScheduleTextStyle"/>
+    <attr name="adapterScheduleIconColor"/>
+
+    <attr name="adapterLogsTextStyle"/>
+    <attr name="adapterLogsIconColor"/>
+
+    <attr name="notificationTextStyle"/>
     <attr name="notificationIconColor"/>
-    <attr name="toolbarColor"/>
-    <attr name="toolbarTextColor"/>
-    <attr name="navMenuIconColor"/>
-    <attr name="navMenuTextColor"/>
-    <attr name="navMenuTextColorSelected"/>
-    <attr name="belaviaDialogTintColor"/>
+
+    <attr name="dialogBelaviaTextStyle"/>
+    <attr name="dialogBelaviaIconColor"/>
+    <attr name="dialogBelaviaSpinnerColor"/>
+    <attr name="dialogBelaviaETextColor"/>
+
     <attr name="colorDMI"/>
     <attr name="colorINOP"/>
     <attr name="colorINFO"/>

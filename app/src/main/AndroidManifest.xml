@@ -24,7 +24,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/AppTheme.FullScreen">
+            android:theme="@style/AppTheme.FullScreen.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

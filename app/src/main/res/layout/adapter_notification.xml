@@ -30,7 +30,7 @@
             android:text="EW-545PO"
             android:paddingEnd="5dp"
             android:paddingStart="0dp"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/notificationTextStyle"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"/>
 
@@ -43,7 +43,7 @@
             android:paddingEnd="5dp"
             android:paddingStart="0dp"
             android:text="Routine"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/notificationTextStyle"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"/>
 
@@ -62,7 +62,7 @@
             android:layout_height="23dp"
             android:gravity="center_vertical"
             android:text="BRU8713"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/notificationTextStyle"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"/>
 
@@ -81,11 +81,11 @@
             android:textAllCaps="true"
             android:text="РОСТОВ-НА-ДОНУ"
             android:textStyle="normal"
-            android:theme="?attr/scheduleTextStyle" />
+            android:theme="?attr/notificationTextStyle" />
 
         <ImageView
             android:id="@+id/iv_notification_land"
-            android:tint="?attr/scheduleIconColor"
+            android:tint="?attr/notificationIconColor"
             android:layout_width="23dp"
             android:layout_height="23dp"
             app:srcCompat="@drawable/ic_airplane_landing"
@@ -96,11 +96,10 @@
 
         <TextView
             android:id="@+id/tv_notification_land"
-            android:tint="?attr/scheduleIconColor"
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:text="08:00"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/notificationTextStyle"
             android:textStyle="normal"
             android:fontFamily="@font/time_bomb"
             android:textSize="23sp"
@@ -111,7 +110,7 @@
 
         <ImageView
             android:id="@+id/iv_notification_takeoff"
-            android:tint="?attr/scheduleIconColor"
+            android:tint="?attr/notificationIconColor"
             android:layout_width="23dp"
             android:layout_height="23dp"
             app:srcCompat="@drawable/ic_airplane_takeoff"
@@ -126,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:text="12:25"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/notificationTextStyle"
             android:fontFamily="@font/time_bomb"
             android:textSize="23sp"
             android:textStyle="normal"
@@ -149,12 +148,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/notificationTextStyle"
             android:textSize="30sp"
             android:fontFamily="@font/backwards"
             android:text="27A"/>
 
     </RelativeLayout>
-
 
 </RelativeLayout>

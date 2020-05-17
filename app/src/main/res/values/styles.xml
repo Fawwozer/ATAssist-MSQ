@@ -6,17 +6,35 @@
         <item name="android:fontFamily">@font/backwards</item>
     </style>
     <style name="ScheduleTextStyle.Light">
-        <item name="android:textColor">@color/lightPrimaryTextColor</item>
+        <item name="android:textColor">@color/light_TextColorDark</item>
     </style>
     <style name="ScheduleTextStyle.Dark">
-        <item name="android:textColor">@color/darkPrimaryTextColor</item>
+        <item name="android:textColor">@color/dark_TextColorLight</item>
+    </style>
+    <style name="ScheduleTextStyle.Belavia">
+        <item name="android:textColor">@color/belavia_TextColorDark</item>
+    </style>
+    <style name="ScheduleTextStyle.Purple">
+        <item name="android:textColor">@color/purple_TextColorDark</item>
+    </style>
+    <style name="ScheduleTextStyle.dGreen">
+        <item name="android:textColor">@color/dGreen_TextColorLight</item>
     </style>
 
     <style name="BottomAppBarStyle"/>
     <style name="BottomAppBarStyle.Light">
-        <item name="backgroundTint">@color/lightPrimaryColorDark</item>
+        <item name="backgroundTint">@color/light_PrimaryColor</item>
     </style>
     <style name="BottomAppBarStyle.Dark">
-        <item name="backgroundTint">@color/darkPrimaryColorDark</item>
+        <item name="backgroundTint">@color/dark_PrimaryColor</item>
+    </style>
+    <style name="BottomAppBarStyle.Belavia">
+        <item name="backgroundTint">@color/belavia_PrimaryColor</item>
+    </style>
+    <style name="BottomAppBarStyle.Purple">
+        <item name="backgroundTint">@color/purple_PrimaryColor</item>
+    </style>
+    <style name="BottomAppBarStyle.dGreen">
+        <item name="backgroundTint">@color/dGreen_PrimaryColor</item>
     </style>
 </resources>

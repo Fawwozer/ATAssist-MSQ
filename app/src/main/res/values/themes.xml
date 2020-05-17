@@ -5,6 +5,236 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    
+    <style name="AppTheme.Light">
+        <item name="colorPrimary">@color/light_PrimaryColor</item>
+        <item name="colorPrimaryDark">@color/light_PrimaryColorDark</item>
+        <item name="android:colorBackground">@color/light_BackgroundColor</item>
+        <item name="colorAccent">@color/light_AccentColor</item>
+        <item name="android:textColor">@color/light_TextColorDark</item>
+        <item name="android:textColorPrimary">@color/light_TextColorDark</item>
+        <item name="android:statusBarColor">@color/light_PrimaryColorDark</item>
+        <item name="android:navigationBarColor">@color/light_PrimaryColorDark</item>
+        <item name="iconColor">@color/light_TextColorLight</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Light</item>
+        <item name="mainToolbarBackColor">@color/light_PrimaryColor</item>
+        <item name="mainToolbarTextColor">@color/light_TextColorLight</item>
+        <item name="mainToolbarIconColor">@color/light_TextColorLight</item>
+        <item name="mainFloatBtBackColor">@color/light_TertiaryColor</item>
+        <item name="mainSelectedColor">@color/light_TertiaryColorLight</item>
+        <item name="mainNotSelectedColor">@color/light_TextColorLight</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="adapterScheduleIconColor">@color/light_PrimaryColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="adapterLogsIconColor">@color/light_PrimaryColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="notificationIconColor">@color/light_PrimaryColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="dialogBelaviaIconColor">@color/light_PrimaryColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/light_TextColorDark</item>
+        <item name="dialogBelaviaETextColor">@color/light_TextColorDark</item>
+
+        <item name="colorDMI">@color/light_ColorDMI</item>
+        <item name="colorINOP">@color/light_ColorINOP</item>
+        <item name="colorINFO">@color/light_ColorINFO</item>
+        <item name="colorDONE">@color/light_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/light_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/light_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/light_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/light_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/light_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/light_ColorButtonStrokePress</item>
+    </style>
+    
+    <style name="AppTheme.Dark">
+        <item name="colorPrimary">@color/dark_PrimaryColor</item>
+        <item name="colorPrimaryDark">@color/dark_PrimaryColorDark</item>
+        <item name="android:colorBackground">@color/dark_BackgroundColor</item>
+        <item name="colorAccent">@color/dark_AccentColor</item>
+        <item name="android:textColor">@color/dark_TextColorLight</item>
+        <item name="android:textColorPrimary">@color/dark_TextColorLight</item>
+        <item name="android:statusBarColor">@color/dark_PrimaryColorDark</item>
+        <item name="android:navigationBarColor">@color/dark_PrimaryColorDark</item>
+        <item name="iconColor">@color/dark_TextColorLight</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Dark</item>
+        <item name="mainToolbarBackColor">@color/dark_PrimaryColor</item>
+        <item name="mainToolbarTextColor">@color/dark_TextColorLight</item>
+        <item name="mainToolbarIconColor">@color/dark_TextColorLight</item>
+        <item name="mainFloatBtBackColor">@color/dark_TertiaryColorDark</item>
+        <item name="mainSelectedColor">@color/dark_TertiaryColor</item>
+        <item name="mainNotSelectedColor">@color/dark_TextColorLight</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="adapterScheduleIconColor">@color/dark_PrimaryColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="adapterLogsIconColor">@color/dark_PrimaryColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="notificationIconColor">@color/dark_PrimaryColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="dialogBelaviaIconColor">@color/dark_PrimaryColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/dark_TextColorDark</item>
+        <item name="dialogBelaviaETextColor">@color/dark_TextColorDark</item>
+
+        <item name="colorDMI">@color/dark_ColorDMI</item>
+        <item name="colorINOP">@color/dark_ColorINOP</item>
+        <item name="colorINFO">@color/dark_ColorINFO</item>
+        <item name="colorDONE">@color/dark_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/dark_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/dark_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/dark_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/dark_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/dark_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/dark_ColorButtonStrokePress</item>
+    </style>
+
+    <style name="AppTheme.Belavia">
+        <item name="colorPrimary">@color/belavia_PrimaryColor</item>
+        <item name="colorPrimaryDark">@color/belavia_PrimaryColorDark</item>
+        <item name="android:colorBackground">@color/belavia_BackgroundColor</item>
+        <item name="colorAccent">@color/belavia_AccentColor</item>
+        <item name="android:textColor">@color/belavia_TextColorDark</item>
+        <item name="android:textColorPrimary">@color/belavia_TextColorDark</item>
+        <item name="android:statusBarColor">@color/belavia_PrimaryColor</item>
+        <item name="android:navigationBarColor">@color/belavia_PrimaryColor</item>
+        <item name="iconColor">@color/belavia_TextColorLight</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Belavia</item>
+        <item name="mainToolbarBackColor">@color/belavia_PrimaryColor</item>
+        <item name="mainToolbarTextColor">@color/belavia_BackgroundColor</item>
+        <item name="mainToolbarIconColor">@color/belavia_BackgroundColor</item>
+        <item name="mainFloatBtBackColor">@color/belavia_SecondaryColor</item>
+        <item name="mainSelectedColor">@color/belavia_SecondaryColor</item>
+        <item name="mainNotSelectedColor">@color/belavia_BackgroundColor</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="adapterScheduleIconColor">@color/belavia_PrimaryColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="adapterLogsIconColor">@color/belavia_PrimaryColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="notificationIconColor">@color/belavia_PrimaryColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="dialogBelaviaIconColor">@color/belavia_PrimaryColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/belavia_TextColorDark</item>
+        <item name="dialogBelaviaETextColor">@color/belavia_TextColorDark</item>
+
+        <item name="colorDMI">@color/belavia_ColorDMI</item>
+        <item name="colorINOP">@color/belavia_ColorINOP</item>
+        <item name="colorINFO">@color/belavia_ColorINFO</item>
+        <item name="colorDONE">@color/belavia_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/belavia_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/belavia_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/belavia_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/belavia_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/belavia_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/belavia_ColorButtonStrokePress</item>
+    </style>
+
+    <style name="AppTheme.Purple">
+        <item name="colorPrimary">@color/purple_PrimaryColor</item>
+        <item name="colorPrimaryDark">@color/purple_PrimaryColorDark</item>
+        <item name="android:colorBackground">@color/purple_BackgroundColor</item>
+        <item name="colorAccent">@color/purple_AccentColor</item>
+        <item name="android:textColor">@color/purple_TextColorDark</item>
+        <item name="android:textColorPrimary">@color/purple_TextColorDark</item>
+        <item name="android:statusBarColor">@color/purple_PrimaryColorDark</item>
+        <item name="android:navigationBarColor">@color/purple_PrimaryColorDark</item>
+        <item name="iconColor">@color/purple_TextColorLight</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Purple</item>
+        <item name="mainToolbarBackColor">@color/purple_PrimaryColor</item>
+        <item name="mainToolbarTextColor">@color/purple_BackgroundColor</item>
+        <item name="mainToolbarIconColor">@color/purple_BackgroundColor</item>
+        <item name="mainFloatBtBackColor">@color/purple_SecondaryColorDark</item>
+        <item name="mainSelectedColor">@color/purple_SecondaryColor</item>
+        <item name="mainNotSelectedColor">@color/purple_BackgroundColor</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Purple</item>
+        <item name="adapterScheduleIconColor">@color/purple_PrimaryColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Purple</item>
+        <item name="adapterLogsIconColor">@color/purple_PrimaryColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Purple</item>
+        <item name="notificationIconColor">@color/purple_PrimaryColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Purple</item>
+        <item name="dialogBelaviaIconColor">@color/purple_PrimaryColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/purple_TextColorDark</item>
+        <item name="dialogBelaviaETextColor">@color/purple_TextColorDark</item>
+
+        <item name="colorDMI">@color/purple_ColorDMI</item>
+        <item name="colorINOP">@color/purple_ColorINOP</item>
+        <item name="colorINFO">@color/purple_ColorINFO</item>
+        <item name="colorDONE">@color/purple_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/purple_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/purple_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/purple_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/purple_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/purple_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/purple_ColorButtonStrokePress</item>
+    </style>
+
+    <style name="AppTheme.dGreen">
+        <item name="colorPrimary">@color/dGreen_PrimaryColor</item>
+        <item name="colorPrimaryDark">@color/dGreen_PrimaryColorDark</item>
+        <item name="android:colorBackground">@color/dGreen_BackgroundColor</item>
+        <item name="colorAccent">@color/dGreen_AccentColor</item>
+        <item name="android:textColor">@color/dGreen_TextColorLight</item>
+        <item name="android:textColorPrimary">@color/dGreen_TextColorLight</item>
+        <item name="android:statusBarColor">@color/dGreen_PrimaryColorDark</item>
+        <item name="android:navigationBarColor">@color/dGreen_PrimaryColorDark</item>
+        <item name="iconColor">@color/dGreen_TextColorLight</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.dGreen</item>
+        <item name="mainToolbarBackColor">@color/dGreen_PrimaryColor</item>
+        <item name="mainToolbarTextColor">@color/dGreen_TextColorLight</item>
+        <item name="mainToolbarIconColor">@color/dGreen_TextColorLight</item>
+        <item name="mainFloatBtBackColor">@color/dGreen_TertiaryColorDark</item>
+        <item name="mainSelectedColor">@color/dGreen_TertiaryColor</item>
+        <item name="mainNotSelectedColor">@color/dGreen_TextColorLight</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.dGreen</item>
+        <item name="adapterScheduleIconColor">@color/dGreen_PrimaryColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.dGreen</item>
+        <item name="adapterLogsIconColor">@color/dGreen_PrimaryColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.dGreen</item>
+        <item name="notificationIconColor">@color/dGreen_PrimaryColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.dGreen</item>
+        <item name="dialogBelaviaIconColor">@color/dGreen_PrimaryColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/dGreen_TextColorDark</item>
+        <item name="dialogBelaviaETextColor">@color/dGreen_TextColorDark</item>
+
+        <item name="colorDMI">@color/dGreen_ColorDMI</item>
+        <item name="colorINOP">@color/dGreen_ColorINOP</item>
+        <item name="colorINFO">@color/dGreen_ColorINFO</item>
+        <item name="colorDONE">@color/dGreen_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/dGreen_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/dGreen_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/dGreen_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/dGreen_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/dGreen_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/dGreen_ColorButtonStrokePress</item>
+    </style>
 
     <style name="AppTheme.FullScreen">
         <item name="android:windowNoTitle">true</item>
@@ -12,82 +242,43 @@
     </style>
 
     <style name="AppTheme.FullScreen.Light">
-        <item name="android:colorBackground">@color/lightPrimaryBackgroundColor</item>
-        <item name="android:textColor">@color/lightPrimaryColorDark</item>
-        <item name="android:tint">@color/lightPrimaryColor</item>
+        <item name="android:colorBackground">@color/light_BackgroundColor</item>
+        <item name="android:textColor">@color/light_PrimaryColor</item>
+        <item name="android:tint">@color/light_PrimaryColor</item>
+        <item name="android:navigationBarColor">@color/light_BackgroundColor</item>
+        <item name="splashIconColor">@color/light_PrimaryColor</item>
     </style>
 
     <style name="AppTheme.FullScreen.Dark">
-        <item name="android:colorBackground">@color/darkPrimaryBackgroundColor</item>
-        <item name="android:textColor">@color/darkPrimaryAccentColor</item>
-        <item name="android:tint">@color/darkPrimaryAccentColor</item>
+        <item name="android:colorBackground">@color/dark_BackgroundColor</item>
+        <item name="android:textColor">@color/dark_PrimaryColor</item>
+        <item name="android:tint">@color/dark_PrimaryColor</item>
+        <item name="android:navigationBarColor">@color/dark_BackgroundColor</item>
+        <item name="splashIconColor">@color/dark_PrimaryColor</item>
     </style>
-    
-    <style name="AppTheme.Light">
-        <item name="colorPrimary">@color/lightPrimaryColor</item>
-        <item name="colorPrimaryDark">@color/lightPrimaryColorDark</item>
-        <item name="android:colorBackground">@color/lightPrimaryBackgroundColor</item>
-        <item name="colorAccent">@color/lightPrimaryColor</item>
-        <item name="android:textColor">@color/lightPrimaryTextColor</item>
-        <item name="android:textColorPrimary">@color/lightPrimaryTextColor</item>
-        <item name="android:statusBarColor">@color/lightPrimaryColorDark</item>
-        <item name="android:navigationBarColor">@color/lightPrimaryColorDark</item>
 
-        <item name="scheduleTextStyle">@style/ScheduleTextStyle.Light</item>
-        <item name="bottomAppBarStyle">@style/BottomAppBarStyle.Light</item>
-
-        <item name="scheduleIconColor">@color/lightPrimaryColorDark</item>
-        <item name="notificationIconColor">@color/lightPrimaryAccentColor</item>
-        <item name="toolbarColor">@color/lightPrimaryColor</item>
-        <item name="toolbarTextColor">@color/lightPrimaryTextColorDark</item>
-        <item name="navMenuIconColor">@color/lightPrimaryTextColorDark</item>
-        <item name="navMenuTextColor">@color/lightPrimaryTextColorDark</item>
-        <item name="navMenuTextColorSelected">@color/lightPrimaryAccentColor</item>
-        <item name="belaviaDialogTintColor">@color/lightPrimaryAccentColor</item>
-        <item name="colorDMI">@color/lightColorDMI</item>
-        <item name="colorINOP">@color/lightColorINOP</item>
-        <item name="colorINFO">@color/lightColorINFO</item>
-        <item name="colorDONE">@color/lightColorDONE</item>
-
-        <item name="colorButtonSolidDisable">@color/lightColorButtonSolidDisable</item>
-        <item name="colorButtonSolidNormal">@color/lightColorButtonSolidNormal</item>
-        <item name="colorButtonSolidPress">@color/lightColorButtonSolidPress</item>
-        <item name="colorButtonStrokeDisable">@color/lightColorButtonStrokeDisable</item>
-        <item name="colorButtonStrokeNormal">@color/lightColorButtonStrokeNormal</item>
-        <item name="colorButtonStrokePress">@color/lightColorButtonStrokePress</item>
+    <style name="AppTheme.FullScreen.Belavia">
+        <item name="android:colorBackground">@color/belavia_BackgroundColor</item>
+        <item name="android:textColor">@color/belavia_PrimaryColor</item>
+        <item name="android:tint">@color/belavia_PrimaryColor</item>
+        <item name="android:navigationBarColor">@color/belavia_BackgroundColor</item>
+        <item name="splashIconColor">@color/belavia_PrimaryColor</item>
     </style>
-    
-    <style name="AppTheme.Dark">
-        <item name="colorPrimary">@color/darkPrimaryColor</item>
-        <item name="colorPrimaryDark">@color/darkPrimaryColorDark</item>
-        <item name="android:colorBackground">@color/darkPrimaryBackgroundColor</item>
-        <item name="colorAccent">@color/darkPrimaryColor</item>
-        <item name="android:textColor">@color/darkPrimaryTextColor</item>
-        <item name="android:textColorPrimary">@color/darkPrimaryTextColor</item>
-        <item name="android:statusBarColor">@color/darkPrimaryColorDark</item>
-        <item name="android:navigationBarColor">@color/darkPrimaryColorDark</item>
 
-        <item name="scheduleTextStyle">@style/ScheduleTextStyle.Dark</item>
-        <item name="bottomAppBarStyle">@style/BottomAppBarStyle.Dark</item>
-
-        <item name="scheduleIconColor">@color/darkPrimaryTextColor</item>
-        <item name="notificationIconColor">@color/darkPrimaryTextColor</item>
-        <item name="toolbarColor">@color/darkPrimaryColorDark</item>
-        <item name="toolbarTextColor">@color/darkPrimaryTextColorDark</item>
-        <item name="navMenuIconColor">@color/darkPrimaryAccentColor</item>
-        <item name="navMenuTextColor">@color/darkPrimaryTextColor</item>
-        <item name="navMenuTextColorSelected">@color/darkPrimaryAccentColor</item>
-        <item name="belaviaDialogTintColor">@color/darkPrimaryTextColor</item>
-        <item name="colorDMI">@color/darkColorDMI</item>
-        <item name="colorINOP">@color/darkColorINOP</item>
-        <item name="colorINFO">@color/darkColorINFO</item>
-        <item name="colorDONE">@color/darkColorDONE</item>
-
-        <item name="colorButtonSolidDisable">@color/darkColorButtonSolidDisable</item>
-        <item name="colorButtonSolidNormal">@color/darkColorButtonSolidNormal</item>
-        <item name="colorButtonSolidPress">@color/darkColorButtonSolidPress</item>
-        <item name="colorButtonStrokeDisable">@color/darkColorButtonStrokeDisable</item>
-        <item name="colorButtonStrokeNormal">@color/darkColorButtonStrokeNormal</item>
-        <item name="colorButtonStrokePress">@color/darkColorButtonStrokePress</item>
+    <style name="AppTheme.FullScreen.Purple">
+        <item name="android:colorBackground">@color/purple_BackgroundColor</item>
+        <item name="android:textColor">@color/purple_PrimaryColor</item>
+        <item name="android:tint">@color/purple_PrimaryColor</item>
+        <item name="android:navigationBarColor">@color/purple_BackgroundColor</item>
+        <item name="splashIconColor">@color/purple_PrimaryColor</item>
     </style>
+
+    <style name="AppTheme.FullScreen.dGreen">
+        <item name="android:colorBackground">@color/dGreen_BackgroundColor</item>
+        <item name="android:textColor">@color/dGreen_PrimaryColor</item>
+        <item name="android:tint">@color/dGreen_PrimaryColor</item>
+        <item name="android:navigationBarColor">@color/dGreen_BackgroundColor</item>
+        <item name="splashIconColor">@color/dGreen_PrimaryColor</item>
+    </style>
+
 </resources>

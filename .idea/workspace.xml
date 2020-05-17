@@ -32,9 +32,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="My" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a24fb8a-baa2-492e-9387-e4964a3d3823" name="Default Changelist" comment="09.05.2020">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bt_floating.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_list.xml" afterDir="false" />
+    <list default="true" id="9a24fb8a-baa2-492e-9387-e4964a3d3823" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -45,26 +43,41 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/ATAssist.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/ATAssist.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/CheckDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/CheckDB.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/CheckDataArray.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/CheckDataArray.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/FleetDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/FleetDB.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/Global.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/Global.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/LogsDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/LogsDB.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/PLaneDataArray.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/PLaneDataArray.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/PlaneDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/PlaneDB.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/Settings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/Settings.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/SplashScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/by/fawwozer/atassist/SplashScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_stand.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_stand.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_spacer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_spacer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bt_floating.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bt_floating.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airplane.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airplane.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airplane_landing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airplane_landing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airplane_takeoff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airplane_takeoff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airport.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_airport.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_calculator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_calculator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_database.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_database.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_dots_vertical.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_dots_vertical.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_jeppesen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_jeppesen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_kobra.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_kobra.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_plus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_plus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_radar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_radar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_switch_off.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_switch_off.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_switch_on.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_switch_on.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_sync.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_sync.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_transite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_transite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/im_nav_menu_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/im_nav_menu_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/im_spinner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/im_spinner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_logs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_logs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_notification.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_notification.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_schedule.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_schedule.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_belavia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_belavia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_settings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/attributes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/attributes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
@@ -74,7 +87,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="API_23" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="BVA30W1250046250" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -121,8 +134,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="API_23" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-13T17:05:09.697Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="API_28_Google" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-17T10:38:25.807Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="E:/DB" />
@@ -338,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589033641384</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="13.05.2020">
+      <created>1589389899424</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1589389899424</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -364,6 +384,7 @@
     <MESSAGE value="29.04.2020" />
     <MESSAGE value="30.04.2020" />
     <MESSAGE value="09.05.2020" />
-    <option name="LAST_COMMIT_MESSAGE" value="09.05.2020" />
+    <MESSAGE value="13.05.2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="13.05.2020" />
   </component>
 </project>

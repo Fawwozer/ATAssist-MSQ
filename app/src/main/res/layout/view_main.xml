@@ -18,7 +18,7 @@
             android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbarHeight"
-            android:background="?attr/toolbarColor"
+            android:background="?attr/mainToolbarBackColor"
             app:layout_anchor="@+id/appBarLayout"
             app:layout_anchorGravity="center">
 
@@ -33,7 +33,7 @@
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:tint="?attr/toolbarTextColor"
+                    android:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_launcher" />
 
                 <TextView
@@ -51,7 +51,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="@string/app_name"
-                    android:textColor="?attr/toolbarTextColor"
+                    android:textColor="?attr/mainToolbarTextColor"
                     android:textSize="20sp"
                     android:textStyle="italic|bold" />
 
@@ -62,7 +62,7 @@
                     android:layout_toStartOf="@id/toolbar_main_reload"
                     android:layout_marginEnd="8dp"
                     android:layout_centerVertical="true"
-                    android:tint="?attr/toolbarTextColor"
+                    android:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_calculator" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -72,7 +72,7 @@
                     android:layout_toStartOf="@id/toolbar_main_settings"
                     android:layout_marginEnd="8dp"
                     android:layout_centerVertical="true"
-                    android:tint="?attr/toolbarTextColor"
+                    android:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_sync" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -81,7 +81,7 @@
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:tint="?attr/toolbarTextColor"
+                    android:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_settings" />
 
             </RelativeLayout>
@@ -92,14 +92,13 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bab_main"
-        style="?attr/bottomAppBarStyle"
+        style="?attr/mainBottomAppBarStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottomAppBarHeight"
         android:layout_gravity="bottom"
         app:fabAlignmentMode="end"
         app:fabCradleMargin="5dp"
         app:fabCradleRoundedCornerRadius="20dp"
-        app:itemIconTint="@color/lightPrimaryBackgroundColor"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_main_navigation" />
 
@@ -108,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_plus"
-        android:backgroundTint="?attr/navMenuTextColorSelected"
+        android:backgroundTint="?attr/mainFloatBtBackColor"
         app:borderWidth="0dp"
         app:layout_anchor="@id/bab_main" />
 

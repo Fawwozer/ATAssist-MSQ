@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:textSize="18sp"
             android:text="25.03 2020"/>
 
@@ -43,7 +43,7 @@
             android:gravity="center_vertical"
             android:textSize="18sp"
             android:text="EW-543PA"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"/>
@@ -55,7 +55,7 @@
             android:layout_height="23dp"
             android:textSize="17sp"
             android:text="Routine"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"/>
@@ -76,7 +76,7 @@
             android:layout_height="23dp"
             android:gravity="center_vertical"
             android:text="BRU8713"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"/>
 
@@ -88,7 +88,7 @@
             android:text="РОСТОВ-НА-ДОНУ"
             android:textStyle="normal"
             android:ellipsize="end"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:textAllCaps="true"
@@ -98,7 +98,7 @@
 
         <ImageView
             android:id="@+id/iv_schedule_land"
-            android:tint="?attr/scheduleIconColor"
+            android:tint="?attr/adapterLogsIconColor"
             android:layout_width="23dp"
             android:layout_height="23dp"
             app:srcCompat="@drawable/ic_airplane_landing"
@@ -109,11 +109,10 @@
 
         <TextView
             android:id="@+id/tv_schedule_land"
-            android:tint="?attr/scheduleIconColor"
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:text="08:00"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:textStyle="normal"
             android:fontFamily="@font/time_bomb"
             android:textSize="23sp"
@@ -124,7 +123,7 @@
 
         <ImageView
             android:id="@+id/iv_schedule_takeoff"
-            android:tint="?attr/scheduleIconColor"
+            android:tint="?attr/adapterLogsIconColor"
             android:layout_width="23dp"
             android:layout_height="23dp"
             app:srcCompat="@drawable/ic_airplane_takeoff"
@@ -139,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="23dp"
             android:text="12:25"
-            android:theme="?attr/scheduleTextStyle"
+            android:theme="?attr/adapterLogsTextStyle"
             android:fontFamily="@font/time_bomb"
             android:textSize="23sp"
             android:textStyle="normal"
@@ -147,8 +146,6 @@
             android:layout_alignParentBottom="true"
             android:gravity="center"/>
 
-
     </RelativeLayout>
-
 
 </RelativeLayout>
