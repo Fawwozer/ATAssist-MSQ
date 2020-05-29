@@ -1,21 +1,20 @@
 package by.fawwozer.atassist
 
-import android.util.Log
 import by.fawwozer.atassist.Global.Companion.CHECK_DB_TABLE
 import by.fawwozer.atassist.Global.Companion.GENERAL_FIRST_STRING_SPLITTER
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_ADDITIONAL_WORKS
+import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_10
+import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_11
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_2
-import by.fawwozer.atassist.Global.Companion.KEY_CHECK_ID
-import by.fawwozer.atassist.Global.Companion.KEY_CHECK_NAME
-import by.fawwozer.atassist.Global.Companion.KEY_CHECK_TYPE
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_3
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_4
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_5
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_6
-import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_10
-import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_11
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_APU_DATA
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_COMMERCIAL
+import by.fawwozer.atassist.Global.Companion.KEY_CHECK_ID
+import by.fawwozer.atassist.Global.Companion.KEY_CHECK_NAME
+import by.fawwozer.atassist.Global.Companion.KEY_CHECK_TYPE
 
 class CheckDataArray {
 
@@ -31,9 +30,9 @@ class CheckDataArray {
         val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null) //получение данных из базы данных чеков
         if (cursor.moveToFirst()) {
             do {
-                val TYPES = cursor.getString(cursor.getColumnIndex(KEY_CHECK_TYPE)) //получение строки типов для которых применим этот чек: "1,|,2,|,3"
-                val types = TYPES.split(GENERAL_FIRST_STRING_SPLITTER)          //деление строки
-                for (load_type in types) {                                          //перебор всех типов
+                val types = cursor.getString(cursor.getColumnIndex(KEY_CHECK_TYPE)) //получение строки типов для которых применим этот чек: "1,|,2,|,3"
+                val type = types.split(GENERAL_FIRST_STRING_SPLITTER)          //деление строки
+                for (load_type in type) {                                          //перебор всех типов
                     if (load_type.toInt() == set_type) {                                  //если типы совпадают добавляеться запись об этом чеке
                         val checkData = CheckData()
                         checkData.id = cursor.getInt(cursor.getColumnIndex(KEY_CHECK_ID))
@@ -119,64 +118,16 @@ class CheckDataArray {
     //класс данных о чеке
     class CheckData {
         var id: Int = -1
-            get() = field
-            set(value) {
-                field = value
-            }
         var name: String = ""
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_2: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_3: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_4: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_5: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_6: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_10: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var afml_11: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var commercial: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var apu: Boolean = false
-            get() = field
-            set(value) {
-                field = value
-            }
         var additionalWorks: String = ""
-            get() = field
-            set(value) {
-                field = value
-            }
     }
 }

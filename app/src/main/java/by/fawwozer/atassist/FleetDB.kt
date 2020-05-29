@@ -8,16 +8,16 @@ import by.fawwozer.atassist.Global.Companion.FIRESTORE_COLLECTION_FLEET
 import by.fawwozer.atassist.Global.Companion.FLEET_DB_NAME
 import by.fawwozer.atassist.Global.Companion.FLEET_DB_TABLE
 import by.fawwozer.atassist.Global.Companion.FLEET_DB_VERSION
+import by.fawwozer.atassist.Global.Companion.KEY_FLEET_DATE
+import by.fawwozer.atassist.Global.Companion.KEY_FLEET_HEADER
 import by.fawwozer.atassist.Global.Companion.KEY_FLEET_ID
+import by.fawwozer.atassist.Global.Companion.KEY_FLEET_MESSAGE
 import by.fawwozer.atassist.Global.Companion.KEY_FLEET_PLANE
 import by.fawwozer.atassist.Global.Companion.KEY_FLEET_STATUS
-import by.fawwozer.atassist.Global.Companion.KEY_FLEET_DATE
 import by.fawwozer.atassist.Global.Companion.KEY_FLEET_TILL
-import by.fawwozer.atassist.Global.Companion.KEY_FLEET_HEADER
-import by.fawwozer.atassist.Global.Companion.KEY_FLEET_MESSAGE
 import com.google.firebase.firestore.FirebaseFirestore
 
-class FleetDB() : SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB_VERSION) {
+class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(
             "CREATE TABLE " + FLEET_DB_TABLE + " ( " +

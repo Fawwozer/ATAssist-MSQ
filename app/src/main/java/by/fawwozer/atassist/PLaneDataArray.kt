@@ -1,17 +1,17 @@
 package by.fawwozer.atassist
 
-import by.fawwozer.atassist.Global.Companion.PLANE_DB_TABLE
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ENABLED
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_FUEL
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC_STEP
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ID
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_NAME
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_NAME_KOBRA
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_NAME_TYPE
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_TYPE
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_FUEL
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_OIL
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_OIL_STEP
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC_STEP
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ENABLED
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_TYPE
+import by.fawwozer.atassist.Global.Companion.PLANE_DB_TABLE
 
 class PLaneDataArray {
 	
@@ -35,9 +35,9 @@ class PLaneDataArray {
 					planeData.type = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_TYPE))
 					planeData.fuel = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_FUEL))
 					planeData.oil = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_OIL))
-					planeData.oil_step = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_OIL_STEP))
+					planeData.oilStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_OIL_STEP))
 					planeData.hydraulic = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC))
-					planeData.hydraulic_step = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC_STEP))
+					planeData.hydraulicStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC_STEP))
 					i++
 				}
 			} while (cursor.moveToNext())
@@ -63,9 +63,9 @@ class PLaneDataArray {
 				planeData.type = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_TYPE))
 				planeData.fuel = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_FUEL))
 				planeData.oil = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_OIL))
-				planeData.oil_step = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_OIL_STEP))
+				planeData.oilStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_OIL_STEP))
 				planeData.hydraulic = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC))
-				planeData.hydraulic_step = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC_STEP))
+				planeData.hydraulicStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC_STEP))
 				i++
 			} while (cursor.moveToNext())
 		}
@@ -114,54 +114,14 @@ class PLaneDataArray {
 	
 	class PlaneData {
 		var id: Int = -1
-			get() = field
-			set(value) {
-				field = value
-			}
 		var name: String = ""
-			get() = field
-			set(value) {
-				field = value
-			}
 		var kobraName: String = ""
-			get() = field
-			set(value) {
-				field = value
-			}
 		var nameType: String = ""
-			get() = field
-			set(value) {
-				field = value
-			}
 		var type: Int = -1
-			get() = field
-			set(value) {
-				field = value
-			}
 		var fuel: Int = -1
-			get() = field
-			set(value) {
-				field = value
-			}
 		var oil: Int = -1
-			get() = field
-			set(value) {
-				field = value
-			}
-		var oil_step: Double = 0.0
-			get() = field
-			set(value) {
-				field = value
-			}
+		var oilStep: Double = 0.0
 		var hydraulic: Int = -1
-			get() = field
-			set(value) {
-				field = value
-			}
-		var hydraulic_step: Double = 0.0
-			get() = field
-			set(value) {
-				field = value
-			}
+		var hydraulicStep: Double = 0.0
 	}
 }

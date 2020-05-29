@@ -1,17 +1,14 @@
 package by.fawwozer.atassist
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.AsyncTask
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
+import androidx.appcompat.app.AppCompatActivity
 import by.fawwozer.atassist.Global.Companion.PREFERENCE_FILE
 import by.fawwozer.atassist.Global.Companion.PREFERENCE_LAST_BACKUP_TIME
 import by.fawwozer.atassist.Global.Companion.PREFERENCE_LAST_RUN_VERSION
@@ -27,9 +24,7 @@ import by.fawwozer.atassist.Global.Companion.SETTING_MAINTENANCE_LITERS_ROUND
 import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_ALLOW
 import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_FLEET
 import by.fawwozer.atassist.Global.Companion.SETTING_NOTIFICATION_SCHEDULE
-import dagger.BindsInstance
 import kotlinx.android.synthetic.main.view_splash_screen.*
-import java.util.concurrent.TimeUnit
 
 class SplashScreen : AppCompatActivity() {
 
@@ -80,22 +75,21 @@ class SplashScreen : AppCompatActivity() {
     private class Async: AsyncTask<Void, Void, Void>() {
         lateinit var context: Context
         override fun doInBackground(vararg params: Void?): Void? {
-
+    
             //проверка на версию приложенияб если нет указанной версии
             //то считается что это первый запуск приложения и работает
             //инициализация настроек и запрос разрешений
-
-            val preference: SharedPreferences
-            preference = context.getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
-            when (preference.getString(PREFERENCE_LAST_RUN_VERSION,"0")) {
+    
+            val preference = context.getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
+            when (preference.getString(PREFERENCE_LAST_RUN_VERSION, "0")) {
                 R.string.app_code.toString() -> {
-
+            
                 }
                 else -> {
                     ///запросы разрешений
-
+            
                     ///запись начальных настроек приложения
-
+            
                     val editor = preference.edit()
 
                     editor.putString(SETTING_GENERAL_APPLICATION_THEME,"0")

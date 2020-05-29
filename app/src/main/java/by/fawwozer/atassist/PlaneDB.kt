@@ -5,24 +5,23 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import by.fawwozer.atassist.Global.Companion.FIRESTORE_COLLECTION_PLANES
-import by.fawwozer.atassist.Global.Companion.PLANE_DB_NAME
-import by.fawwozer.atassist.Global.Companion.PLANE_DB_TABLE
-import by.fawwozer.atassist.Global.Companion.PLANE_DB_VERSION
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ENABLED
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_FUEL
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC_STEP
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ID
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_NAME
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_NAME_KOBRA
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_NAME_TYPE
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_TYPE
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_FUEL
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_OIL
 import by.fawwozer.atassist.Global.Companion.KEY_PLANE_OIL_STEP
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_HYDRAULIC_STEP
-import by.fawwozer.atassist.Global.Companion.KEY_PLANE_ENABLED
-import com.google.android.gms.tasks.OnSuccessListener
+import by.fawwozer.atassist.Global.Companion.KEY_PLANE_TYPE
+import by.fawwozer.atassist.Global.Companion.PLANE_DB_NAME
+import by.fawwozer.atassist.Global.Companion.PLANE_DB_TABLE
+import by.fawwozer.atassist.Global.Companion.PLANE_DB_VERSION
 import com.google.firebase.firestore.FirebaseFirestore
 
-class PlaneDB(): SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_DB_VERSION) {
+class PlaneDB: SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_DB_VERSION) {
 	override fun onCreate(db: SQLiteDatabase?) {
 		db!!.execSQL(
 			"CREATE TABLE " + PLANE_DB_TABLE + "( " +
@@ -61,39 +60,37 @@ class PlaneDB(): SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_
 			val firestore = FirebaseFirestore.getInstance()
 			firestore.collection(FIRESTORE_COLLECTION_PLANES)
 				.get()
-				.addOnSuccessListener(
-					OnSuccessListener {documents ->
-						if (documents != null) {
-							val planeDB = PlaneDB()
-							val db = planeDB.writableDatabase
-							for (document in documents) {
-								if (document.id != "##INFO##") {
-									val map: Map<String, Any> = document.data
-									val cv = ContentValues()
-									cv.put(KEY_PLANE_ID, map[KEY_PLANE_ID] as Long)
-									cv.put(KEY_PLANE_NAME, map[KEY_PLANE_NAME] as String)
-									cv.put(KEY_PLANE_NAME_KOBRA, map[KEY_PLANE_NAME_KOBRA] as String)
-									cv.put(KEY_PLANE_NAME_TYPE, map[KEY_PLANE_NAME_TYPE] as String)
-									cv.put(KEY_PLANE_TYPE, map[KEY_PLANE_TYPE] as Long)
-									cv.put(KEY_PLANE_FUEL, map[KEY_PLANE_FUEL] as Long)
-									cv.put(KEY_PLANE_OIL, map[KEY_PLANE_OIL] as Long)
-									cv.put(KEY_PLANE_OIL_STEP, map[KEY_PLANE_OIL_STEP] as Double)
-									cv.put(KEY_PLANE_HYDRAULIC, map[KEY_PLANE_HYDRAULIC] as Long)
-									cv.put(KEY_PLANE_HYDRAULIC_STEP, map[KEY_PLANE_HYDRAULIC_STEP] as Double)
-									cv.put(KEY_PLANE_ENABLED, map[KEY_PLANE_ENABLED] as Boolean)
-									val cursor = db.query(PLANE_DB_TABLE, null, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null, null, null, null)
-									if (cursor.moveToFirst()) {
-										db.update(PLANE_DB_TABLE, cv, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null)
-									} else {
-										db.insert(PLANE_DB_TABLE, null, cv)
-									}
-									cursor.close()
+				.addOnSuccessListener {documents ->
+					if (documents != null) {
+						val planeDB = PlaneDB()
+						val db = planeDB.writableDatabase
+						for (document in documents) {
+							if (document.id != "##INFO##") {
+								val map: Map<String, Any> = document.data
+								val cv = ContentValues()
+								cv.put(KEY_PLANE_ID, map[KEY_PLANE_ID] as Long)
+								cv.put(KEY_PLANE_NAME, map[KEY_PLANE_NAME] as String)
+								cv.put(KEY_PLANE_NAME_KOBRA, map[KEY_PLANE_NAME_KOBRA] as String)
+								cv.put(KEY_PLANE_NAME_TYPE, map[KEY_PLANE_NAME_TYPE] as String)
+								cv.put(KEY_PLANE_TYPE, map[KEY_PLANE_TYPE] as Long)
+								cv.put(KEY_PLANE_FUEL, map[KEY_PLANE_FUEL] as Long)
+								cv.put(KEY_PLANE_OIL, map[KEY_PLANE_OIL] as Long)
+								cv.put(KEY_PLANE_OIL_STEP, map[KEY_PLANE_OIL_STEP] as Double)
+								cv.put(KEY_PLANE_HYDRAULIC, map[KEY_PLANE_HYDRAULIC] as Long)
+								cv.put(KEY_PLANE_HYDRAULIC_STEP, map[KEY_PLANE_HYDRAULIC_STEP] as Double)
+								cv.put(KEY_PLANE_ENABLED, map[KEY_PLANE_ENABLED] as Boolean)
+								val cursor = db.query(PLANE_DB_TABLE, null, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null, null, null, null)
+								if (cursor.moveToFirst()) {
+									db.update(PLANE_DB_TABLE, cv, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null)
+								} else {
+									db.insert(PLANE_DB_TABLE, null, cv)
 								}
+								cursor.close()
 							}
-							db.close()
 						}
+						db.close()
 					}
-				)
+				}
 		}
 	}
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    
+
     <style name="AppTheme.Light">
         <item name="colorPrimary">@color/light_PrimaryColor</item>
         <item name="colorPrimaryDark">@color/light_PrimaryColorDark</item>
@@ -51,7 +51,7 @@
         <item name="colorButtonStrokeNormal">@color/light_ColorButtonStrokeNormal</item>
         <item name="colorButtonStrokePress">@color/light_ColorButtonStrokePress</item>
     </style>
-    
+
     <style name="AppTheme.Dark">
         <item name="colorPrimary">@color/dark_PrimaryColor</item>
         <item name="colorPrimaryDark">@color/dark_PrimaryColorDark</item>
