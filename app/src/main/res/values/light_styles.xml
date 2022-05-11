@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ScheduleTextStyle.Light">
+        <item name="android:textColor">@color/light_TextDark</item>
+    </style>
+
+    <style name="BottomAppBarStyle.Light">
+        <item name="backgroundTint">@color/light_Primary</item>
+    </style>
+
+    <style name="KobraTextStyle.Light">
+        <item name="android:textColor">@color/light_TextDark</item>
+    </style>
+
+    <style name="AlertDialogStyle.Light">
+        <item name="android:textColor">@color/light_PrimaryDark</item>
+        <item name="android:windowBackground">@color/light_BackgroundColor</item>
+        <item name="android:textColorAlertDialogListItem">@color/light_TextDark</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle.Light</item>
+    </style>
+
+    <style name="PositiveButtonStyle.Light">
+        <item name="android:textColor">@color/light_TextDark</item>
+    </style>
+
+</resources>

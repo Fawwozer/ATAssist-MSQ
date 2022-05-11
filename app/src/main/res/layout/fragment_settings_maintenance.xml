@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_maintenance_round_to_litr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_maintenance_round_to_litr_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/tv_maintenance_round_to_litr_summary"
+            android:gravity="center_vertical"
+            android:text="Round to, liters"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_maintenance_round_to_litr_summary"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|end"
+            android:paddingEnd="8dp"
+            android:text="No round"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_maintenance_round_to_kg"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_maintenance_round_to_kg_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@id/iv_maintenance_round_to_kg_icon"
+            android:gravity="center_vertical"
+            android:text="Round to 100kg"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_maintenance_round_to_kg_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_maintenance_round_to_kg_title"
+            android:layout_toStartOf="@id/iv_maintenance_round_to_kg_icon"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="3dp"
+            android:text="5000lb = 2268kg -> 2268kg"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/iv_maintenance_round_to_kg_icon"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_toggle_off" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_maintenance_hide_deice"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_maintenance_hide_deice_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@id/iv_maintenance_hide_deice_icon"
+            android:gravity="center_vertical"
+            android:text="Hide de-ice log"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_maintenance_hide_deice_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_maintenance_hide_deice_title"
+            android:layout_toStartOf="@id/iv_maintenance_hide_deice_icon"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="3dp"
+            android:text="De-ice record is shown"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/iv_maintenance_hide_deice_icon"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_toggle_on" />
+
+    </RelativeLayout>
+
+</LinearLayout>

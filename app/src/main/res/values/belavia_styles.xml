@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ScheduleTextStyle.Belavia">
+        <item name="android:textColor">@color/belavia_TextDark</item>
+    </style>
+
+    <style name="BottomAppBarStyle.Belavia">
+        <item name="backgroundTint">@color/belavia_Primary</item>
+    </style>
+
+    <style name="KobraTextStyle.Belavia">
+        <item name="android:textColor">@color/belavia_TextDark</item>
+    </style>
+
+    <style name="AlertDialogStyle.Belavia">
+        <item name="android:textColor">@color/belavia_PrimaryDark</item>
+        <item name="android:windowBackground">@color/belavia_BackgroundColor</item>
+        <item name="android:textColorAlertDialogListItem">@color/belavia_TextDark</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle.Belavia</item>
+    </style>
+
+    <style name="PositiveButtonStyle.Belavia">
+        <item name="android:textColor">@color/belavia_TextDark</item>
+    </style>
+
+</resources>

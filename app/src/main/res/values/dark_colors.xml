@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_Primary">#101B23</color>
+    <color name="dark_PrimaryDark">#101B23</color>
+
+    <color name="dark_Accent">#9D907E</color>
+    <color name="dark_AccentDark">#3E3427</color>
+
+    <color name="dark_TextLight">#999B9D</color>
+    <color name="dark_TextDark">#020C14</color>
+    <color name="dark_TextLightHint">#54999B9D</color>
+
+    <color name="dark_Icon">#FF999B9D</color>
+
+    <color name="dark_BackgroundColor">#23292D</color>
+
+    <color name="dark_ColorDMI">#33D2A000</color>
+    <color name="dark_ColorINOP">#33D20000</color>
+    <color name="dark_ColorINFO">#330078D2</color>
+    <color name="dark_ColorDONE">#2600D200</color>
+
+    <color name="dark_ColorButtonSolidDisable">#59666C</color>
+    <color name="dark_ColorButtonSolidNormal">#49565C</color>
+    <color name="dark_ColorButtonSolidPress">#414E54</color>
+    <color name="dark_ColorButtonStrokeDisable">#424F55</color>
+    <color name="dark_ColorButtonStrokeNormal">#323F45</color>
+    <color name="dark_ColorButtonStrokePress">#2A373D</color>
+</resources>

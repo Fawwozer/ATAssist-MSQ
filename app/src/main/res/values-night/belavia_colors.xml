@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="belavia_Primary">#2d40a4</color>
+    <color name="belavia_PrimaryDark">#354ab0</color>
+
+    <color name="belavia_Accent">#b7ce93</color>
+    <color name="belavia_AccentDark">#a2cc6a</color>
+
+    <color name="belavia_TextLight">#e9ecf8</color>
+    <color name="belavia_TextDark">#a4afe4</color>
+    <color name="belavia_TextDarkHint">#A8A4AFE4</color>
+
+    <color name="belavia_Icon">#FFEAEBEF</color>
+
+    <color name="belavia_BackgroundColor">#1f2d8f</color>
+
+    <color name="belavia_adapterLogsIconColor">#2d40a4</color>
+    <color name="belavia_adapterScheduleIconColor">#2d40a4</color>
+    <color name="belavia_notificationIconColor">#a4afe4</color>
+    <color name="belavia_dialogBelaviaIconColor">#2d40a4</color>
+    <color name="belavia_splashIconColor">#a4afe4</color>
+
+    <color name="belavia_ColorDMI">#66D2A000</color>
+    <color name="belavia_ColorINOP">#66D20000</color>
+    <color name="belavia_ColorINFO">#660078D2</color>
+    <color name="belavia_ColorDONE">#6600D200</color>
+
+    <color name="belavia_ColorButtonSolidDisable">#C0C4D0</color>
+    <color name="belavia_ColorButtonSolidNormal">#B8BCC8</color>
+    <color name="belavia_ColorButtonSolidPress">#B0B4C0</color>
+    <color name="belavia_ColorButtonStrokeDisable">#A4A6AD</color>
+    <color name="belavia_ColorButtonStrokeNormal">#A0A2A9</color>
+    <color name="belavia_ColorButtonStrokePress">#9EA0A7</color>
+</resources>

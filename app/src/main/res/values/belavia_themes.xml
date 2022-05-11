@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.Belavia">
+
+        <item name="colorAccent">@color/belavia_Accent</item>
+        <item name="colorPrimary">@color/belavia_Primary</item>
+        <item name="colorPrimaryDark">@color/belavia_PrimaryDark</item>
+        <item name="android:colorBackground">@color/belavia_BackgroundColor</item>
+        <item name="android:textColor">@color/belavia_TextDark</item>
+        <item name="android:textColorPrimary">@color/belavia_TextDark</item>
+        <item name="android:textColorSecondary">@color/belavia_TextDark</item>
+        <item name="android:statusBarColor">@color/belavia_Primary</item>
+        <item name="android:navigationBarColor">@color/belavia_Primary</item>
+        <item name="android:textColorHint">@color/belavia_TextDarkHint</item>
+
+        <item name="android:alertDialogTheme">@style/AlertDialogStyle.Belavia</item>
+
+        <item name="adapterKobraTextStyle">@style/KobraTextStyle.Belavia</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Belavia</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="adapterScheduleIconColor">@color/belavia_adapterScheduleIconColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="adapterLogsIconColor">@color/belavia_adapterLogsIconColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="notificationIconColor">@color/belavia_notificationIconColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Belavia</item>
+        <item name="dialogBelaviaIconColor">@color/belavia_dialogBelaviaIconColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/belavia_TextDark</item>
+        <item name="dialogBelaviaETextColor">@color/belavia_TextDark</item>
+
+        <item name="colorDMI">@color/belavia_ColorDMI</item>
+        <item name="colorINOP">@color/belavia_ColorINOP</item>
+        <item name="colorINFO">@color/belavia_ColorINFO</item>
+        <item name="colorDONE">@color/belavia_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/belavia_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/belavia_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/belavia_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/belavia_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/belavia_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/belavia_ColorButtonStrokePress</item>
+
+        <item name="mainSelectedColor">@color/belavia_Accent</item>
+        <item name="mainNotSelectedColor">@color/belavia_TextLight</item>
+
+        <item name="iconColor">@color/belavia_Icon</item>
+        <item name="mainToolbarBackColor">@color/belavia_Primary</item>
+        <item name="mainToolbarTextColor">@color/belavia_TextLight</item>
+        <item name="mainToolbarIconColor">@color/belavia_TextLight</item>
+        <item name="mainFloatBtBackColor">@color/belavia_AccentDark</item>
+
+        <item name="settingsIconMainColor">@color/black</item>
+        <item name="settingsIconShadeColor">@color/alphaDarkGrey</item>
+        <item name="settingsIconOnColor">@color/alphaGreen</item>
+        <item name="settingsIconOffColor">@color/alphaRed</item>
+
+    </style>
+
+    <style name="AppTheme.FullScreen.Belavia">
+        <item name="android:colorBackground">@color/belavia_BackgroundColor</item>
+        <item name="android:textColor">@color/belavia_splashIconColor</item>
+        <item name="android:tint">@color/belavia_splashIconColor</item>
+        <item name="android:navigationBarColor">@color/belavia_BackgroundColor</item>
+        <item name="splashIconColor">@color/belavia_splashIconColor</item>
+    </style>
+
+</resources>

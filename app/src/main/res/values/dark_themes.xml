@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.Dark">
+
+        <item name="colorAccent">@color/dark_Accent</item>
+        <item name="colorPrimary">@color/dark_Primary</item>
+        <item name="colorPrimaryDark">@color/dark_PrimaryDark</item>
+        <item name="android:colorBackground">@color/dark_BackgroundColor</item>
+        <item name="android:textColor">@color/dark_TextLight</item>
+        <item name="android:textColorPrimary">@color/dark_TextLight</item>
+        <item name="android:textColorSecondary">@color/dark_TextLight</item>
+        <item name="android:statusBarColor">@color/dark_Primary</item>
+        <item name="android:navigationBarColor">@color/dark_Primary</item>
+        <item name="android:textColorHint">@color/dark_TextLightHint</item>
+
+        <item name="android:alertDialogTheme">@style/AlertDialogStyle.Dark</item>
+
+        <item name="adapterKobraTextStyle">@style/KobraTextStyle.Dark</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Dark</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="adapterScheduleIconColor">@color/dark_TextLight</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="adapterLogsIconColor">@color/dark_TextLight</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="notificationIconColor">@color/dark_TextLight</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Dark</item>
+        <item name="dialogBelaviaIconColor">@color/dark_TextLight</item>
+        <item name="dialogBelaviaSpinnerColor">@color/dark_TextLight</item>
+        <item name="dialogBelaviaETextColor">@color/dark_TextLight</item>
+
+        <item name="colorDMI">@color/dark_ColorDMI</item>
+        <item name="colorINOP">@color/dark_ColorINOP</item>
+        <item name="colorINFO">@color/dark_ColorINFO</item>
+        <item name="colorDONE">@color/dark_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/dark_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/dark_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/dark_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/dark_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/dark_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/dark_ColorButtonStrokePress</item>
+
+        <item name="mainSelectedColor">@color/dark_Accent</item>
+        <item name="mainNotSelectedColor">@color/dark_TextLight</item>
+
+        <item name="iconColor">@color/dark_Icon</item>
+        <item name="mainToolbarBackColor">@color/dark_Primary</item>
+        <item name="mainToolbarTextColor">@color/dark_TextLight</item>
+        <item name="mainToolbarIconColor">@color/dark_TextLight</item>
+        <item name="mainFloatBtBackColor">@color/dark_AccentDark</item>
+
+        <item name="settingsIconMainColor">@color/white</item>
+        <item name="settingsIconShadeColor">@color/alphaLightGrey</item>
+        <item name="settingsIconOnColor">@color/alphaGreen</item>
+        <item name="settingsIconOffColor">@color/alphaRed</item>
+
+    </style>
+
+    <style name="AppTheme.FullScreen.Dark">
+        <item name="android:colorBackground">@color/dark_BackgroundColor</item>
+        <item name="android:textColor">@color/dark_TextLight</item>
+        <item name="android:tint">@color/dark_TextLight</item>
+        <item name="android:navigationBarColor">@color/dark_BackgroundColor</item>
+        <item name="splashIconColor">@color/dark_TextLight</item>
+    </style>
+    
+</resources>

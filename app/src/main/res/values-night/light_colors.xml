@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_Primary">#37474f</color>
+    <color name="light_PrimaryDark">#455A64</color>
+
+    <color name="light_Accent">#b99f77</color>
+    <color name="light_AccentDark">#957b4e</color>
+
+    <color name="light_TextLight">#eceff1</color>
+    <color name="light_TextDark">#b0bec5</color>
+    <color name="light_TextDarkHint">#A8B0BEC5</color>
+
+    <color name="light_Icon">#FFEDEFF0</color>
+
+    <color name="light_BackgroundColor">#263238</color>
+
+    <color name="light_adapterLogsIconColor">#b99f77</color>
+    <color name="light_adapterScheduleIconColor">#b99f77</color>
+    <color name="light_notificationIconColor">#b0bec5</color>
+    <color name="light_dialogBelaviaIconColor">#b99f77</color>
+    <color name="light_splashIconColor">#b0bec5</color>
+
+    <color name="light_ColorDMI">#33D2A000</color>
+    <color name="light_ColorINOP">#33D20000</color>
+    <color name="light_ColorINFO">#330078D2</color>
+    <color name="light_ColorDONE">#2600D200</color>
+
+    <color name="light_ColorButtonSolidDisable">#59666C</color>
+    <color name="light_ColorButtonSolidNormal">#49565C</color>
+    <color name="light_ColorButtonSolidPress">#414E54</color>
+    <color name="light_ColorButtonStrokeDisable">#424F55</color>
+    <color name="light_ColorButtonStrokeNormal">#323F45</color>
+    <color name="light_ColorButtonStrokePress">#2A373D</color>
+</resources>

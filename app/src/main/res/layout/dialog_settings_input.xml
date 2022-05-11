@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText
+    android:id="@+id/et_dialog_input"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true"
+    android:maxLines="1"
+    android:paddingTop="30dp"
+    android:layout_marginStart="75dp"
+    android:layout_marginEnd="75dp"
+    android:paddingStart="75dp"
+    android:paddingEnd="75dp"
+    android:gravity="center"
+    android:textSize="22sp"
+    android:inputType="number"/>

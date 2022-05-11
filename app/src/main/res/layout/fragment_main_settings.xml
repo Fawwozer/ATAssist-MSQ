@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:ignore="ContentDescription">
+
+    <RelativeLayout
+        android:id="@+id/rl_settings_general"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="navigationOnClick"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/iv_settings_general_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_settings_black" />
+
+        <TextView
+            android:id="@+id/tv_settings_general_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/iv_settings_general_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_title_general"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_settings_general_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_settings_general_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_settings_general_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_summary_general"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_settings_maintenance"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/rl_settings_general"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="navigationOnClick"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/iv_settings_maintenance_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_wrench" />
+
+        <TextView
+            android:id="@+id/tv_settings_maintenance_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/iv_settings_maintenance_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_title_maintenance"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_settings_maintenance_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_settings_maintenance_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_settings_maintenance_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_summary_maintenance"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_settings_backup"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/rl_settings_maintenance"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="navigationOnClick"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/iv_settings_backup_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_backup" />
+
+        <TextView
+            android:id="@+id/tv_settings_backup_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/iv_settings_backup_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_title_backup"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_settings_backup_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_settings_backup_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_settings_backup_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_summary_backup"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_settings_notification"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/rl_settings_backup"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="navigationOnClick"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/iv_settings_notification_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_notifications" />
+
+        <TextView
+            android:id="@+id/tv_settings_notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/iv_settings_notification_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_title_notification"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_settings_notification_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_settings_notification_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_settings_notification_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_summary_notification"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v_settings_spacer_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/rl_settings_notification"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/bg_spacer" />
+
+    <RelativeLayout
+        android:id="@+id/rl_settings_logs"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/v_settings_spacer_1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="navigationOnClick"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/iv_settings_logs_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_data" />
+
+        <TextView
+            android:id="@+id/tv_settings_logs_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/iv_settings_logs_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_title_logs"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_settings_logs_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_settings_logs_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_settings_logs_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_summary_logs"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_settings_about"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="navigationOnClick"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/iv_settings_about_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            app:srcCompat="@drawable/ic_info" />
+
+        <TextView
+            android:id="@+id/tv_settings_about_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/iv_settings_about_icon"
+            android:gravity="center_vertical"
+            android:text="@string/settings_menu_title_about"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_settings_about_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_settings_about_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_settings_about_icon"
+            android:gravity="center_vertical"
+            android:text="@string/app_label_version"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

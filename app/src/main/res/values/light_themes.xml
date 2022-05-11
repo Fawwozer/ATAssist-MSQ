@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.Light">
+
+        <item name="colorAccent">@color/light_Accent</item>
+        <item name="colorPrimary">@color/light_Primary</item>
+        <item name="colorPrimaryDark">@color/light_PrimaryDark</item>
+        <item name="android:colorBackground">@color/light_BackgroundColor</item>
+        <item name="android:textColor">@color/light_TextDark</item>
+        <item name="android:textColorPrimary">@color/light_TextDark</item>
+        <item name="android:textColorSecondary">@color/light_TextDark</item>
+        <item name="android:statusBarColor">@color/light_Primary</item>
+        <item name="android:navigationBarColor">@color/light_Primary</item>
+        <item name="android:textColorHint">@color/light_TextDarkHint</item>
+
+        <item name="android:alertDialogTheme">@style/AlertDialogStyle.Light</item>
+
+        <item name="adapterKobraTextStyle">@style/KobraTextStyle.Light</item>
+
+        <item name="mainBottomAppBarStyle">@style/BottomAppBarStyle.Light</item>
+
+        <item name="adapterScheduleTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="adapterScheduleIconColor">@color/light_adapterScheduleIconColor</item>
+
+        <item name="adapterLogsTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="adapterLogsIconColor">@color/light_adapterLogsIconColor</item>
+
+        <item name="notificationTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="notificationIconColor">@color/light_notificationIconColor</item>
+
+        <item name="dialogBelaviaTextStyle">@style/ScheduleTextStyle.Light</item>
+        <item name="dialogBelaviaIconColor">@color/light_dialogBelaviaIconColor</item>
+        <item name="dialogBelaviaSpinnerColor">@color/light_TextDark</item>
+        <item name="dialogBelaviaETextColor">@color/light_TextDark</item>
+
+        <item name="colorDMI">@color/light_ColorDMI</item>
+        <item name="colorINOP">@color/light_ColorINOP</item>
+        <item name="colorINFO">@color/light_ColorINFO</item>
+        <item name="colorDONE">@color/light_ColorDONE</item>
+
+        <item name="colorButtonSolidDisable">@color/light_ColorButtonSolidDisable</item>
+        <item name="colorButtonSolidNormal">@color/light_ColorButtonSolidNormal</item>
+        <item name="colorButtonSolidPress">@color/light_ColorButtonSolidPress</item>
+        <item name="colorButtonStrokeDisable">@color/light_ColorButtonStrokeDisable</item>
+        <item name="colorButtonStrokeNormal">@color/light_ColorButtonStrokeNormal</item>
+        <item name="colorButtonStrokePress">@color/light_ColorButtonStrokePress</item>
+
+        <item name="mainSelectedColor">@color/light_Accent</item>
+        <item name="mainNotSelectedColor">@color/light_TextLight</item>
+
+        <item name="iconColor">@color/light_Icon</item>
+        <item name="mainToolbarBackColor">@color/light_Primary</item>
+        <item name="mainToolbarTextColor">@color/light_TextLight</item>
+        <item name="mainToolbarIconColor">@color/light_TextLight</item>
+        <item name="mainFloatBtBackColor">@color/light_AccentDark</item>
+
+        <item name="settingsIconMainColor">@color/black</item>
+        <item name="settingsIconShadeColor">@color/alphaDarkGrey</item>
+        <item name="settingsIconOnColor">@color/alphaGreen</item>
+        <item name="settingsIconOffColor">@color/alphaRed</item>
+
+    </style>
+
+    <style name="AppTheme.FullScreen.Light">
+        <item name="android:colorBackground">@color/light_BackgroundColor</item>
+        <item name="android:textColor">@color/light_splashIconColor</item>
+        <item name="android:tint">@color/light_splashIconColor</item>
+        <item name="android:navigationBarColor">@color/light_BackgroundColor</item>
+        <item name="splashIconColor">@color/light_splashIconColor</item>
+    </style>
+
+</resources>
