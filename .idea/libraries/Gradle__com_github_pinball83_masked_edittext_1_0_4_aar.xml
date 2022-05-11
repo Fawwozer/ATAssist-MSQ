@@ -3,6 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7c04dd7d6733aedc605acd171e1a5d16/jetified-masked-edittext-1.0.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7c04dd7d6733aedc605acd171e1a5d16/jetified-masked-edittext-1.0.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/26aa31070052e27a30c3c0826d0b8e5f/transformed/masked-edittext-1.0.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/26aa31070052e27a30c3c0826d0b8e5f/transformed/masked-edittext-1.0.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/26aa31070052e27a30c3c0826d0b8e5f/transformed/masked-edittext-1.0.4/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
