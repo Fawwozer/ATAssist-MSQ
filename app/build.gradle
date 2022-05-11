@@ -10,7 +10,7 @@ android {
         config {
             keyAlias 'by1d03ep'
             keyPassword 'bcc577e944'
-            storeFile file('D:/Dropbox/Dropbox/key.jks')
+            storeFile file('/home/by1d03ep/Дакументы/key.jks')
             storePassword '02136954'
         }
     }
