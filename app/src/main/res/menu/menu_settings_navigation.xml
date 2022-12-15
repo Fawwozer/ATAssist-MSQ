@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
         <item
             android:id="@+id/mis_general"
-            android:title="@string/settings_menu_general" />
-        <item
-            android:id="@+id/mi_maintenance"
-            android:title="@string/settings_menu_maintenance" />
-        <item
-            android:id="@+id/mi_backup"
-            android:title="@string/settings_menu_backup" />
+            android:title="@string/settings_menu_title_general" />
+    <item
+        android:id="@+id/mi_maintenance"
+        android:title="@string/settings_menu_title_maintenance" />
+    <item
+        android:id="@+id/mi_backup"
+        android:title="@string/settings_menu_title_backup" />
 
 </menu>

@@ -40,28 +40,79 @@ class Global: Application() {
 		
 		////GENERAL\\\\
 		
-		const val GENERAL_SCHEDULE_NOTIFICATION_CHANNEL_NAME = "Schedule Notification"
-		const val GENERAL_SCHEDULE_NOTIFICATION_CHANNEL_ID = "scheduleNotification"
-		const val GENERAL_SCHEDULE_NOTIFICATION_CHANNEL_CODE = 123
+		const val SCHEDULE_NOTIFICATION_CHANNEL_NAME = "Schedule Notification"
+		const val SCHEDULE_NOTIFICATION_CHANNEL_ID = "scheduleNotification"
+		const val SCHEDULE_NOTIFICATION_CHANNEL_CODE = 13
 		
-		const val GENERAL_FLEET_NOTIFICATION_CHANNEL_NAME = "Fleet Notification"
-		const val GENERAL_FLEET_NOTIFICATION_CHANNEL_ID = "fleetNotification"
-		const val GENERAL_FLEET_NOTIFICATION_CHANNEL_CODE = 456
+		const val FLEET_NOTIFICATION_CHANNEL_NAME = "Fleet Notification"
+		const val FLEET_NOTIFICATION_CHANNEL_ID = "fleetNotification"
+		const val FLEET_NOTIFICATION_CHANNEL_CODE = 666
 		
-		const val GENERAL_FIRST_STRING_SPLITTER = ",|,"
-		const val GENERAL_SECOND_STRING_SPLITTER = ".|."
+		const val MAIN_TEXT_SPLITTER = ",|,"
+		const val SECOND_TEXT_SPLITTER = ".|."
+		
+		const val BOEING_737_CL = 0
+		const val BOEING_737_NG = 1
+		const val BOEING_737_MX = 2
+		const val EMBRAER_170 = 5
+		const val EMBRAER_190 = 6
+		const val EMBRAER_290 = 7
+		
+		const val CHECK_AA = 0
+		const val CHECK_TR = 1
+		const val CHECK_BD = 2
+		
+		const val TIME_ZONE_UTC = "UTC"
+		
+		const val TIME_PICKER_INTERVAL = 5
+		
+		////MAIN ACTIVITY\\\\
+		
+		const val MAIN_ITEM_SCHEDULE = R.id.mi_schedule
+		const val MAIN_ITEM_FLEET = R.id.mi_fleet
+		const val MAIN_ITEM_KOBRA = R.id.mi_kobra
+		const val MAIN_ITEM_SETTINGS = R.id.mi_settings
+		
+		const val MAIN_FRAGMENT_SCHEDULE = R.id.fragment_schedule
+		const val MAIN_FRAGMENT_FLEET = R.id.fragment_fleet_info
+		const val MAIN_FRAGMENT_KOBRA = R.id.fragment_kobra
+		const val MAIN_FRAGMENT_SETTINGS = R.id.fragment_settings
+		
+		////SETTINGS ACTIVITY\\\\
+		
+		const val SETTINGS_ITEM_GENERAL = R.id.rl_settings_general
+		const val SETTINGS_ITEM_MAINTENANCE = R.id.rl_settings_maintenance
+		const val SETTINGS_ITEM_BACKUP = R.id.rl_settings_backup
+		const val SETTINGS_ITEM_NOTIFICATION = R.id.rl_settings_notification
+		const val SETTINGS_ITEM_LOGS = R.id.rl_settings_logs
+		const val SETTINGS_ITEM_ABOUT = R.id.rl_settings_about
+		
+		const val SETTINGS_SCREEN_GENERAL = R.id.fragment_settings_general
+		const val SETTINGS_SCREEN_MAINTENANCE = R.id.fragment_settings_maintenance
+		const val SETTINGS_SCREEN_BACKUP = R.id.fragment_settings_backup
+		const val SETTINGS_SCREEN_NOTIFICATION = R.id.fragment_settings_notification
+		const val SETTINGS_SCREEN_LOGS = R.id.fragment_settings_logs
+		const val SETTINGS_SCREEN_ABOUT = R.id.fragment_settings_about
+		
+		////OTHER SCREENS\\\
+		const val OTHER_SCREEN_FUEL_CALCULATOR = R.id.fragment_other_fuel_calculator
+		const val OTHER_SCREEN_MSQ_INFO = R.id.fragment_other_msq_info
+		const val OTHER_ITEM_FUEL_CALCULATOR = R.id.toolbar_main_calculator
+		const val OTHER_ITEM_MSQ_INFO = R.id.toolbar_main_jeppesen
 		
 		////PREFERENCES\\\\
 		
 		const val PREFERENCE_FILE = "by.fawwozer.atassist_preferences"
 		const val PREFERENCE_LAST_RUN_VERSION = "last_run"
 		const val PREFERENCE_LAST_BACKUP_TIME = "last_backup"
+		const val PREFERENCE_LOGIN_TOKEN = "login_token"
 		
 		////SETTINGS\\\\
 		
 		const val SETTING_GENERAL_APPLICATION_THEME = "theme"
 		const val SETTING_GENERAL_SCHEDULE_CLEAR_TIME = "schedule_time"
 		const val SETTING_GENERAL_DELETE_LOGS = "delete_logs"
+		const val SETTING_GENERAL_FIRST_SCREEN = "default_screen"
 		
 		const val SETTING_NOTIFICATION_ALLOW = "allow_notification"
 		const val SETTING_NOTIFICATION_SCHEDULE = "schedule_notification"
@@ -75,20 +126,23 @@ class Global: Application() {
 		const val SETTING_BACKUP_TIME = "time_backup"
 		const val SETTING_BACKUP_CLOUD = "cloud_backup"
 		
+		const val SETTING_KOBRA_LOGIN = "kobra_login"
+		const val SETTING_KOBRA_PASSWORD = "kobra_password"
+		
 		////FIRESTORE\\\\
 		
-		const val FIRESTORE_COLLECTION_FLEET = "FleetDB"
-		const val FIRESTORE_COLLECTION_PLANES = "PlaneDB"
-		const val FIRESTORE_COLLECTION_CHECKS = "CheckDB"
+		const val FIRESTORE_COLLECTION_FLEET = "FleetBase"
+		const val FIRESTORE_COLLECTION_PLANES = "PlanesBase"
+		const val FIRESTORE_COLLECTION_CHECKS = "ChecksBase"
 		
-		const val FIRESTORE_STATE_DONE = 0
-		const val FIRESTORE_STATE_INFO = 5
-		const val FIRESTORE_STATE_DMI_A = 10
-		const val FIRESTORE_STATE_DMI_B = 11
-		const val FIRESTORE_STATE_DMI_C = 12
-		const val FIRESTORE_STATE_DMI_D = 13
-		const val FIRESTORE_STATE_DDA = 20
-		const val FIRESTORE_STATE_INOP = 25
+		const val STATE_DONE = 0
+		const val STATE_INFO = 5
+		const val STATE_DMI_A = 10
+		const val STATE_DMI_B = 11
+		const val STATE_DMI_C = 12
+		const val STATE_DMI_D = 13
+		const val STATE_DDA = 20
+		const val STATE_INOP = 25
 		
 		////Logs DB\\\\
 		
@@ -178,46 +232,6 @@ class Global: Application() {
 		
 		const val KEY_LOGS_AFML_9 = "_AFML_9"
 		const val KEY_LOGS_AFML_9_WORKS = "_AFML_9_W"
-		const val KEY_LOGS_AFML_9_WORK_00 = "_AFML_9_W_00"
-		const val KEY_LOGS_AFML_9_WORK_01 = "_AFML_9_W_01"
-		const val KEY_LOGS_AFML_9_WORK_02 = "_AFML_9_W_02"
-		const val KEY_LOGS_AFML_9_WORK_03 = "_AFML_9_W_03"
-		const val KEY_LOGS_AFML_9_WORK_04 = "_AFML_9_W_04"
-		const val KEY_LOGS_AFML_9_WORK_05 = "_AFML_9_W_05"
-		const val KEY_LOGS_AFML_9_WORK_06 = "_AFML_9_W_06"
-		const val KEY_LOGS_AFML_9_WORK_07 = "_AFML_9_W_07"
-		const val KEY_LOGS_AFML_9_WORK_08 = "_AFML_9_W_08"
-		const val KEY_LOGS_AFML_9_WORK_09 = "_AFML_9_W_09"
-		const val KEY_LOGS_AFML_9_WORK_10 = "_AFML_9_W_10"
-		const val KEY_LOGS_AFML_9_WORK_11 = "_AFML_9_W_11"
-		const val KEY_LOGS_AFML_9_WORK_12 = "_AFML_9_W_12"
-		const val KEY_LOGS_AFML_9_WORK_13 = "_AFML_9_W_13"
-		const val KEY_LOGS_AFML_9_WORK_14 = "_AFML_9_W_14"
-		const val KEY_LOGS_AFML_9_WORK_15 = "_AFML_9_W_15"
-		const val KEY_LOGS_AFML_9_WORK_16 = "_AFML_9_W_16"
-		const val KEY_LOGS_AFML_9_WORK_17 = "_AFML_9_W_17"
-		const val KEY_LOGS_AFML_9_WORK_18 = "_AFML_9_W_18"
-		const val KEY_LOGS_AFML_9_WORK_19 = "_AFML_9_W_19"
-		const val KEY_LOGS_AFML_9_WORK_20 = "_AFML_9_W_20"
-		const val KEY_LOGS_AFML_9_WORK_21 = "_AFML_9_W_21"
-		const val KEY_LOGS_AFML_9_WORK_22 = "_AFML_9_W_22"
-		const val KEY_LOGS_AFML_9_WORK_23 = "_AFML_9_W_23"
-		const val KEY_LOGS_AFML_9_WORK_24 = "_AFML_9_W_24"
-		const val KEY_LOGS_AFML_9_WORK_25 = "_AFML_9_W_25"
-		const val KEY_LOGS_AFML_9_WORK_26 = "_AFML_9_W_26"
-		const val KEY_LOGS_AFML_9_WORK_27 = "_AFML_9_W_27"
-		const val KEY_LOGS_AFML_9_WORK_28 = "_AFML_9_W_28"
-		const val KEY_LOGS_AFML_9_WORK_29 = "_AFML_9_W_29"
-		const val KEY_LOGS_AFML_9_WORK_30 = "_AFML_9_W_30"
-		const val KEY_LOGS_AFML_9_WORK_31 = "_AFML_9_W_31"
-		const val KEY_LOGS_AFML_9_WORK_32 = "_AFML_9_W_32"
-		const val KEY_LOGS_AFML_9_WORK_33 = "_AFML_9_W_33"
-		const val KEY_LOGS_AFML_9_WORK_34 = "_AFML_9_W_34"
-		const val KEY_LOGS_AFML_9_WORK_35 = "_AFML_9_W_35"
-		const val KEY_LOGS_AFML_9_WORK_36 = "_AFML_9_W_36"
-		const val KEY_LOGS_AFML_9_WORK_37 = "_AFML_9_W_37"
-		const val KEY_LOGS_AFML_9_WORK_38 = "_AFML_9_W_38"
-		const val KEY_LOGS_AFML_9_WORK_39 = "_AFML_9_W_39"
 		
 		////Plane DB\\\\
 		
@@ -270,6 +284,46 @@ class Global: Application() {
 		const val KEY_FLEET_TILL = "_TILL"
 		const val KEY_FLEET_HEADER = "_HEAD"
 		const val KEY_FLEET_MESSAGE = "_MESSAGE"
+		
+		////Kobra DB\\\\
+		
+		const val KOBRA_DB_NAME = "KobraDB.db"
+		const val KOBRA_DB_VERSION = 1
+		const val KOBRA_DB_TABLE_ARRIVAL = "_AR"
+		const val KOBRA_DB_TABLE_DEPARTURE = "_DP"
+		
+		const val KEY_KOBRA_ID = "_ID"
+		const val KEY_KOBRA_PLANE = "_PLANE"
+		const val KEY_KOBRA_FLIGHT_NUMBER = "_FL_NUM"
+		const val KEY_KOBRA_FLIGHT_DESTINATION = "_FL_DEST"
+		const val KEY_KOBRA_TIME_PLANED = "_TIME_PLANED"
+		const val KEY_KOBRA_TIME_EXPECT = "_TIME_EXPECT"
+		const val KEY_KOBRA_STAND = "_STAND"
+		const val KEY_KOBRA_STATUS = "_STATUS"
+		
+		const val FORWARD_DIRECTION = true
+		const val BACKWARD_DIRECTION = false
+		
+		const val THEME_LIGHT = 0
+		const val THEME_DARK = 1
+		const val THEME_BELAVIA = 2
+		
+		const val KOBRA_STATUS_IN_FLIGHT = "В ПУТИ"
+		const val KOBRA_STATUS_ARRIVED_1 = "СОВЕРШИЛ ПОСАДКУ"
+		const val KOBRA_STATUS_ARRIVED_2 = "ПРИБЫЛ"
+		const val KOBRA_STATUS_IN_WORK_1 = "РЕГИСТРАЦИЯ"
+		const val KOBRA_STATUS_IN_WORK_2 = "РЕГИСТРАЦИЯ ЗАКОНЧЕНА"
+		const val KOBRA_STATUS_IN_WORK_3 = "ПОСАДКА"
+		const val KOBRA_STATUS_IN_WORK_4 = "ОТПРАВЛЯЕТСЯ"
+		const val KOBRA_STATUS_DEPARTED = "ВЫЛЕТЕЛ"
+		const val KOBRA_STATUS_DELAYED = "ЗАДЕРЖАН"
+		const val KOBRA_STATUS_IN_FUTURE = ""
+		
+		const val ROUND_LITERS_TO_1 = "1"
+		const val ROUND_LITERS_TO_5 = "5"
+		const val ROUND_LITERS_TO_10 = "10"
+		const val ROUND_LITERS_TO_25 = "25"
+		const val ROUND_LITERS_TO_50 = "50"
 		
 		lateinit var instance: Global
 			private set

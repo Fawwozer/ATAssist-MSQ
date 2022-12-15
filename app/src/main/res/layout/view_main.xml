@@ -23,30 +23,21 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="3dp">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/toolbar_main_icon"
-                    android:layout_width="@dimen/toolbarHeight"
-                    android:layout_height="@dimen/toolbarHeight"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:tint="?attr/mainToolbarIconColor"
-                    app:srcCompat="@drawable/ic_launcher" />
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/toolbar_main_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="6dp"
-                    android:layout_toStartOf="@id/toolbar_main_calculator"
-                    android:layout_toEndOf="@id/toolbar_main_icon"
+                    android:layout_marginEnd="6dp"
+                    android:layout_toStartOf="@id/toolbar_main_jeppesen"
                     android:ellipsize="end"
                     android:fontFamily="@font/commons"
-                    android:gravity="center_vertical"
+                    android:gravity="start|center_vertical"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="@string/app_name"
@@ -55,36 +46,42 @@
                     android:textStyle="italic|bold" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/toolbar_main_calculator"
-                    android:layout_width="@dimen/toolbarHeight"
-                    android:layout_height="@dimen/toolbarHeight"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="8dp"
-                    android:layout_toStartOf="@id/toolbar_main_reload"
-                    android:background="@color/transparent"
-                    android:tint="?attr/mainToolbarIconColor"
-                    app:srcCompat="@drawable/ic_calculator" />
-
-                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/toolbar_main_reload"
+                    android:visibility="gone"
                     android:layout_width="@dimen/toolbarHeight"
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="8dp"
-                    android:layout_toStartOf="@id/toolbar_main_settings"
+                    android:layout_toStartOf="@id/toolbar_main_calculator"
                     android:background="@color/transparent"
                     android:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_sync" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/toolbar_main_settings"
+                    android:id="@+id/toolbar_main_calculator"
+                    android:visibility="gone"
+                    android:layout_width="@dimen/toolbarHeight"
+                    android:layout_height="@dimen/toolbarHeight"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/toolbar_main_jeppesen"
+                    android:background="@color/transparent"
+                    android:onClick="navigationOnClick"
+                    android:tint="?attr/mainToolbarIconColor"
+                    app:srcCompat="@drawable/ic_calculator" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/toolbar_main_jeppesen"
+                    android:visibility="gone"
                     android:layout_width="@dimen/toolbarHeight"
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
                     android:background="@color/transparent"
+                    android:onClick="navigationOnClick"
                     android:tint="?attr/mainToolbarIconColor"
-                    app:srcCompat="@drawable/ic_settings" />
+                    app:srcCompat="@drawable/ic_jeppesen" />
 
             </RelativeLayout>
 
@@ -98,28 +95,47 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottomAppBarHeight"
         android:layout_gravity="bottom"
+        android:visibility="gone"
+        app:elevation="0dp"
         app:fabAlignmentMode="end"
         app:fabCradleMargin="7dp"
         app:fabCradleRoundedCornerRadius="15dp"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu_main_navigation" />
+        app:labelVisibilityMode="labeled">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="110dp"
+            android:background="@color/transparent"
+            app:elevation="0dp"
+            app:itemIconSize="22dp"
+            app:itemIconTint="@drawable/c_bottom_menu_item"
+            app:itemTextColor="@drawable/c_bottom_menu_item"
+            app:labelVisibilityMode="selected"
+            app:menu="@menu/menu_main_navigation" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/mainFloatBtBackColor"
-        app:fabSize="normal"
-        app:srcCompat="@drawable/ic_plus"
-        app:tint="?attr/iconColor"
+        android:onClick="floatBTNOnClick"
+        android:visibility="gone"
         app:borderWidth="0dp"
-        app:layout_anchor="@id/bab_main" />
+        app:fabSize="normal"
+        app:layout_anchor="@id/bab_main"
+        app:srcCompat="@drawable/ic_plus"
+        app:tint="?attr/iconColor" />
 
     <!-- include fragments from here -->
 
+    <!-- Main menu screens -->
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_schedule"
-        android:name="by.fawwozer.atassist.ATAssist$ScheduleFragment"
+        android:name="by.fawwozer.atassist.MainScheduleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"
@@ -127,15 +143,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_fleet_info"
-        android:name="by.fawwozer.atassist.ATAssist$FleetInfoFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/toolbarHeight"
-        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_fuel_calculator"
-        android:name="by.fawwozer.atassist.ATAssist$FuelCalculatorFragment"
+        android:name="by.fawwozer.atassist.MainFleetInfoFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"
@@ -143,14 +151,74 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_kobra"
-        android:name="by.fawwozer.atassist.ATAssist$KobraFragment"
+        android:name="by.fawwozer.atassist.MainKobraFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="0dp" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_settings"
+        android:name="by.fawwozer.atassist.MainSettingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <!-- Settings screens -->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_settings_general"
+        android:name="by.fawwozer.atassist.SettingsGeneralFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"
         android:layout_marginBottom="@dimen/bottomAppBarHeight" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_msq_info"
+        android:id="@+id/fragment_settings_maintenance"
+        android:name="by.fawwozer.atassist.ATAssist$SettingsMaintenance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_settings_backup"
+        android:name="by.fawwozer.atassist.ATAssist$SettingsBackUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_settings_notification"
+        android:name="by.fawwozer.atassist.ATAssist$SettingsNotification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_settings_logs"
+        android:name="by.fawwozer.atassist.ATAssist$LogsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_settings_about"
+        android:name="by.fawwozer.atassist.ATAssist$AboutFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbarHeight"
+        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+
+    <!-- Other screens -->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_other_msq_info"
         android:name="by.fawwozer.atassist.ATAssist$MSQInfoFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -158,8 +226,8 @@
         android:layout_marginBottom="@dimen/bottomAppBarHeight" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_logs"
-        android:name="by.fawwozer.atassist.ATAssist$LogsFragment"
+        android:id="@+id/fragment_other_fuel_calculator"
+        android:name="by.fawwozer.atassist.ATAssist$FuelCalculatorFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"

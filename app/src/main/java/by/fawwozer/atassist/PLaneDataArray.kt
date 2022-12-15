@@ -18,12 +18,13 @@ class PLaneDataArray {
 	var size = 0
 	private var planeDataArray = ArrayList<PlaneData>()
 	
+	//создание списка активных самолетов
 	fun createForEnabled() {
 		planeDataArray.clear()
 		var i = 0
 		val planeDB = PlaneDB()
 		val db = planeDB.writableDatabase
-		val cursor = db.query(PLANE_DB_TABLE, null, null, null, null, null, null)
+		val cursor = db.query(PLANE_DB_TABLE, null, null, null, null, null, KEY_PLANE_TYPE + " ASC, " + KEY_PLANE_ID + " ASC")
 		if (cursor.moveToFirst()) {
 			do {
 				if (cursor.getInt(cursor.getColumnIndex(KEY_PLANE_ENABLED)) != 0) {
@@ -38,6 +39,7 @@ class PLaneDataArray {
 					planeData.oilStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_OIL_STEP))
 					planeData.hydraulic = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC))
 					planeData.hydraulicStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC_STEP))
+					planeDataArray.add(planeData)
 					i++
 				}
 			} while (cursor.moveToNext())
@@ -47,12 +49,13 @@ class PLaneDataArray {
 		size = i
 	}
 	
+	//создание списка всех самотлетов
 	fun createForAll() {
 		planeDataArray.clear()
 		var i = 0
 		val planeDB = PlaneDB()
 		val db = planeDB.writableDatabase
-		val cursor = db.query(PLANE_DB_TABLE, null, null, null, null, null, null)
+		val cursor = db.query(PLANE_DB_TABLE, null, null, null, null, null, KEY_PLANE_TYPE + " ASC, " + KEY_PLANE_ID + " ASC")
 		if (cursor.moveToFirst()) {
 			do {
 				val planeData = PlaneData()
@@ -66,6 +69,7 @@ class PLaneDataArray {
 				planeData.oilStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_OIL_STEP))
 				planeData.hydraulic = cursor.getInt(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC))
 				planeData.hydraulicStep = cursor.getDouble(cursor.getColumnIndex(KEY_PLANE_HYDRAULIC_STEP))
+				planeDataArray.add(planeData)
 				i++
 			} while (cursor.moveToNext())
 		}
@@ -110,6 +114,14 @@ class PLaneDataArray {
 			i++
 		}
 		return 0
+	}
+	
+	fun getType(id: Int): Int {
+		if (id == 0) return -1
+		for (planeData in planeDataArray) {
+			if (planeData.id == id) return planeData.type
+		}
+		return -1
 	}
 	
 	class PlaneData {

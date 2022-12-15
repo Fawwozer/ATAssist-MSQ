@@ -1,8 +1,8 @@
 [x.]y.z.r
-x - A/C types (not need anymore)
+x - A/C types (not use anymore)
       1 - Boeing 737CL
       2 - Embraer
-x = 2 (not need anymore)
+x = 2 (not use anymore)
 
 y - Funcion
       1  - Main Checks
@@ -10,25 +10,26 @@ y - Funcion
       3  - Navigation Menu
       4  - Save log in SQL DB
       5  - Schedule
-      6  - Transite Flights
-      7  - Settings
-      8  - SQL DB for planes
-      9  - Import/Export SQL DB
-      10 - Add Flight Notifications
-      11 - Editing of the scheduled work
-      12 - Search for stand for a scheduled aircraft (need internet connection)
-      13 - Add Kobra MSQ table
-      14 - Cloud BackUp
-      15 - Create write-up in Schedule from Kobra table
-++    16 - Fleet tracker
+      6  - Settings
+      7  - SQL DB for planes
+      8  - Import/Export SQL DB
+      9  - Add Flight Notifications
+      10 - Editing of the scheduled work
+      11 - Search for stand for a scheduled aircraft (need internet connection)
+      12 - Add Kobra MSQ table
+      13 - Cloud BackUp
+      14 - Create write-up in Schedule from Kobra table
+      15 - Fleet tracker
+      16 - New design and navigation
       (Deleted)    
       1 - Better txt logs (not need anymore)
-y = 17
+      2  - Transite Flights (deleted)
+y = 18
 
 z - Fiches
       1  - Press again for exit
       2  - Round to 100kg
-      3  - Commerc load inf
+      3  - Commercial load information
       4  - Comment
       5  - Toolbar
       6  - Up Intent
@@ -50,12 +51,15 @@ z - Fiches
       22 - Jeppesen info for UMMS
       23 - Interface improvement
       24 - Code optimization
-++    25 - Rounding liters of fuel
+      25 - Rounding liters of fuel
       26 - Plane DB on firestore
+      27 - Checks DB on firestore
+//    28 - Notification for fleet info
+      29 - Support themes
       (Deleted)
       1 - Clear func (not need anymore)
       2 - Delete old .log when add 24HRS (not need anymore)
-z = 28
+z = 31
 
 r - Revision
 r = 0

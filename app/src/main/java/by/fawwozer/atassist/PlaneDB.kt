@@ -75,9 +75,17 @@ class PlaneDB: SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_DB
 								cv.put(KEY_PLANE_TYPE, map[KEY_PLANE_TYPE] as Long)
 								cv.put(KEY_PLANE_FUEL, map[KEY_PLANE_FUEL] as Long)
 								cv.put(KEY_PLANE_OIL, map[KEY_PLANE_OIL] as Long)
-								cv.put(KEY_PLANE_OIL_STEP, map[KEY_PLANE_OIL_STEP] as Double)
+								try {
+									cv.put(KEY_PLANE_OIL_STEP, map[KEY_PLANE_OIL_STEP] as Double)
+								} catch (e: ClassCastException) {
+									cv.put(KEY_PLANE_OIL_STEP, map[KEY_PLANE_OIL_STEP] as Long)
+								}
 								cv.put(KEY_PLANE_HYDRAULIC, map[KEY_PLANE_HYDRAULIC] as Long)
-								cv.put(KEY_PLANE_HYDRAULIC_STEP, map[KEY_PLANE_HYDRAULIC_STEP] as Double)
+								try {
+									cv.put(KEY_PLANE_HYDRAULIC_STEP, map[KEY_PLANE_HYDRAULIC_STEP] as Double)
+								} catch (e: ClassCastException) {
+									cv.put(KEY_PLANE_HYDRAULIC_STEP, map[KEY_PLANE_HYDRAULIC_STEP] as Long)
+								}
 								cv.put(KEY_PLANE_ENABLED, map[KEY_PLANE_ENABLED] as Boolean)
 								val cursor = db.query(PLANE_DB_TABLE, null, KEY_PLANE_ID + " = '" + map[KEY_PLANE_ID] + "'", null, null, null, null)
 								if (cursor.moveToFirst()) {

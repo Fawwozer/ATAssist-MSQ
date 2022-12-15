@@ -18,6 +18,7 @@ import by.fawwozer.atassist.Global.Companion.KEY_FLEET_TILL
 import com.google.firebase.firestore.FirebaseFirestore
 
 class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB_VERSION) {
+    
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(
             "CREATE TABLE " + FLEET_DB_TABLE + " ( " +
@@ -48,6 +49,7 @@ class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB
 
     companion object {
         fun loadFromFireStore() { //загрузка данных из FireStore
+            Log.d("MY", "Load FleetDB")
             val firestore = FirebaseFirestore.getInstance()
             firestore.collection(FIRESTORE_COLLECTION_FLEET)  // подключается слушатель изменений
                 .addSnapshotListener { documents, error ->
@@ -56,6 +58,7 @@ class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB
                         Log.d("MY", "FleetDB/loadFromFireStore/addSnapshotListener/Error $error")
                         return@addSnapshotListener
                     }
+                    Log.d("MY", "FleeDB changed")
                     //если получены данные, они обрабатываются
                     if (documents != null) {
                         val fleetDB = FleetDB()
@@ -80,7 +83,7 @@ class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB
                         db.close()
 
                         //показывается оповещение об изменениях
-
+    
                         if (documents.size() > 1) {
                             //изменилось несколько записей
                         } else {
@@ -89,5 +92,15 @@ class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB
                     }
                 }
         }
+    }
+    
+    class FleetData {
+        var ID = -1
+        var plane = -1
+        var status = -1
+        var date = -1
+        var till = -1
+        var head = ""
+        var message = ""
     }
 }

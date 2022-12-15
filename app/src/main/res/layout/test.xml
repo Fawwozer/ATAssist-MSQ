@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
+    <!--tools:openDrawer="start"-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appBarLayout"
@@ -51,7 +50,7 @@
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
                             android:tint="?attr/mainToolbarIconColor"
-                            app:srcCompat="@drawable/ic_launcher" />
+                            app:srcCompat="@drawable/ic_atassist" />
 
                         <TextView
                             android:id="@+id/toolbar_main_title"
@@ -83,25 +82,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/bg_done"
+                android:background="@drawable/bg_green"
                 android:orientation="vertical" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/bg_dmi"
+                android:background="@drawable/bg_yellow"
                 android:orientation="vertical"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/bg_info"
+                android:background="@drawable/bg_blue"
                 android:orientation="vertical"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/bg_inop"
+                android:background="@drawable/bg_red"
                 android:orientation="vertical"/>
 
             <include

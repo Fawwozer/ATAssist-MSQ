@@ -1,7 +1,6 @@
 package by.fawwozer.atassist
 
 import by.fawwozer.atassist.Global.Companion.CHECK_DB_TABLE
-import by.fawwozer.atassist.Global.Companion.GENERAL_FIRST_STRING_SPLITTER
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_ADDITIONAL_WORKS
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_10
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_AFML_11
@@ -15,6 +14,7 @@ import by.fawwozer.atassist.Global.Companion.KEY_CHECK_COMMERCIAL
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_ID
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_NAME
 import by.fawwozer.atassist.Global.Companion.KEY_CHECK_TYPE
+import by.fawwozer.atassist.Global.Companion.MAIN_TEXT_SPLITTER
 
 class CheckDataArray {
 
@@ -27,11 +27,11 @@ class CheckDataArray {
         var i = 0
         val checkDB = CheckDB()
         val db = checkDB.writableDatabase
-        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null) //получение данных из базы данных чеков
+        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, KEY_CHECK_ID) //получение данных из базы данных чеков
         if (cursor.moveToFirst()) {
             do {
                 val types = cursor.getString(cursor.getColumnIndex(KEY_CHECK_TYPE)) //получение строки типов для которых применим этот чек: "1,|,2,|,3"
-                val type = types.split(GENERAL_FIRST_STRING_SPLITTER)          //деление строки
+                val type = types.split(MAIN_TEXT_SPLITTER)          //деление строки
                 for (load_type in type) {                                          //перебор всех типов
                     if (load_type.toInt() == set_type) {                                  //если типы совпадают добавляеться запись об этом чеке
                         val checkData = CheckData()
@@ -66,7 +66,7 @@ class CheckDataArray {
         var i = 0
         val checkDB = CheckDB()
         val db = checkDB.writableDatabase
-        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, null)   //получение данных из базы данных чеков
+        val cursor = db.query(CHECK_DB_TABLE, null, null, null, null, null, KEY_CHECK_ID)   //получение данных из базы данных чеков
         if (cursor.moveToFirst()) {                                                                                                     //добавление данных о чеке
             do {
                 val checkData = CheckData()
@@ -101,10 +101,11 @@ class CheckDataArray {
 
     //получение ID чека по позиции в Spinner
     fun getCheckID(pos: Int): Int {
-        if (checkDataArray.size != 0) return 0
-        return checkDataArray[pos-1].id
+        if (checkDataArray.size == 0) return 0
+        if (pos == 0) return -1
+        return checkDataArray[pos - 1].id
     }
-
+    
     //получение позиции чека в массиве для установки в Spinner
     fun getPosition(id: Int): Int {
         var i = 1
@@ -114,7 +115,16 @@ class CheckDataArray {
         }
         return 0
     }
-
+    
+    fun getCheckName(id: Int): String {
+        var i = 1
+        for (checkData in checkDataArray) {
+            if (checkData.id == id) return checkData.name
+            i++
+        }
+        return ""
+    }
+    
     //класс данных о чеке
     class CheckData {
         var id: Int = -1

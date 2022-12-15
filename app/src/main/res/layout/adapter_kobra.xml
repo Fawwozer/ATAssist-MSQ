@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_kobra_root"
+    android:background="@drawable/bg_clear"
     android:layout_width="match_parent"
-    android:layout_height="27dp">
+    android:layout_height="40dp">
 
     <TextView
         android:id="@+id/tv_kobra_plane"
         android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:background="@drawable/bg_clear"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
         android:layout_alignParentTop="true"
-        android:text="EW-527PA"/>
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_clear"
+        android:theme="?attr/adapterKobraTextStyle" />
 
     <RelativeLayout
         android:id="@+id/rl_kobra_flight"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_toEndOf="@id/tv_kobra_plane"
-        android:layout_toStartOf="@id/tv_kobra_time"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/ll_kobra_time"
+        android:layout_toEndOf="@id/tv_kobra_plane"
         android:background="@drawable/bg_clear">
 
         <TextView
@@ -31,52 +29,59 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:gravity="center"
-            android:paddingStart="5dp"
+            android:paddingStart="6dp"
             android:paddingEnd="0dp"
-            android:text="BRU8317"/>
+            android:theme="?attr/adapterKobraTextStyle" />
 
         <TextView
             android:id="@+id/tv_kobra_detination"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toEndOf="@id/tv_kobra_flight"
             android:layout_alignParentEnd="true"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:singleLine="true"
+            android:layout_toEndOf="@id/tv_kobra_flight"
             android:gravity="center_vertical|start"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
             android:textAllCaps="true"
-            android:text="ростов-на-дону"/>
+            android:theme="?attr/adapterKobraTextStyle" />
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tv_kobra_time"
+    <LinearLayout
+        android:id="@+id/ll_kobra_time"
         android:layout_width="50dp"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_clear"
-        android:text="20:56"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:gravity="center"
-        android:layout_toStartOf="@id/tv_kobra_stand"/>
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/tv_kobra_stand"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_kobra_time_schedule"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_clear"
+            android:theme="?attr/adapterKobraTextStyle" />
+
+        <TextView
+            android:id="@+id/tv_kobra_time_expect"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:background="@drawable/bg_clear"
+            android:theme="?attr/adapterKobraTextStyle" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_kobra_stand"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:text="27A"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:background="@drawable/bg_clear"/>
+        android:background="@drawable/bg_clear"
+        android:textSize="22sp"
+        android:theme="?attr/adapterKobraTextStyle" />
 
 </RelativeLayout>

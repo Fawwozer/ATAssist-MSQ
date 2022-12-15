@@ -9,9 +9,9 @@
         android:id="@+id/iv_notification_icon"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="?attr/actionBarSize"
-        app:srcCompat="@drawable/ic_launcher"
-        android:tint="?attr/notificationIconColor"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/ic_atassist"
+        android:contentDescription="TODO"
+        app:tint="?attr/notificationIconColor" />
 
     <RelativeLayout
         android:id="@+id/rl_notification_state"

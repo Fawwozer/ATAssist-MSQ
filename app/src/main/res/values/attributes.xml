@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="iconColor"/>
-    <attr name="splashIconColor"/>
 
-    <attr name="mainBottomAppBarStyle"/>
-    <attr name="mainToolbarBackColor"/>
-    <attr name="mainToolbarTextColor"/>
-    <attr name="mainToolbarIconColor"/>
-    <attr name="mainFloatBtBackColor"/>
-    <attr name="mainSelectedColor"/>
-    <attr name="mainNotSelectedColor"/>
+    <attr name="adapterScheduleTextStyle" />
+    <attr name="adapterScheduleIconColor" />
 
+    <attr name="adapterKobraTextStyle" />
 
-    <attr name="adapterScheduleTextStyle"/>
-    <attr name="adapterScheduleIconColor"/>
+    <attr name="adapterLogsTextStyle" />
+    <attr name="adapterLogsIconColor" />
 
-    <attr name="adapterLogsTextStyle"/>
-    <attr name="adapterLogsIconColor"/>
+    <attr name="notificationTextStyle" />
+    <attr name="notificationIconColor" />
 
-    <attr name="notificationTextStyle"/>
-    <attr name="notificationIconColor"/>
+    <attr name="dialogBelaviaTextStyle" />
+    <attr name="dialogBelaviaIconColor" />
+    <attr name="dialogBelaviaSpinnerColor" />
+    <attr name="dialogBelaviaETextColor" />
 
-    <attr name="dialogBelaviaTextStyle"/>
-    <attr name="dialogBelaviaIconColor"/>
-    <attr name="dialogBelaviaSpinnerColor"/>
-    <attr name="dialogBelaviaETextColor"/>
+    <attr name="mainSelectedColor" />
+    <attr name="mainNotSelectedColor" />
 
-    <attr name="colorDMI"/>
-    <attr name="colorINOP"/>
-    <attr name="colorINFO"/>
-    <attr name="colorDONE"/>
+    <attr name="colorDMI" />
+    <attr name="colorINOP" />
+    <attr name="colorINFO" />
+    <attr name="colorDONE" />
 
-    <attr name="colorButtonSolidDisable"/>
-    <attr name="colorButtonSolidNormal"/>
-    <attr name="colorButtonSolidPress"/>
-    <attr name="colorButtonStrokeDisable"/>
-    <attr name="colorButtonStrokeNormal"/>
-    <attr name="colorButtonStrokePress"/>
+    <attr name="colorButtonSolidDisable" />
+    <attr name="colorButtonSolidNormal" />
+    <attr name="colorButtonSolidPress" />
+    <attr name="colorButtonStrokeDisable" />
+    <attr name="colorButtonStrokeNormal" />
+    <attr name="colorButtonStrokePress" />
+
+    <attr name="iconColor" />
+    <attr name="splashIconColor" />
+    <attr name="mainBottomAppBarStyle" />
+    <attr name="mainToolbarBackColor" />
+    <attr name="mainToolbarTextColor" />
+    <attr name="mainToolbarIconColor" />
+    <attr name="mainFloatBtBackColor" />
+
+    <attr name="settingsIconMainColor" />
+    <attr name="settingsIconShadeColor" />
+    <attr name="settingsIconOnColor" />
+    <attr name="settingsIconOffColor" />
+
 </resources>

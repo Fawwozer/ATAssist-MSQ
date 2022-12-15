@@ -36,67 +36,157 @@
         android:gravity="center_vertical|end"
         android:paddingStart="0dp"
         android:paddingEnd="5dp"
-        android:text="Check:"/>
+        android:text="Check:" />
 
     <Spinner
         android:id="@+id/sp_d_belavia_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/sp_d_belavia_aircraft"
-        android:layout_alignParentEnd="true"
         android:layout_toEndOf="@id/tv_d_belavia_check"
+        android:layout_toStartOf="@id/bt_d_belavia_add"
         android:layout_marginTop="8dp"
+        android:backgroundTint="?attr/dialogBelaviaSpinnerColor" />
+
+    <android.widget.Button
+        android:id="@+id/bt_d_belavia_add"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_none"
+        android:layout_alignBottom="@id/sp_d_belavia_check"
+        android:layout_alignTop="@id/sp_d_belavia_check"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="+" />
+
+    <TextView
+        android:id="@+id/tv_d_belavia_add_check_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tv_d_belavia_check"
+        android:layout_toStartOf="@id/bt_d_belavia_remove_1"
+        android:text="Daily"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:paddingStart="4dp"
+        android:layout_below="@id/sp_d_belavia_check" />
+
+    <android.widget.Button
+        android:id="@+id/bt_d_belavia_remove_1"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_none"
+        android:layout_alignBottom="@id/tv_d_belavia_add_check_1"
+        android:layout_below="@id/sp_d_belavia_check"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/tv_d_belavia_add_check_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tv_d_belavia_check"
+        android:layout_toStartOf="@id/bt_d_belavia_remove_2"
+        android:text="Service"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:paddingStart="4dp"
+        android:layout_below="@id/tv_d_belavia_add_check_1" />
+
+    <android.widget.Button
+        android:id="@+id/bt_d_belavia_remove_2"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_none"
+        android:layout_alignBottom="@id/tv_d_belavia_add_check_2"
+        android:layout_below="@id/tv_d_belavia_add_check_1"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/tv_d_belavia_add_check_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tv_d_belavia_check"
+        android:layout_toStartOf="@id/bt_d_belavia_remove_3"
+        android:text="Routine"
+        android:layout_marginTop="3dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="?attr/dialogBelaviaSpinnerColor"/>
+        android:paddingStart="4dp"
+        android:layout_below="@id/tv_d_belavia_add_check_2" />
+
+    <android.widget.Button
+        android:id="@+id/bt_d_belavia_remove_3"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_none"
+        android:layout_alignBottom="@id/tv_d_belavia_add_check_3"
+        android:layout_below="@id/tv_d_belavia_add_check_2"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="-" />
 
     <ImageView
         android:id="@+id/iv_d_belavia_land"
-        android:tint="?attr/dialogBelaviaIconColor"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         app:srcCompat="@drawable/ic_airplane_landing"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="3dp"
-        android:layout_below="@id/sp_d_belavia_check"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@id/tv_d_belavia_add_check_3"
+        android:layout_toStartOf="@id/tv_d_belavia_land"
+        app:tint="?attr/dialogBelaviaIconColor" />
 
     <TextView
         android:id="@+id/tv_d_belavia_land"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:text="08:00"
         android:theme="?attr/dialogBelaviaTextStyle"
         android:textStyle="normal"
         android:fontFamily="@font/time_bomb"
-        android:textSize="23sp"
-        android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@+id/iv_d_belavia_land"
-        android:layout_below="@id/sp_d_belavia_check"
-        android:gravity="center"/>
+        android:textSize="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_toStartOf="@id/s_d_belavia_spacer"
+        android:layout_below="@id/tv_d_belavia_add_check_3"
+        android:gravity="center" />
+
+    <Space
+        android:id="@+id/s_d_belavia_spacer"
+        android:layout_width="0px"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_d_belavia_add_check_3"
+        android:layout_marginBottom="8dp"
+        android:layout_centerInParent="true" />
 
     <ImageView
         android:id="@+id/iv_d_belavia_takeoff"
-        android:tint="?attr/dialogBelaviaIconColor"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         app:srcCompat="@drawable/ic_airplane_takeoff"
-        android:layout_marginEnd="3dp"
-        android:layout_marginStart="120dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/sp_d_belavia_check" />
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/s_d_belavia_spacer"
+        android:layout_below="@id/tv_d_belavia_add_check_3"
+        app:tint="?attr/dialogBelaviaIconColor" />
 
     <TextView
         android:id="@+id/tv_d_belavia_takeoff"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:text="12:25"
         android:theme="?attr/dialogBelaviaTextStyle"
         android:fontFamily="@font/time_bomb"
-        android:textSize="23sp"
+        android:textSize="30sp"
         android:textStyle="normal"
-        android:layout_toEndOf="@+id/iv_d_belavia_takeoff"
-        android:layout_below="@id/sp_d_belavia_check"
-        android:gravity="center"/>
+        android:layout_toEndOf="@id/iv_d_belavia_takeoff"
+        android:layout_below="@id/tv_d_belavia_add_check_3"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/tv_d_belavia_flight"
@@ -113,27 +203,26 @@
         android:id="@+id/et_d_belavia_flight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_d_belavia_check"
+        android:layout_below="@id/s_d_belavia_spacer"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="39dp"
         android:layout_toEndOf="@id/tv_d_belavia_flight"
         android:backgroundTint="?attr/dialogBelaviaETextColor"
         android:inputType="number"
         android:singleLine="true"
+        android:hint="@string/dialog_belavia_flight_hint"
         android:maxLength="4"
-        android:text="869"
         android:textSize="15sp" />
 
     <EditText
         android:id="@+id/et_d_belavia_destination"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_d_belavia_flight"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
+        android:layout_toEndOf="@id/tv_d_belavia_flight"
         android:backgroundTint="?attr/dialogBelaviaETextColor"
         android:singleLine="true"
-        android:text="АМСТЕРДАМ"
+        android:hint="@string/dialog_belavia_city_hint"
         android:textSize="15sp" />
 
 </RelativeLayout>

@@ -3,11 +3,13 @@
     <string-array name="settings_theme_array">
         <item>Light</item>
         <item>Dark</item>
+        <item>Belavia</item>
     </string-array>
 
     <string-array name="settings_theme_number_array">
-        <item>0</item>
-        <item>1</item>
+        <item>light</item>
+        <item>dark</item>
+        <item>belavia</item>
     </string-array>
 
     <string-array name="settings_liter_array">

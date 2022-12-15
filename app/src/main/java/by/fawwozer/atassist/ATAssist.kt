@@ -32,14 +32,14 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_PLANE
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_SORT
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_STAND
 import by.fawwozer.atassist.Global.Companion.LOGS_DB_TABLE
-import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_FLEET
-import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_KOBRA
-import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_SCHEDULE
-import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_SETTINGS
 import by.fawwozer.atassist.Global.Companion.MAIN_FRAGMENT_FLEET
 import by.fawwozer.atassist.Global.Companion.MAIN_FRAGMENT_KOBRA
 import by.fawwozer.atassist.Global.Companion.MAIN_FRAGMENT_SCHEDULE
 import by.fawwozer.atassist.Global.Companion.MAIN_FRAGMENT_SETTINGS
+import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_FLEET
+import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_KOBRA
+import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_SCHEDULE
+import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_SETTINGS
 import by.fawwozer.atassist.Global.Companion.MAIN_TEXT_SPLITTER
 import by.fawwozer.atassist.Global.Companion.OTHER_ITEM_FUEL_CALCULATOR
 import by.fawwozer.atassist.Global.Companion.OTHER_ITEM_MSQ_INFO
@@ -70,15 +70,15 @@ import java.util.*
 class ATAssist: AppCompatActivity() {
 	
 	//переменные истории открытия вкладок
-	private var selectedScreen = MAIN_FRAGMENT_SCHEDULE
-	private var previousScreen = MAIN_FRAGMENT_SCHEDULE
-	private var prePreviousScreen = MAIN_FRAGMENT_SCHEDULE
-	private var defaultScreen = MAIN_FRAGMENT_SCHEDULE
+	private var selectedScreen = MAIN_FRAGMENT_KOBRA
+	private var previousScreen = MAIN_FRAGMENT_KOBRA
+	private var prePreviousScreen = MAIN_FRAGMENT_KOBRA
+	private var defaultScreen = MAIN_FRAGMENT_KOBRA
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		//применение темы из настроек
 		val preference = getSharedPreferences(Global.PREFERENCE_FILE, Context.MODE_PRIVATE)
-		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
 		if (preference.contains(Global.SETTING_GENERAL_APPLICATION_THEME)) {
 			when (preference.getInt(Global.SETTING_GENERAL_APPLICATION_THEME, THEME_LIGHT)) {
 				THEME_LIGHT -> setTheme(R.style.AppTheme_Light)
@@ -401,7 +401,7 @@ class ATAssist: AppCompatActivity() {
 		prePreviousScreen = id
 	}
 	
-	public fun navigationOnClick(view: View) {
+	fun navigationOnClick(view: View) {
 		when (view.id) {
 			SETTINGS_ITEM_GENERAL -> {
 				showScreen(SETTINGS_SCREEN_GENERAL, FORWARD_DIRECTION)
@@ -430,12 +430,12 @@ class ATAssist: AppCompatActivity() {
 		}
 	}
 	
-	public fun floatBTNOnClick(view: View) {
+	fun floatBTNOnClick(view: View) {
 		//createScheduleEntry(437, "1,|,20", 666, "SATANA", 12354351430, 1354313210, 1)
 		createScheduleEntry(-1, "-1", -1, "", 0, 0, -1)
 	}
 	
-	public fun createScheduleEntry(planeId: Int, checksIds: String, flightN: Int, city: String, arr: Long, dep: Long, logId: Long) {
+	fun createScheduleEntry(planeId: Int, checksIds: String, flightN: Int, city: String, arr: Long, dep: Long, logId: Long) {
 		
 		// создание констант
 		val context = this
@@ -664,7 +664,7 @@ class ATAssist: AppCompatActivity() {
 				if (v.findViewById<EditText>(R.id.et_d_belavia_flight).text.isNotEmpty()) scheduleEntryData.flightN = v.findViewById<EditText>(R.id.et_d_belavia_flight).text.toString()
 					.toInt()
 				if (v.findViewById<EditText>(R.id.et_d_belavia_destination).text.isNotEmpty()) scheduleEntryData.city = v.findViewById<EditText>(R.id.et_d_belavia_destination).text.toString()
-				var sort = 0.toLong()
+				var sort: Long
 				val checksIDs = scheduleEntryData.checksIDs.split(MAIN_TEXT_SPLITTER)
 					.toMutableList()
 				sort = when {
@@ -738,7 +738,7 @@ class ATAssist: AppCompatActivity() {
 		val btRemoveCheck3 = view.findViewById<Button>(R.id.bt_d_belavia_remove_3)
 		
 		//создание постоянных
-		val timeFormat = SimpleDateFormat("HH:mm")
+		val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
 		val pda = PLaneDataArray()
 		val cda = CheckDataArray()
 		val checksIDs = scheduleEntryData.checksIDs.split(MAIN_TEXT_SPLITTER)

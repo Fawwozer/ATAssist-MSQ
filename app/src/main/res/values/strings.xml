@@ -2,25 +2,51 @@
 
     <string name="app_name">ATAssist MSQ</string>
     <string name="app_label">ATAssist</string>
-    <string name="app_version">17.28.0</string>
+    <string name="app_version">18.31.0</string>
     <string name="app_code">19</string>
-    <string name="app_label_version">ATAssist 17.28.0</string>
+    <string name="app_label_version">ATAssist 18.31.0</string>
 
     <!-- Main Menu -->
 
     <string name="main_menu_schedule">Schedule</string>
-    <string name="main_menu_fleet_info">Fleet Info</string>
-    <string name="main_menu_fuel_calculator">Fuel Calculator</string>
-    <string name="main_menu_umms_kobra">UMMS Kobra</string>
-    <string name="main_menu_umms_info">UMMS Info</string>
-    <string name="main_menu_logs">Logs</string>
+    <string name="main_menu_fleet_info">Fleet</string>
+    <string name="main_menu_umms_kobra">Kobra</string>
     <string name="main_menu_settings">Settings</string>
 
-    <!-- Main Menu -->
+    <!-- Other screens -->
 
-    <string name="settings_menu_general">General</string>
-    <string name="settings_menu_maintenance">Maintenance</string>
-    <string name="settings_menu_backup">BackUp</string>
+    <string name="dialog_belavia_flight_hint">Flight number</string>
+    <string name="dialog_belavia_city_hint">City of flight</string>
+    <string name="dialog_belavia_city_hint_note">Note</string>
+
+    <!-- Other screens -->
+
+    <string name="other_screen_fuel_calculator">Fuel calculator</string>
+    <string name="other_screen_msq_info">MSQ Info</string>
+
+    <!-- Settings -->
+    <!-- Settings header menu -->
+
+    <string name="settings_menu_title_general">General</string>
+    <string name="settings_menu_summary_general">General application settings</string>
+    <string name="settings_menu_title_maintenance">Maintenance</string>
+    <string name="settings_menu_summary_maintenance">Settings for maintenance screen</string>
+    <string name="settings_menu_title_backup">BackUp</string>
+    <string name="settings_menu_summary_backup">BackUp settings</string>
+    <string name="settings_menu_title_notification">Notification</string>
+    <string name="settings_menu_summary_notification">Notification settings</string>
+    <string name="settings_menu_title_logs">Logs</string>
+    <string name="settings_menu_summary_logs">See maintenance logs</string>
+    <string name="settings_menu_title_about">About</string>
+
+    <!-- General settings  -->
+
+    <string name="settings_general_theme">Application theme</string>
+    <string name="settings_general_schedule_time">Delete schedule entry after</string>
+    <string name="settings_general_schedule_time_summary_off">Off</string>
+    <string name="settings_general_delete_logs">Delete log entry</string>
+    <string name="settings_general_delete_logs_summary_off">Deletion denied</string>
+    <string name="settings_general_delete_logs_summary_on">Deletion allowed</string>
 
     <!--  -->
 

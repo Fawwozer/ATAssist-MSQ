@@ -55,46 +55,6 @@ import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_6_N2_ADD
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_6_N2_REMAIN
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORKS
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_00
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_01
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_02
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_03
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_04
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_05
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_06
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_07
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_08
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_09
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_10
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_11
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_12
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_13
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_14
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_15
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_16
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_17
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_18
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_19
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_20
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_21
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_22
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_23
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_24
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_25
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_26
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_27
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_28
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_29
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_30
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_31
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_32
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_33
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_34
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_35
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_36
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_37
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_38
-import by.fawwozer.atassist.Global.Companion.KEY_LOGS_AFML_9_WORK_39
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_CYCLES
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_HOURS
 import by.fawwozer.atassist.Global.Companion.KEY_LOGS_APU_HOURS_ON_PLANE
@@ -132,7 +92,7 @@ class LogsDB: SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VE
 					KEY_LOGS_STAND + " text, " +
 					KEY_LOGS_IS_DONE + " bit, " +
 					KEY_LOGS_PLANE + " tinyint, " +
-					KEY_LOGS_CHECK + " tinyint, " +
+					KEY_LOGS_CHECK + " text, " +
 					KEY_LOGS_BELAVIA + " bit, " +
 					KEY_LOGS_AFML_2 + " bit, " +
 					KEY_LOGS_AFML_2_HYDRAULIC_ADD_SYSTEM_1 + " real, " +
@@ -194,47 +154,7 @@ class LogsDB: SQLiteOpenHelper(Global.appContext, LOGS_DB_NAME, null, LOGS_DB_VE
 					KEY_LOGS_APU_HOURS_ON_PLANE + " real, " +
 					KEY_LOGS_APU_SERIAL_NUMBER + " text, " +
 					KEY_LOGS_AFML_9 + " long, " +
-					KEY_LOGS_AFML_9_WORKS + " text, " +
-					KEY_LOGS_AFML_9_WORK_00 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_01 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_02 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_03 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_04 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_05 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_06 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_07 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_08 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_09 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_10 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_11 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_12 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_13 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_14 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_15 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_16 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_17 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_18 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_19 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_20 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_21 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_22 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_23 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_24 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_25 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_26 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_27 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_28 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_29 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_30 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_31 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_32 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_33 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_34 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_35 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_36 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_37 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_38 + " bit, " +
-					KEY_LOGS_AFML_9_WORK_39 + " bit" +
+					KEY_LOGS_AFML_9_WORKS + " text" +
 					");"
 		)
 		onUpgrade(db, 1, LOGS_DB_VERSION)
