@@ -2,9 +2,9 @@
 
     <string name="app_name">ATAssist MSQ</string>
     <string name="app_label">ATAssist</string>
-    <string name="app_version">18.31.0</string>
-    <string name="app_code">19</string>
-    <string name="app_label_version">ATAssist 18.31.0</string>
+    <string name="app_version">18.31.2</string>
+    <string name="app_code">22</string>
+    <string name="app_label_version">ATAssist 18.31.2</string>
 
     <!-- Main Menu -->
 
@@ -47,6 +47,19 @@
     <string name="settings_general_delete_logs">Delete log entry</string>
     <string name="settings_general_delete_logs_summary_off">Deletion denied</string>
     <string name="settings_general_delete_logs_summary_on">Deletion allowed</string>
+
+    <!-- Fuel calculator -->
+
+    <string name="calculator_remain">Remain</string>
+    <string name="calculator_uplift">Uplift</string>
+    <string name="calculator_total">Total</string>
+    <string name="calculator_adjust">Adjust</string>
+    <string name="calculator_depart">Depart</string>
+    <string name="calculator_density">Density</string>
+    <string name="calculator_liters">Liters</string>
+    <string name="calculator_l">l</string>
+    <string name="calculator_kg_l">kg/l</string>
+    <string name="calculator_kg">kg</string>
 
     <!--  -->
 

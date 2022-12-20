@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="light_Primary">#546E7A</color>
-    <color name="light_PrimaryDark">#455A64</color>
+    <color name="light_Primary">#36454d</color>
+    <color name="light_PrimaryDark">#2d3940</color>
 
-    <color name="light_Accent">#E99845</color>
-    <color name="light_AccentDark">#E18940</color>
+    <color name="light_Accent">#e5bd95</color>
+    <color name="light_AccentDark">#e5b88a</color>
 
     <color name="light_TextLight">#eceff1</color>
     <color name="light_TextDark">#263237</color>
@@ -14,11 +14,11 @@
 
     <color name="light_BackgroundColor">#E2E2E2</color>
 
-    <color name="light_adapterLogsIconColor">#546E7A</color>
-    <color name="light_adapterScheduleIconColor">#546E7A</color>
-    <color name="light_notificationIconColor">#546E7A</color>
-    <color name="light_dialogBelaviaIconColor">#546E7A</color>
-    <color name="light_splashIconColor">#546E7A</color>
+    <color name="light_adapterLogsIconColor">#36454d</color>
+    <color name="light_adapterScheduleIconColor">#36454d</color>
+    <color name="light_notificationIconColor">#36454d</color>
+    <color name="light_dialogBelaviaIconColor">#36454d</color>
+    <color name="light_splashIconColor">#36454d</color>
 
     <color name="light_ColorDMI">#66D2A000</color>
     <color name="light_ColorINOP">#66D20000</color>

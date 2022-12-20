@@ -47,7 +47,7 @@
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/toolbar_main_reload"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:layout_width="@dimen/toolbarHeight"
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_centerVertical="true"
@@ -59,7 +59,6 @@
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/toolbar_main_calculator"
-                    android:visibility="gone"
                     android:layout_width="@dimen/toolbarHeight"
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_centerVertical="true"
@@ -72,7 +71,7 @@
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/toolbar_main_jeppesen"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:layout_width="@dimen/toolbarHeight"
                     android:layout_height="@dimen/toolbarHeight"
                     android:layout_alignParentEnd="true"
@@ -227,7 +226,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_other_fuel_calculator"
-        android:name="by.fawwozer.atassist.ATAssist$FuelCalculatorFragment"
+        android:name="by.fawwozer.atassist.FuelCalculatorFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"

@@ -21,8 +21,8 @@ android {
         applicationId "by.fawwozer.atassist"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 20
-        versionName "18.31.0"
+        versionCode 22
+        versionName "18.31.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,8 +39,6 @@ android {
     buildFeatures {
         viewBinding true
     }
-// To inline the bytecode built with JVM target 1.8 into
-// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
 
 
     compileOptions {

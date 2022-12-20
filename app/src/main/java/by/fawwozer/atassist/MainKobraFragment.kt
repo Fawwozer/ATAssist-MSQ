@@ -30,6 +30,7 @@ import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_1
 import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_2
 import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_3
 import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_4
+import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_5
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.*
@@ -100,6 +101,7 @@ class KobraPagerFragment: Fragment() {
 							} while (cur.moveToNext())
 						}
 						cur.close()
+						db.close()
 						
 						val recyclerView: RecyclerView = view.findViewById(R.id.rv_kobra_root)
 						recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -115,6 +117,7 @@ class KobraPagerFragment: Fragment() {
 							} while (cur.moveToNext())
 						}
 						cur.close()
+						db.close()
 						
 						val recyclerView: RecyclerView = view.findViewById(R.id.rv_kobra_root)
 						recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -180,6 +183,7 @@ class KobraAdapter(private val kobraData: List<KobraData>):
 			KOBRA_STATUS_IN_WORK_2 -> holder.rl_root.setBackgroundResource(R.drawable.bg_blue)
 			KOBRA_STATUS_IN_WORK_3 -> holder.rl_root.setBackgroundResource(R.drawable.bg_blue)
 			KOBRA_STATUS_IN_WORK_4 -> holder.rl_root.setBackgroundResource(R.drawable.bg_blue)
+			KOBRA_STATUS_IN_WORK_5 -> holder.rl_root.setBackgroundResource(R.drawable.bg_blue)
 			KOBRA_STATUS_IN_FLIGHT -> holder.rl_root.setBackgroundResource(R.drawable.bg_blue)
 			KOBRA_STATUS_IN_FUTURE -> holder.rl_root.setBackgroundResource(R.drawable.bg_clear)
 			KOBRA_STATUS_DELAYED -> holder.rl_root.setBackgroundResource(R.drawable.bg_yellow)

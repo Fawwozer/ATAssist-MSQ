@@ -1,10 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="50dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="50dp">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_calculator_remain"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fragment_other_fuel_calculator" />
+        android:text="@string/calculator_remain"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_remain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_calculator_remain" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_calculator_uplift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_uplift"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_uplift"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_remain" />
+
+    <TextView
+        android:id="@+id/tv_calculator_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_total"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_uplift" />
+
+    <TextView
+        android:id="@+id/tv_calculator_adjust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_adjust"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_adjust"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_total" />
+
+    <TextView
+        android:id="@+id/tv_calculator_departure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_depart"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_depart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_adjust" />
+
+    <TextView
+        android:id="@+id/tv_calculator_density"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_density"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_density"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_depart" />
+
+    <TextView
+        android:id="@+id/tv_calculator_liters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_liters"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_liters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_calculator_liters" />
+
+    <TextView
+        android:id="@+id/tv_calculator_kg_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_kg"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_remain"
+        app:layout_constraintStart_toEndOf="@+id/et_calculator_remain"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_calculator_kg_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_kg"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_uplift"
+        app:layout_constraintStart_toEndOf="@+id/et_calculator_uplift"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_remain" />
+
+    <TextView
+        android:id="@+id/tv_calculator_kg_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_kg"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_total"
+        app:layout_constraintStart_toEndOf="@+id/et_calculator_total"
+        app:layout_constraintTop_toTopOf="@+id/et_calculator_total" />
+
+    <TextView
+        android:id="@+id/tv_calculator_kg_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_kg"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_adjust"
+        app:layout_constraintStart_toEndOf="@+id/et_calculator_adjust"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_total" />
+
+    <TextView
+        android:id="@+id/tv_calculator_kg_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_kg"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_depart"
+        app:layout_constraintStart_toEndOf="@+id/et_calculator_depart"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_adjust" />
+
+    <TextView
+        android:id="@+id/tv_calculator_kg_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_kg_l"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_density"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_depart" />
+
+    <TextView
+        android:id="@+id/tv_calculator_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculator_l"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_calculator_liters"
+        app:layout_constraintStart_toEndOf="@+id/et_calculator_liters"
+        app:layout_constraintTop_toTopOf="@+id/et_calculator_liters" />
+
+    <EditText
+        android:id="@+id/et_calculator_remain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:maxLength="5"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_calculator_uplift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:enabled="false"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_remain" />
+
+    <EditText
+        android:id="@+id/et_calculator_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:enabled="false"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_uplift" />
+
+    <EditText
+        android:id="@+id/et_calculator_adjust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="5"
+        android:text="0"
+        android:minHeight="48dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_total" />
+
+    <EditText
+        android:id="@+id/et_calculator_depart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="5"
+        android:minHeight="48dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_adjust" />
+
+    <EditText
+        android:id="@+id/et_calculator_density"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="5"
+        android:layout_marginTop="6dp"
+        android:ems="4"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_depart" />
+
+    <EditText
+        android:id="@+id/et_calculator_liters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ems="4"
+        android:enabled="false"
+        android:fontFamily="@font/time_bomb"
+        android:gravity="center"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_calculator_kg_l"
+        app:layout_constraintTop_toBottomOf="@+id/et_calculator_density" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

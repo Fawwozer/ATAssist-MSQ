@@ -78,7 +78,7 @@ class ATAssist: AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		//применение темы из настроек
 		val preference = getSharedPreferences(Global.PREFERENCE_FILE, Context.MODE_PRIVATE)
-		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 		if (preference.contains(Global.SETTING_GENERAL_APPLICATION_THEME)) {
 			when (preference.getInt(Global.SETTING_GENERAL_APPLICATION_THEME, THEME_LIGHT)) {
 				THEME_LIGHT -> setTheme(R.style.AppTheme_Light)
@@ -234,7 +234,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.settings_menu_title_general)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -246,7 +246,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.settings_menu_title_maintenance)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -258,7 +258,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.settings_menu_title_backup)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -270,7 +270,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.settings_menu_title_notification)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -282,7 +282,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.settings_menu_title_logs)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -294,7 +294,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.settings_menu_title_about)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -306,7 +306,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.other_screen_fuel_calculator)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -318,7 +318,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.other_screen_msq_info)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.GONE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
@@ -327,6 +327,12 @@ class ATAssist: AppCompatActivity() {
 						.commit()
 				}
 			}
+			
+			//temporary\\
+			findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
+			findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
+			findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
+			findViewById<FloatingActionButton>(R.id.fab_main).hide()
 		}
 	}
 	
@@ -691,9 +697,9 @@ class ATAssist: AppCompatActivity() {
 				if (spCheck.selectedItemPosition == 3 && (scheduleEntryData.depTime == 0.toLong() || v.findViewById<EditText>(R.id.et_d_belavia_destination).text.isEmpty() || v.findViewById<EditText>(R.id.et_d_belavia_flight).text.isEmpty())) return@OnClickListener
 				
 				val logsDB = LogsDB().writableDatabase
-				Log.d("MY", "Save in DB")
 				if (logId == (-1).toLong()) logsDB.insert(LOGS_DB_TABLE,null,cv)
 				else logsDB.update(LOGS_DB_TABLE,cv, "${KEY_LOGS_ID}=${logId}",null)
+				logsDB.close()
 				return@OnClickListener
 			})
 			.create()
@@ -941,16 +947,6 @@ class ATAssist: AppCompatActivity() {
 			savedInstanceState: Bundle?
 		): View? {
 			return inflater.inflate(R.layout.fragment_other_msq_info, null)
-		}
-	}
-	
-	class FuelCalculatorFragment: Fragment() {
-		override fun onCreateView(
-			inflater: LayoutInflater,
-			container: ViewGroup?,
-			savedInstanceState: Bundle?
-		): View? {
-			return inflater.inflate(R.layout.fragment_other_fuel_calculator, null)
 		}
 	}
 }
