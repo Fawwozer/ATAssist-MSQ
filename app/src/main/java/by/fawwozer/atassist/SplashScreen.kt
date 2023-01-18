@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.AsyncTask
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -62,11 +61,7 @@ class SplashScreen : AppCompatActivity() {
 		setContentView(R.layout.view_splash_screen)
 		window.decorView.apply {systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN}
 		
-		///проверка версии android, если <25 загружается im_spinner в iv_splash_spinner
-		///если >25, то загружается im_spinner_animated
-		
-		if (Build.VERSION.SDK_INT < 25) findViewById<ImageView>(R.id.iv_splash_spinner).setImageResource(R.drawable.im_spinner)
-		else findViewById<ImageView>(R.id.iv_splash_spinner).setImageResource(R.drawable.im_spinner_animated)
+		findViewById<ImageView>(R.id.iv_splash_spinner).setImageResource(R.drawable.im_spinner_animated)
 		
 		//проверка на AnimatedVectorDrawable и запуск анимации
 		
@@ -74,6 +69,7 @@ class SplashScreen : AppCompatActivity() {
 		if (spinner is AnimatedVectorDrawable) spinner.start()
 		
 		//запуск фонового процесса подготовки приложения
+		//TODO("Rework with coroutines")
 		
 		val async = Async()
 		async.execute()

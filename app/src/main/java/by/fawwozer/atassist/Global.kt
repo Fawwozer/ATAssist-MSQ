@@ -99,6 +99,7 @@ class Global: Application() {
 		const val OTHER_SCREEN_MSQ_INFO = R.id.fragment_other_msq_info
 		const val OTHER_ITEM_FUEL_CALCULATOR = R.id.toolbar_main_calculator
 		const val OTHER_ITEM_MSQ_INFO = R.id.toolbar_main_jeppesen
+		const val OTHER_KOBRA_RELOAD = R.id.toolbar_main_reload
 		
 		////PREFERENCES\\\\
 		

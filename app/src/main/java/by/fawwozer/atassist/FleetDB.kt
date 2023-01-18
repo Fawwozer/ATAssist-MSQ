@@ -49,7 +49,6 @@ class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB
 
     companion object {
         fun loadFromFireStore() { //загрузка данных из FireStore
-            Log.d("MY", "Load FleetDB")
             val firestore = FirebaseFirestore.getInstance()
             firestore.collection(FIRESTORE_COLLECTION_FLEET)  // подключается слушатель изменений
                 .addSnapshotListener { documents, error ->
@@ -58,7 +57,6 @@ class FleetDB: SQLiteOpenHelper(Global.appContext, FLEET_DB_NAME, null, FLEET_DB
                         Log.d("MY", "FleetDB/loadFromFireStore/addSnapshotListener/Error $error")
                         return@addSnapshotListener
                     }
-                    Log.d("MY", "FleeDB changed")
                     //если получены данные, они обрабатываются
                     if (documents != null) {
                         val fleetDB = FleetDB()

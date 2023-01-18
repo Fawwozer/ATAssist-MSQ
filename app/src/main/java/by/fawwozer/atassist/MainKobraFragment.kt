@@ -1,6 +1,7 @@
 package by.fawwozer.atassist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,22 +34,18 @@ import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_4
 import by.fawwozer.atassist.Global.Companion.KOBRA_STATUS_IN_WORK_5
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.*
-import okhttp3.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainKobraFragment: Fragment() {
+class MainKobraFragment: Fragment(R.layout.fragment_main_kobra) {
 	
 	private lateinit var kobraPagerAdapter: KobraPagerAdapter
 	private lateinit var viewPager: ViewPager2
 	private lateinit var tabLayout: TabLayout
 	
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		return inflater.inflate(R.layout.fragment_main_kobra, null)
-	}
-	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		Log.d("MY", "MainKobraFragment onViewCreated")
 		kobraPagerAdapter = KobraPagerAdapter(this)
 		tabLayout = view.findViewById(R.id.tab_kobra)
 		viewPager = view.findViewById(R.id.pager_kobra)
@@ -59,13 +56,6 @@ class MainKobraFragment: Fragment() {
 				1 -> tab.text = "Departure"
 			}
 		}.attach()
-	}
-	
-	@OptIn(DelicateCoroutinesApi::class)
-	override fun onResume() {
-		super.onResume()
-		//запуск фонового процесса
-		GetKobraSPP.get()
 	}
 }
 
@@ -94,6 +84,7 @@ class KobraPagerFragment: Fragment() {
 					0 -> {
 						kobraData.clear()
 						val db = KobraDB().writableDatabase
+						//TODO("Change past hours view by value from preference")
 						val cur = db.query(KOBRA_DB_TABLE_ARRIVAL, null, KEY_KOBRA_TIME_PLANED + ">" + (Calendar.getInstance().timeInMillis - 12 * 60 * 60 * 1000).toString(), null, null, null, KEY_KOBRA_TIME_PLANED)
 						if (cur.moveToFirst()) {
 							do {
@@ -110,7 +101,8 @@ class KobraPagerFragment: Fragment() {
 					1 -> {
 						kobraData.clear()
 						val db = KobraDB().writableDatabase
-						val cur = db.query(KOBRA_DB_TABLE_DEPARTURE, null, KEY_KOBRA_TIME_PLANED + ">" + (Calendar.getInstance().timeInMillis - 14 * 60 * 60 * 1000).toString(), null, null, null, KEY_KOBRA_TIME_PLANED)
+						//TODO("Change past hours view by value from preference")
+						val cur = db.query(KOBRA_DB_TABLE_DEPARTURE, null, KEY_KOBRA_TIME_PLANED + ">" + (Calendar.getInstance().timeInMillis - 12 * 60 * 60 * 1000).toString(), null, null, null, KEY_KOBRA_TIME_PLANED)
 						if (cur.moveToFirst()) {
 							do {
 								kobraData.add(KobraAdapter.KobraData(cur.getString(cur.getColumnIndex(KEY_KOBRA_PLANE)), cur.getString(cur.getColumnIndex(KEY_KOBRA_FLIGHT_NUMBER)), cur.getString(cur.getColumnIndex(KEY_KOBRA_FLIGHT_DESTINATION)), cur.getString(cur.getColumnIndex(KEY_KOBRA_STAND)), cur.getString(cur.getColumnIndex(KEY_KOBRA_STATUS)), cur.getLong(cur.getColumnIndex(KEY_KOBRA_TIME_PLANED)), cur.getLong(cur.getColumnIndex(KEY_KOBRA_TIME_EXPECT))))

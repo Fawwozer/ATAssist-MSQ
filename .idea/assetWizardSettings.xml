@@ -303,8 +303,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_launcher_foreground" />
-                            <entry key="sourceFile" value="D:\Misc\For ATAssist\ic_launcher.svg" />
+                            <entry key="outputName" value="ic_eraser" />
+                            <entry key="sourceFile" value="C:\Users\fawwo\Downloads\eraser.svg" />
                           </map>
                         </option>
                       </PersistentState>

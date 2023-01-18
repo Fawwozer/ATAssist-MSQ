@@ -2,29 +2,48 @@ package by.fawwozer.atassist
 
 import android.os.Bundle
 import android.text.Editable
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import kotlin.math.roundToInt
 
-class FuelCalculatorFragment: Fragment() {
+class FuelCalculatorFragment: Fragment(R.layout.fragment_other_fuel_calculator) {
+	private lateinit var _remain: EditText
+	private lateinit var _uplift: EditText
+	private lateinit var _total: EditText
+	private lateinit var _adjust: EditText
+	private lateinit var _depart: EditText
+	private lateinit var _density: EditText
+	private lateinit var _liters: TextView
+	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		
-		view.findViewById<EditText>(R.id.et_calculator_remain)
-			.doOnTextChanged {_, _, _, _ -> calculate(view)}
-		view.findViewById<EditText>(R.id.et_calculator_adjust)
-			.doOnTextChanged {_, _, _, _ -> calculate(view)}
-		view.findViewById<EditText>(R.id.et_calculator_depart)
-			.doOnTextChanged {_, _, _, _ -> calculate(view)}
-		view.findViewById<EditText>(R.id.et_calculator_density)
-			.doOnTextChanged {_, _, _, _ -> calculate(view)}
+		_remain = view.findViewById(R.id.et_calculator_remain)
+		_uplift = view.findViewById(R.id.et_calculator_uplift)
+		_total = view.findViewById(R.id.et_calculator_total)
+		_adjust = view.findViewById(R.id.et_calculator_adjust)
+		_depart = view.findViewById(R.id.et_calculator_depart)
+		_density = view.findViewById(R.id.et_calculator_density)
+		_liters = view.findViewById(R.id.et_calculator_liters)
+		
+		_remain.doOnTextChanged {_, _, _, _ -> calculate(view)}
+		_adjust.doOnTextChanged {_, _, _, _ -> calculate(view)}
+		_depart.doOnTextChanged {_, _, _, _ -> calculate(view)}
+		_density.doOnTextChanged {_, _, _, _ -> calculate(view)}
 	}
 	
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		return inflater.inflate(R.layout.fragment_other_fuel_calculator, null)
+	fun clear() {
+		Log.d("MY", "Calculator clear")
+		_liters.text = ""
+		_remain.setText("")
+		_uplift.setText("")
+		_total.setText("")
+		_depart.setText("")
+		_density.setText("")
+		_adjust.setText("0")
 	}
 	
 	private fun calculate(view: View) {
@@ -36,48 +55,48 @@ class FuelCalculatorFragment: Fragment() {
 		val density: Double
 		val liters: Double
 		try {
-			remain = view.findViewById<EditText>(R.id.et_calculator_remain).text.toString()
+			remain = this._remain.text.toString()
 				.toInt()
-			adjust = view.findViewById<EditText>(R.id.et_calculator_adjust).text.toString()
+			adjust = _adjust.text.toString()
 				.toInt()
-			depart = view.findViewById<EditText>(R.id.et_calculator_depart).text.toString()
+			depart = _depart.text.toString()
 				.toInt()
 			
 			uplift = depart + adjust - remain
 			total = depart + adjust
 			
-			view.findViewById<EditText>(R.id.et_calculator_uplift).text = uplift.toEditable()
-			view.findViewById<EditText>(R.id.et_calculator_total).text = total.toEditable()
+			this._uplift.text = uplift.toEditable()
+			_total.text = total.toEditable()
 		} catch (_: Throwable) {
 			return
 		}
 		try {
-			density = view.findViewById<EditText>(R.id.et_calculator_density).text.toString()
+			density = _density.text.toString()
 				.toDouble()
-			
 			if (density > 0.0) {
 				liters = ((depart + adjust - remain) / density)
 				if ((((depart + adjust - remain) / density) * 10 % 10).toInt() == 5) {
 					if (adjust > 0) {
-						view.findViewById<EditText>(R.id.et_calculator_uplift).text = (uplift - 1).toEditable()
-						view.findViewById<EditText>(R.id.et_calculator_total).text = (total - 1).toEditable()
-						view.findViewById<EditText>(R.id.et_calculator_adjust).text = (adjust - 1).toEditable()
-						view.findViewById<EditText>(R.id.et_calculator_liters).text = ((depart + adjust - 1 - remain) / density).roundToInt()
+						this._uplift.text = (uplift - 1).toEditable()
+						_total.text = (total - 1).toEditable()
+						_adjust.text = (adjust - 1).toEditable()
+						_liters.text = ((depart + adjust - 1 - remain) / density).roundToInt()
 							.toEditable()
 					} else {
-						view.findViewById<EditText>(R.id.et_calculator_uplift).text = (uplift + 1).toEditable()
-						view.findViewById<EditText>(R.id.et_calculator_total).text = (total + 1).toEditable()
-						view.findViewById<EditText>(R.id.et_calculator_adjust).text = (adjust + 1).toEditable()
-						view.findViewById<EditText>(R.id.et_calculator_liters).text = ((depart + adjust + 1 - remain) / density).roundToInt()
+						this._uplift.text = (uplift + 1).toEditable()
+						_total.text = (total + 1).toEditable()
+						_adjust.text = (adjust + 1).toEditable()
+						_liters.text = ((depart + adjust + 1 - remain) / density).roundToInt()
 							.toEditable()
 					}
 				} else {
-					view.findViewById<EditText>(R.id.et_calculator_uplift).text = uplift.toEditable()
-					view.findViewById<EditText>(R.id.et_calculator_total).text = total.toEditable()
-					view.findViewById<EditText>(R.id.et_calculator_liters).text = liters.roundToInt()
+					this._uplift.text = uplift.toEditable()
+					_total.text = total.toEditable()
+					_liters.text = liters.roundToInt()
 						.toEditable()
 				}
 			}
+			//TODO("Implement round liters to value from preference")
 		} catch (_: Throwable) {
 			return
 		}

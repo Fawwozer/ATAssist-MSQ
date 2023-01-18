@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import by.fawwozer.atassist.Global.Companion.BACKWARD_DIRECTION
 import by.fawwozer.atassist.Global.Companion.CHECK_AA
@@ -43,6 +44,7 @@ import by.fawwozer.atassist.Global.Companion.MAIN_ITEM_SETTINGS
 import by.fawwozer.atassist.Global.Companion.MAIN_TEXT_SPLITTER
 import by.fawwozer.atassist.Global.Companion.OTHER_ITEM_FUEL_CALCULATOR
 import by.fawwozer.atassist.Global.Companion.OTHER_ITEM_MSQ_INFO
+import by.fawwozer.atassist.Global.Companion.OTHER_KOBRA_RELOAD
 import by.fawwozer.atassist.Global.Companion.OTHER_SCREEN_FUEL_CALCULATOR
 import by.fawwozer.atassist.Global.Companion.OTHER_SCREEN_MSQ_INFO
 import by.fawwozer.atassist.Global.Companion.SETTINGS_ITEM_ABOUT
@@ -70,7 +72,7 @@ import java.util.*
 class ATAssist: AppCompatActivity() {
 	
 	//переменные истории открытия вкладок
-	private var selectedScreen = MAIN_FRAGMENT_KOBRA
+	var selectedScreen = MAIN_FRAGMENT_KOBRA
 	private var previousScreen = MAIN_FRAGMENT_KOBRA
 	private var prePreviousScreen = MAIN_FRAGMENT_KOBRA
 	private var defaultScreen = MAIN_FRAGMENT_KOBRA
@@ -119,6 +121,11 @@ class ATAssist: AppCompatActivity() {
 		showFirstScreen(defaultScreen)
 	}
 	
+	override fun onStart() {
+		super.onStart()
+		GetKobraSPP.run(this)
+	}
+	
 	override fun onBackPressed() {
 		//возвращение по истории открытия
 		if (selectedScreen != defaultScreen) {
@@ -132,7 +139,7 @@ class ATAssist: AppCompatActivity() {
 		}
 	}
 	
-	private fun Context.showScreen(id: Int, direction: Boolean) {
+	fun showScreen(id: Int, direction: Boolean) {
 		if (selectedScreen != id) {//проверка на то что вкладка ещё не показана
 			val mainFragmentSchedule = supportFragmentManager.findFragmentById(MAIN_FRAGMENT_SCHEDULE)
 			val mainFragmentFleet = supportFragmentManager.findFragmentById(MAIN_FRAGMENT_FLEET)
@@ -183,9 +190,10 @@ class ATAssist: AppCompatActivity() {
 					findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_SCHEDULE
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.VISIBLE
 					findViewById<FloatingActionButton>(R.id.fab_main).show()
+					findViewById<FloatingActionButton>(R.id.fab_main).setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_plus))
 					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
-					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.VISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
 						.beginTransaction()
 						.show(mainFragmentSchedule)
@@ -196,6 +204,7 @@ class ATAssist: AppCompatActivity() {
 					findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_FLEET
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.VISIBLE
 					findViewById<FloatingActionButton>(R.id.fab_main).show()
+					findViewById<FloatingActionButton>(R.id.fab_main).setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_plus))
 					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
@@ -208,12 +217,14 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.main_menu_umms_kobra)
 					findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_KOBRA
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.VISIBLE
-					findViewById<FloatingActionButton>(R.id.fab_main).hide()
+					findViewById<FloatingActionButton>(R.id.fab_main).show()
+					findViewById<FloatingActionButton>(R.id.fab_main).setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_sync))
 					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
-					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.VISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
 						.beginTransaction()
+						.replace(R.id.fragment_kobra, MainKobraFragment())
 						.show(mainFragmentKobra)
 						.commit()
 				}
@@ -306,9 +317,9 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.other_screen_fuel_calculator)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
-					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
-					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.VISIBLE
 					supportFragmentManager
 						.beginTransaction()
 						.show(otherFragmentFuel)
@@ -318,8 +329,8 @@ class ATAssist: AppCompatActivity() {
 					findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.other_screen_msq_info)
 					findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 					findViewById<FloatingActionButton>(R.id.fab_main).hide()
-					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
-					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.INVISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
+					findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
 					findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 					supportFragmentManager
 						.beginTransaction()
@@ -327,12 +338,12 @@ class ATAssist: AppCompatActivity() {
 						.commit()
 				}
 			}
-			
+			/*
 			//temporary\\
 			findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
 			findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
-			findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 			findViewById<FloatingActionButton>(R.id.fab_main).hide()
+			*/
 		}
 	}
 	
@@ -372,6 +383,10 @@ class ATAssist: AppCompatActivity() {
 			MAIN_FRAGMENT_SCHEDULE -> {
 				findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.main_menu_schedule)
 				findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_SCHEDULE
+				findViewById<FloatingActionButton>(R.id.fab_main).setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_plus))
+				findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 				supportFragmentManager
 					.beginTransaction()
 					.show(mainFragmentSchedule)
@@ -380,6 +395,10 @@ class ATAssist: AppCompatActivity() {
 			MAIN_FRAGMENT_FLEET -> {
 				findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.main_menu_fleet_info)
 				findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_FLEET
+				findViewById<FloatingActionButton>(R.id.fab_main).setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_plus))
+				findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 				supportFragmentManager
 					.beginTransaction()
 					.show(mainFragmentFleet)
@@ -388,6 +407,10 @@ class ATAssist: AppCompatActivity() {
 			MAIN_FRAGMENT_KOBRA -> {
 				findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.main_menu_umms_kobra)
 				findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_KOBRA
+				findViewById<FloatingActionButton>(R.id.fab_main).setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_sync))
+				findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 				supportFragmentManager
 					.beginTransaction()
 					.show(mainFragmentKobra)
@@ -396,6 +419,9 @@ class ATAssist: AppCompatActivity() {
 			else -> {
 				findViewById<TextView>(R.id.toolbar_main_title).text = getString(R.string.main_menu_umms_kobra)
 				findViewById<BottomNavigationView>(R.id.bnv_main).selectedItemId = MAIN_ITEM_KOBRA
+				findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_calculator).visibility = View.VISIBLE
+				findViewById<ImageButton>(R.id.toolbar_main_reload).visibility = View.INVISIBLE
 				supportFragmentManager
 					.beginTransaction()
 					.show(mainFragmentKobra)
@@ -431,14 +457,24 @@ class ATAssist: AppCompatActivity() {
 				showScreen(OTHER_SCREEN_FUEL_CALCULATOR, FORWARD_DIRECTION)
 			}
 			OTHER_ITEM_MSQ_INFO -> {
-				showScreen(OTHER_SCREEN_MSQ_INFO, FORWARD_DIRECTION)
+				//TODO("Create MSQ Info screen for enable")
+				//showScreen(OTHER_SCREEN_MSQ_INFO, FORWARD_DIRECTION)
+			}
+			OTHER_KOBRA_RELOAD -> {
+				when (selectedScreen) {
+					MAIN_FRAGMENT_SCHEDULE -> GetKobraSPP.run(this)
+					OTHER_SCREEN_FUEL_CALCULATOR -> (supportFragmentManager.findFragmentById(R.id.fragment_other_fuel_calculator) as FuelCalculatorFragment).clear()
+				}
 			}
 		}
 	}
 	
 	fun floatBTNOnClick(view: View) {
-		//createScheduleEntry(437, "1,|,20", 666, "SATANA", 12354351430, 1354313210, 1)
-		createScheduleEntry(-1, "-1", -1, "", 0, 0, -1)
+		when (selectedScreen) {
+			MAIN_FRAGMENT_SCHEDULE -> createScheduleEntry(-1, "-1", -1, "", 0, 0, -1)
+			MAIN_FRAGMENT_KOBRA -> GetKobraSPP.run(this)
+			MAIN_FRAGMENT_FLEET -> {}//TODO("Implement creating fleet info note")
+		}
 	}
 	
 	fun createScheduleEntry(planeId: Int, checksIds: String, flightN: Int, city: String, arr: Long, dep: Long, logId: Long) {
@@ -697,8 +733,8 @@ class ATAssist: AppCompatActivity() {
 				if (spCheck.selectedItemPosition == 3 && (scheduleEntryData.depTime == 0.toLong() || v.findViewById<EditText>(R.id.et_d_belavia_destination).text.isEmpty() || v.findViewById<EditText>(R.id.et_d_belavia_flight).text.isEmpty())) return@OnClickListener
 				
 				val logsDB = LogsDB().writableDatabase
-				if (logId == (-1).toLong()) logsDB.insert(LOGS_DB_TABLE,null,cv)
-				else logsDB.update(LOGS_DB_TABLE,cv, "${KEY_LOGS_ID}=${logId}",null)
+				if (logId == (-1).toLong()) logsDB.insert(LOGS_DB_TABLE, null, cv)
+				else logsDB.update(LOGS_DB_TABLE, cv, "${KEY_LOGS_ID}=${logId}", null)
 				logsDB.close()
 				return@OnClickListener
 			})
