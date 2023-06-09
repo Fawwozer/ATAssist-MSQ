@@ -36,7 +36,6 @@ class FuelCalculatorFragment: Fragment(R.layout.fragment_other_fuel_calculator) 
 	}
 	
 	fun clear() {
-		Log.d("MY", "Calculator clear")
 		_liters.text = ""
 		_remain.setText("")
 		_uplift.setText("")

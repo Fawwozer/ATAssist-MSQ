@@ -6,9 +6,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -63,6 +61,8 @@ import by.fawwozer.atassist.Global.Companion.THEME_BELAVIA
 import by.fawwozer.atassist.Global.Companion.THEME_DARK
 import by.fawwozer.atassist.Global.Companion.THEME_LIGHT
 import by.fawwozer.atassist.Global.Companion.TIME_PICKER_INTERVAL
+import by.fawwozer.atassist.Global.Companion.appTheme
+import by.fawwozer.atassist.Global.Companion.startupScreen
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -79,24 +79,18 @@ class ATAssist: AppCompatActivity() {
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		//применение темы из настроек
-		val preference = getSharedPreferences(Global.PREFERENCE_FILE, Context.MODE_PRIVATE)
 		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-		if (preference.contains(Global.SETTING_GENERAL_APPLICATION_THEME)) {
-			when (preference.getInt(Global.SETTING_GENERAL_APPLICATION_THEME, THEME_LIGHT)) {
+			when (appTheme) {
 				THEME_LIGHT -> setTheme(R.style.AppTheme_Light)
 				THEME_DARK -> setTheme(R.style.AppTheme_Dark)
 				THEME_BELAVIA -> setTheme(R.style.AppTheme_Belavia)
 			}
-		} else {
-			setTheme(R.style.AppTheme_Light)
-		}
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.view_main)
 		//setContentView(R.layout.test)
 		
-		findViewById<BottomNavigationView>(R.id.bnv_main).setOnNavigationItemSelectedListener {item: MenuItem ->
-			//переключение экранов через BottomNavigationView
-			return@setOnNavigationItemSelectedListener when (item.itemId) {
+		findViewById<BottomNavigationView>(R.id.bnv_main).setOnItemSelectedListener {
+			return@setOnItemSelectedListener when (it.itemId) {
 				MAIN_ITEM_SCHEDULE -> {
 					showScreen(MAIN_FRAGMENT_SCHEDULE, FORWARD_DIRECTION)
 					true
@@ -118,14 +112,18 @@ class ATAssist: AppCompatActivity() {
 		}
 		
 		//показ первой вкладки при запуске
+		defaultScreen = startupScreen
 		showFirstScreen(defaultScreen)
 	}
-	
-	override fun onStart() {
-		super.onStart()
-		GetKobraSPP.run(this)
+
+	override fun onResume() {
+		super.onResume()
+		if (System.currentTimeMillis() - Global.kobraLastUpdate > 5 * 60 * 1000) {
+			GetKobraSPP.run(this)
+		}
 	}
-	
+
+	@Deprecated("Deprecated in Java")
 	override fun onBackPressed() {
 		//возвращение по истории открытия
 		if (selectedScreen != defaultScreen) {
@@ -338,12 +336,6 @@ class ATAssist: AppCompatActivity() {
 						.commit()
 				}
 			}
-			/*
-			//temporary\\
-			findViewById<BottomAppBar>(R.id.bab_main).visibility = View.GONE
-			findViewById<ImageButton>(R.id.toolbar_main_jeppesen).visibility = View.INVISIBLE
-			findViewById<FloatingActionButton>(R.id.fab_main).hide()
-			*/
 		}
 	}
 	
@@ -451,14 +443,15 @@ class ATAssist: AppCompatActivity() {
 				showScreen(SETTINGS_SCREEN_LOGS, FORWARD_DIRECTION)
 			}
 			SETTINGS_ITEM_ABOUT -> {
-				showScreen(SETTINGS_SCREEN_ABOUT, FORWARD_DIRECTION)
+				//TODO("Create App About screen for enable")
+				//showScreen(SETTINGS_SCREEN_ABOUT, FORWARD_DIRECTION)
 			}
 			OTHER_ITEM_FUEL_CALCULATOR -> {
 				showScreen(OTHER_SCREEN_FUEL_CALCULATOR, FORWARD_DIRECTION)
 			}
 			OTHER_ITEM_MSQ_INFO -> {
 				//TODO("Create MSQ Info screen for enable")
-				//showScreen(OTHER_SCREEN_MSQ_INFO, FORWARD_DIRECTION)
+				showScreen(OTHER_SCREEN_MSQ_INFO, FORWARD_DIRECTION)
 			}
 			OTHER_KOBRA_RELOAD -> {
 				when (selectedScreen) {
@@ -516,8 +509,6 @@ class ATAssist: AppCompatActivity() {
 		var spCheckAdapter = ArrayAdapter(context, R.layout.adapter_spinner, cda.getChecksList())
 		spPlane.adapter = spPlaneAdapter
 		spCheck.adapter = spCheckAdapter
-		
-		Log.d("MY", "First run")
 		initiateScheduleEntryDialogView(v, scheduleEntryData)
 		
 		//обработчик выбота самолета
@@ -538,7 +529,6 @@ class ATAssist: AppCompatActivity() {
 						scheduleEntryData.planeID = pda.getPlaneID(position)
 						initiateScheduleEntryDialogView(v, scheduleEntryData)
 					} else { //не выбран самолет
-						Log.d("MY", "Plane not selected")
 						cda.createForType(-1) // создание пустого массива чеков для выпадающего списка
 						spCheckAdapter = ArrayAdapter(context, R.layout.adapter_spinner, cda.getChecksList())
 						spCheck.adapter = spCheckAdapter
@@ -575,7 +565,6 @@ class ATAssist: AppCompatActivity() {
 							else MAIN_TEXT_SPLITTER + check
 						}
 						scheduleEntryData.checksIDs = checks
-						Log.d("MY", "Check selected")
 						initiateScheduleEntryDialogView(v, scheduleEntryData)
 					} else {
 						if (Calendar.getInstance().timeInMillis - start > 1000) {
@@ -584,7 +573,6 @@ class ATAssist: AppCompatActivity() {
 							scheduleEntryData.checksIDs = "-1"
 							scheduleEntryData.arrTime = 0
 							scheduleEntryData.depTime = 0
-							Log.d("MY", "Check choose selected")
 							initiateScheduleEntryDialogView(v, scheduleEntryData)
 						}
 					}
@@ -624,7 +612,6 @@ class ATAssist: AppCompatActivity() {
 							scheduleEntryData.depTime = time.timeInMillis
 						}
 					}
-					Log.d("MY", "Time picker")
 					initiateScheduleEntryDialogView(v, scheduleEntryData)
 					dialog.cancel()
 				}
@@ -664,7 +651,6 @@ class ATAssist: AppCompatActivity() {
 					else MAIN_TEXT_SPLITTER + check
 				}
 				scheduleEntryData.checksIDs = checks
-				Log.d("MY", "Add check")
 				initiateScheduleEntryDialogView(v, scheduleEntryData)
 				false
 			}
@@ -686,7 +672,6 @@ class ATAssist: AppCompatActivity() {
 				else MAIN_TEXT_SPLITTER + check
 			}
 			scheduleEntryData.checksIDs = checks
-			Log.d("MY", "Remove check")
 			initiateScheduleEntryDialogView(v, scheduleEntryData)
 		}
 		btRemoveCheck1.setOnClickListener(removeClick)
@@ -706,7 +691,7 @@ class ATAssist: AppCompatActivity() {
 				if (v.findViewById<EditText>(R.id.et_d_belavia_flight).text.isNotEmpty()) scheduleEntryData.flightN = v.findViewById<EditText>(R.id.et_d_belavia_flight).text.toString()
 					.toInt()
 				if (v.findViewById<EditText>(R.id.et_d_belavia_destination).text.isNotEmpty()) scheduleEntryData.city = v.findViewById<EditText>(R.id.et_d_belavia_destination).text.toString()
-				var sort: Long
+				val sort: Long
 				val checksIDs = scheduleEntryData.checksIDs.split(MAIN_TEXT_SPLITTER)
 					.toMutableList()
 				sort = when {
@@ -760,7 +745,6 @@ class ATAssist: AppCompatActivity() {
 	private fun initiateScheduleEntryDialogView(view: View, scheduleEntryData: ScheduleEntryData) {
 		
 		//поиск элементов диалогового окна
-		Log.d("MY", "ScheduleEntryData: ${scheduleEntryData.planeID}, ${scheduleEntryData.checksIDs}, ${scheduleEntryData.flightN}, ${scheduleEntryData.city}, ${scheduleEntryData.logID}, ${scheduleEntryData.arrTime}, ${scheduleEntryData.depTime}")
 		val spPlane = view.findViewById<Spinner>(R.id.sp_d_belavia_aircraft)
 		val spCheck = view.findViewById<Spinner>(R.id.sp_d_belavia_check)
 		val tvAddCheck1 = view.findViewById<TextView>(R.id.tv_d_belavia_add_check_1)

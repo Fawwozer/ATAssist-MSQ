@@ -47,7 +47,7 @@ class PlaneDB: SQLiteOpenHelper(Global.appContext, PLANE_DB_NAME, null, PLANE_DB
 				Log.d("MY", "PlaneDB/onUpgrade/oldVer = 1")
 			}
 			2 -> {
-				Log.d("MY", "PlaneDB/onUpgrade/oldVer = 1")
+				Log.d("MY", "PlaneDB/onUpgrade/oldVer = 2")
 			}
 			else -> {
 				Log.d("MY", "PlaneDB/onUpgrade/oldVer else")

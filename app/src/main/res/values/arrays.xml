@@ -6,10 +6,10 @@
         <item>Belavia</item>
     </string-array>
 
-    <string-array name="settings_theme_number_array">
-        <item>light</item>
-        <item>dark</item>
-        <item>belavia</item>
+    <string-array name="settings_screen_array">
+        <item>Schedule</item>
+        <item>Fleet</item>
+        <item>Kobra</item>
     </string-array>
 
     <string-array name="settings_liter_array">
@@ -18,13 +18,5 @@
         <item>10 liters</item>
         <item>25 liters</item>
         <item>50 liters</item>
-    </string-array>
-
-    <string-array name="settings_liter_count_array">
-        <item>1</item>
-        <item>5</item>
-        <item>10</item>
-        <item>25</item>
-        <item>50</item>
     </string-array>
 </resources>

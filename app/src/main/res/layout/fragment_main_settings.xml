@@ -60,6 +60,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/rl_settings_maintenance"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -112,6 +113,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/rl_settings_backup"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -164,6 +166,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/rl_settings_notification"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -216,6 +219,7 @@
     </RelativeLayout>
 
     <View
+        android:visibility="gone"
         android:id="@+id/v_settings_spacer_1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -229,6 +233,7 @@
         android:background="@drawable/bg_spacer" />
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/rl_settings_logs"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

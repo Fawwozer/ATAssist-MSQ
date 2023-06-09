@@ -45,10 +45,15 @@ class MainKobraFragment: Fragment(R.layout.fragment_main_kobra) {
 	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		Log.d("MY", "MainKobraFragment onViewCreated")
 		kobraPagerAdapter = KobraPagerAdapter(this)
 		tabLayout = view.findViewById(R.id.tab_kobra)
 		viewPager = view.findViewById(R.id.pager_kobra)
+		
+		updateData()
+	}
+	
+	fun updateData(){
+		kobraPagerAdapter = KobraPagerAdapter(this)
 		viewPager.adapter = kobraPagerAdapter
 		TabLayoutMediator(tabLayout, viewPager) {tab, position ->
 			when (position) {
@@ -73,12 +78,19 @@ class KobraPagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
 private const val ARG = "object"
 
 class KobraPagerFragment: Fragment() {
+	
+	private lateinit var adapter: KobraAdapter
 	//обработка созданой страніцы
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		arguments?.takeIf {it.containsKey(ARG)}
 			?.apply {
 				
 				val kobraData = mutableListOf<KobraAdapter.KobraData>()
+				adapter = KobraAdapter(kobraData)
+				
+				val recyclerView: RecyclerView = view.findViewById(R.id.rv_kobra_root)
+				recyclerView.layoutManager = LinearLayoutManager(activity)
+				recyclerView.adapter = adapter
 				
 				when (getInt(ARG)) {
 					0 -> {
@@ -93,10 +105,7 @@ class KobraPagerFragment: Fragment() {
 						}
 						cur.close()
 						db.close()
-						
-						val recyclerView: RecyclerView = view.findViewById(R.id.rv_kobra_root)
-						recyclerView.layoutManager = LinearLayoutManager(activity)
-						recyclerView.adapter = KobraAdapter(kobraData)
+						adapter = KobraAdapter(kobraData)
 					}
 					1 -> {
 						kobraData.clear()
@@ -110,12 +119,10 @@ class KobraPagerFragment: Fragment() {
 						}
 						cur.close()
 						db.close()
-						
-						val recyclerView: RecyclerView = view.findViewById(R.id.rv_kobra_root)
-						recyclerView.layoutManager = LinearLayoutManager(activity)
-						recyclerView.adapter = KobraAdapter(kobraData)
+						adapter = KobraAdapter(kobraData)
 					}
 				}
+				adapter.notifyDataSetChanged()
 			}
 	}
 	

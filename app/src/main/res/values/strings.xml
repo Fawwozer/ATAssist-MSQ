@@ -2,9 +2,9 @@
 
     <string name="app_name">ATAssist MSQ</string>
     <string name="app_label">ATAssist</string>
-    <string name="app_version">18.31.4</string>
-    <string name="app_code">24</string>
-    <string name="app_label_version">ATAssist 18.31.4</string>
+    <string name="app_version">18.31.9</string>
+    <string name="app_code">29</string>
+    <string name="app_label_version">ATAssist 18.31.9</string>
 
     <!-- Main Menu -->
 
@@ -60,6 +60,7 @@
     <string name="calculator_l">l</string>
     <string name="calculator_kg_l">kg/l</string>
     <string name="calculator_kg">kg</string>
+    <string name="settings_general_startup_screen">Startup screen</string>
 
     <!--  -->
 

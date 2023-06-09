@@ -65,7 +65,7 @@
                     android:layout_toStartOf="@id/toolbar_main_calculator"
                     android:background="@color/transparent"
                     android:onClick="navigationOnClick"
-                    android:tint="?attr/mainToolbarIconColor"
+                    app:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_eraser" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
@@ -77,7 +77,7 @@
                     android:layout_toStartOf="@id/toolbar_main_jeppesen"
                     android:background="@color/transparent"
                     android:onClick="navigationOnClick"
-                    android:tint="?attr/mainToolbarIconColor"
+                    app:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_calculator" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
@@ -89,7 +89,7 @@
                     android:layout_marginEnd="8dp"
                     android:background="@color/transparent"
                     android:onClick="navigationOnClick"
-                    android:tint="?attr/mainToolbarIconColor"
+                    app:tint="?attr/mainToolbarIconColor"
                     app:srcCompat="@drawable/ic_jeppesen" />
 
             </RelativeLayout>
@@ -129,11 +129,12 @@
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/mainFloatBtBackColor"
         android:onClick="floatBTNOnClick"
+        app:tint="?attr/iconColor"
         app:borderWidth="0dp"
         app:fabSize="normal"
         app:layout_anchor="@id/bab_main"
         app:srcCompat="@drawable/ic_plus"
-        app:tint="?attr/iconColor" />
+        />
 
     <!-- include fragments from here -->
 
@@ -229,7 +230,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"
-        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+        android:layout_marginBottom="0dp" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_other_fuel_calculator"
@@ -237,7 +238,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/toolbarHeight"
-        android:layout_marginBottom="@dimen/bottomAppBarHeight" />
+        android:layout_marginBottom="0dp" />
 
     <!-- include fragments to here -->
 
